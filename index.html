@@ -1,0 +1,1370 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Study abroad guide for Indian students: admission steps, visa documents, universities, tuition and first-year costs for 11 countries.">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}*,*::before,*::after{box-sizing:border-box}body{margin:0;font:14px/1.5 system-ui,sans-serif;background:#F2F4F7}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Study Abroad Atlas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: passport-desk dashboard. Ink-navy visa band on top, country chips, then tabbed working panels. */
+:root{
+  --bg:#F2F4F7; --surface:#FFFFFF; --surface-2:#E8ECF2; --ink:#121A2B; --muted:#586379; --line:#D5DBE5;
+  --accent:#0B6E57; --accent-ink:#FFFFFF; --accent-soft:#DDEFE8;
+  --band:#16233F; --band-ink:#EEF2F8; --band-muted:#9FB0CC; --stamp:#6AD3AE; --ill-dusk:#2A3D66; --ill-glow:#B9805A; --ill-sun:#F6C47A; --ill-far:#3A4A6E; --ill-mid:#24324F; --ill-lm:#18233A; --ill-near:#0A1222; --ill-plane:#F4F7FB;
+  --good:#15803D; --good-soft:#E3F3E8; --warn:#A35207; --warn-soft:#FBEEDC; --crit:#B42318; --crit-soft:#FBE5E2;
+  --bar:#0B6E57; --bar-2:#7FB8A6; --grid:#E3E7EE;
+  --iso-t:#9EDCC8; --iso-l:#2F9C7E; --iso-r:#1D6B56; --iso-t2:#FBE3B4; --iso-l2:#E6A84E; --iso-r2:#B7792B; --iso-sh:rgba(18,26,43,.10);
+  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0C1220; --surface:#141C2C; --surface-2:#1B2537; --ink:#E6EBF3; --muted:#9BA7BB; --line:#29354A;
+  --accent:#3CC59A; --accent-ink:#06261D; --accent-soft:#123A30;
+  --band:#0F1A30; --band-ink:#EEF2F8; --band-muted:#8EA0BE;
+  --good:#4ADE80; --good-soft:#12301F; --warn:#F5A524; --warn-soft:#3A2A10; --crit:#F87171; --crit-soft:#3B1717;
+  --bar:#3CC59A; --bar-2:#2E7F69; --grid:#223047; --iso-t:#7FE3C3; --iso-l:#2BA884; --iso-r:#176A53; --iso-t2:#FCE2AE; --iso-l2:#E2A045; --iso-r2:#A86C22; --iso-sh:rgba(0,0,0,.35); color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --bg:#0C1220; --surface:#141C2C; --surface-2:#1B2537; --ink:#E6EBF3; --muted:#9BA7BB; --line:#29354A;
+  --accent:#3CC59A; --accent-ink:#06261D; --accent-soft:#123A30;
+  --band:#0F1A30; --band-ink:#EEF2F8; --band-muted:#8EA0BE;
+  --good:#4ADE80; --good-soft:#12301F; --warn:#F5A524; --warn-soft:#3A2A10; --crit:#F87171; --crit-soft:#3B1717;
+  --bar:#3CC59A; --bar-2:#2E7F69; --grid:#223047; --iso-t:#7FE3C3; --iso-l:#2BA884; --iso-r:#176A53; --iso-t2:#FCE2AE; --iso-l2:#E2A045; --iso-r2:#A86C22; --iso-sh:rgba(0,0,0,.35); color-scheme:dark;}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55}
+a{color:var(--accent)}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:-.01em}
+.mono{font-family:var(--f-mono)}
+.num{font-variant-numeric:tabular-nums}
+.eyebrow{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+
+/* top band */
+.band{background:var(--band);color:var(--band-ink)}
+.band .wrap{padding-block:22px 0}
+.brand{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px}
+.brand h1{font-size:clamp(26px,4vw,38px);font-weight:800}
+.brand p{margin:4px 0 0;color:var(--band-muted);max-width:60ch}
+.asof{font-family:var(--f-mono);font-size:12px;color:var(--band-muted)}
+.views{display:flex;gap:4px;margin-top:18px;overflow-x:auto;scrollbar-width:none}
+.views button{background:transparent;border:0;color:var(--band-muted);padding:10px 14px;border-radius:8px 8px 0 0;cursor:pointer;font-weight:500;white-space:nowrap}
+.views button[aria-selected="true"]{background:var(--bg);color:var(--ink)}
+.views button:hover:not([aria-selected="true"]){color:var(--band-ink)}
+
+main .wrap{padding-block:22px 48px;display:grid;gap:20px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;min-width:0}
+.panel h2{font-size:20px;font-weight:700}
+.panel-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 16px;margin-bottom:12px}
+.lead{color:var(--muted);margin:4px 0 0;max-width:72ch}
+
+/* country chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 14px 7px 8px;cursor:pointer;font-weight:500}
+.chip .cc{font-family:var(--f-mono);font-size:11px;background:var(--surface-2);border-radius:999px;padding:2px 7px;color:var(--muted)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.chip[aria-pressed="true"] .cc{background:rgba(255,255,255,.18);color:inherit}
+.chip.small{padding:5px 12px;font-size:13.5px}
+
+/* passport card */
+.pass{background:var(--band);color:var(--band-ink);border-radius:var(--r);padding:22px;display:grid;gap:18px;position:relative;overflow:hidden}
+.pass-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;align-items:flex-start}
+.pass h2{font-size:clamp(26px,3.6vw,34px);font-weight:800}
+.pass .tag{color:var(--band-muted);margin-top:4px;max-width:60ch}
+.stamp{border:2px solid var(--stamp);color:var(--stamp);border-radius:8px;padding:6px 12px;font-family:var(--f-mono);font-size:12px;line-height:1.35;text-transform:uppercase;transform:rotate(-3deg);text-align:center;background:transparent}
+.stamp b{display:block;font-size:15px;letter-spacing:.06em}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:rgba(255,255,255,.12);border-radius:8px;overflow:hidden}
+.kpi{background:var(--band);padding:12px 14px;min-width:0}
+.kpi .k{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--band-muted)}
+.kpi .v{font-family:var(--f-display);font-size:20px;font-weight:700;margin-top:2px;font-variant-numeric:tabular-nums}
+.kpi .s{font-size:12.5px;color:var(--band-muted)}
+.mrz{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.18em;color:var(--band-muted);white-space:nowrap;overflow:hidden;text-overflow:clip;border-top:1px dashed rgba(255,255,255,.2);padding-top:12px}
+
+/* sub tabs */
+.subtabs{display:flex;gap:6px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:16px}
+.subtabs button{border:1px solid transparent;background:transparent;padding:7px 12px;border-radius:8px;cursor:pointer;color:var(--muted);font-weight:500}
+.subtabs button[aria-selected="true"]{background:var(--accent-soft);color:var(--ink);border-color:var(--accent)}
+
+/* steps */
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:s}
+.steps li{display:grid;grid-template-columns:44px 1fr;gap:14px;position:relative;padding-bottom:18px}
+.steps li::before{counter-increment:s;content:counter(s);width:32px;height:32px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-family:var(--f-mono);font-weight:500;font-size:13px;border:1px solid var(--accent);z-index:1}
+.steps li::after{content:"";position:absolute;left:15.5px;top:32px;bottom:0;width:1px;background:var(--line)}
+.steps li:last-child::after{display:none}
+.steps .when{font-family:var(--f-mono);font-size:12px;color:var(--accent)}
+.steps h3{font-size:16px;font-weight:700;font-family:var(--f-body)}
+.steps p{margin:2px 0 0;color:var(--muted);max-width:75ch}
+
+/* docs */
+.doc-tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:12px}
+.progress{flex:1 1 220px;display:flex;align-items:center;gap:10px;min-width:0}
+.track{flex:1;height:8px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+.track i{display:block;height:100%;background:var(--accent);width:0;transition:width .3s}
+.doclist{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:8px}
+.doc{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;padding:10px 12px;border:1px solid var(--line);border-radius:8px;cursor:pointer;background:var(--surface)}
+.doc input{width:18px;height:18px;margin:2px 0 0;accent-color:var(--accent)}
+.doc b{font-weight:600;display:block}
+.doc small{color:var(--muted);display:block;font-size:13px}
+.doc.done{background:var(--accent-soft)}
+.doc.done b{text-decoration:line-through;text-decoration-color:var(--accent)}
+.pill{display:inline-block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;border-radius:999px;padding:2px 8px;background:var(--surface-2);color:var(--muted);margin-left:6px;vertical-align:1px}
+.pill.visa{background:var(--accent-soft);color:var(--accent)}
+.pill.fin{background:var(--warn-soft);color:var(--warn)}
+.pill.ok{background:var(--good-soft);color:var(--good)}
+.pill.risk{background:var(--crit-soft);color:var(--crit)}
+
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:7px 12px;cursor:pointer;font-weight:500}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+
+/* tables */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;background:var(--surface-2);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td.r,th.r{text-align:right}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+.filters input,.filters select{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:7px 10px;min-width:0}
+.filters input{flex:1 1 200px}
+.src{font-family:var(--f-mono);font-size:10.5px;padding:1px 6px;border-radius:4px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.src.s{border-color:var(--accent);color:var(--accent)}
+.note{font-size:13px;color:var(--muted);margin:10px 0 0}
+
+/* cost */
+.cost-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:20px}
+@media (max-width:820px){.cost-grid{grid-template-columns:1fr}}
+.field{display:grid;gap:6px;margin-bottom:14px}
+.field label{font-weight:600;font-size:14px;display:flex;justify-content:space-between;gap:8px}
+.field input[type=range]{width:100%;accent-color:var(--accent)}
+.check{display:flex;gap:8px;align-items:center;margin-bottom:8px;font-size:14px}
+.check input{accent-color:var(--accent)}
+.total{font-family:var(--f-display);font-size:40px;font-weight:800;line-height:1.1}
+.stack{display:flex;height:22px;border-radius:6px;overflow:hidden;margin:12px 0 8px;background:var(--surface-2)}
+.stack span{display:block;height:100%}
+.legend{display:grid;gap:6px;font-size:14px}
+.legend div{display:grid;grid-template-columns:12px 1fr auto;gap:10px;align-items:center}
+.legend i{width:12px;height:12px;border-radius:3px;display:block}
+
+/* rules */
+.rules{display:grid;gap:10px}
+.rule{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;padding:12px;border:1px solid var(--line);border-radius:8px}
+.rule p{margin:0}
+
+/* compare chart */
+.chart-wrap{overflow-x:auto}
+#compareChart svg text{fill:var(--ink);font-family:var(--f-body)}
+svg .axis{fill:var(--muted);font-family:var(--f-mono);font-size:11px}
+svg .gridl{stroke:var(--grid)}
+
+/* pipeline */
+.pipe{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+.stage{border:1px solid var(--line);border-radius:8px;padding:14px;display:grid;gap:6px;align-content:start;background:var(--surface)}
+.stage .n{font-family:var(--f-mono);font-size:12px;color:var(--accent)}
+.stage h3{font-size:16px;font-family:var(--f-body);font-weight:700}
+.stage p{margin:0;color:var(--muted);font-size:14px}
+.who{display:flex;flex-wrap:wrap;gap:4px}
+.who span{font-size:11px;border-radius:999px;padding:2px 8px;background:var(--surface-2);color:var(--muted);font-weight:600}
+.who span.you{background:var(--accent-soft);color:var(--accent)}
+.who span.con{background:var(--warn-soft);color:var(--warn)}
+.who span.emb{background:var(--crit-soft);color:var(--crit)}
+
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.card{border:1px solid var(--line);border-radius:8px;padding:14px;background:var(--surface)}
+.card h3{font-size:16px;font-family:var(--f-body);font-weight:700;margin-bottom:4px}
+.card p{margin:0;color:var(--muted);font-size:14px}
+ul.flags{margin:0;padding-left:18px;display:grid;gap:6px}
+.rates{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px;color:var(--muted)}
+.rates label{display:flex;gap:4px;align-items:center}
+.rates input{width:70px;border:1px solid var(--line);background:var(--surface);border-radius:6px;padding:3px 6px;font-family:var(--f-mono);font-size:12.5px}
+footer{color:var(--muted);font-size:13px}
+.brand{align-items:center}
+.hero-art{flex:1 1 380px;max-width:600px;min-width:0}
+.story{display:grid;gap:10px;border-radius:14px;outline-offset:4px}
+.story-stage{position:relative;aspect-ratio:16/10;border-radius:12px;overflow:hidden;background:#0F1A30;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.slide{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .6s ease}
+.slide.on{opacity:1}
+.slide svg{width:100%;height:100%;display:block;transform:scale(1.0);transition:transform 3.5s ease-out}
+.slide.on svg{transform:scale(1.04)}
+.story-prog{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(0,0,0,.25)}
+.story-prog i{display:block;height:100%;width:0;background:var(--stamp)}
+.story-foot{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:flex-start;justify-content:space-between}
+.story-cap{display:grid;gap:2px;min-width:0;flex:1 1 260px}
+.story-when{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;color:var(--stamp);text-transform:uppercase}
+.story-title{font-family:var(--f-display);font-size:20px;font-weight:700;color:var(--band-ink)}
+.story-text{font-size:13.5px;color:var(--band-muted);min-height:2.6em}
+.story-ctl{display:flex;align-items:center;gap:6px}
+.story-btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:var(--band-ink);border-radius:999px;width:32px;height:32px;cursor:pointer;font-size:18px;line-height:1}
+.story-btn.wide{width:auto;padding:0 12px;font-size:13px}
+.story-btn:hover{border-color:var(--stamp)}
+.story-dots{display:flex;gap:5px}
+.story-dot{width:9px;height:9px;border-radius:50%;border:0;padding:0;background:rgba(255,255,255,.3);cursor:pointer}
+.story-dot[aria-current="true"]{background:var(--stamp);width:22px;border-radius:999px}
+@media (prefers-reduced-motion:reduce){.slide,.slide svg{transition:none}.slide.on svg{transform:none}}
+.art svg,.hero-art svg{width:100%;height:auto;display:block}
+.art{border-radius:var(--r);overflow:hidden;min-width:0}
+.art.dark{background:var(--band)}
+.ill-star{fill:var(--ill-sun);opacity:.55}.ill-sun{fill:var(--ill-sun)}.ill-glowc{fill:var(--ill-sun);opacity:.13}
+.ill-far{fill:var(--ill-far);opacity:.75}.ill-mid{fill:var(--ill-mid)}.ill-lm{fill:var(--ill-lm)}.ill-near{fill:var(--ill-near)}
+.ill-win{fill:var(--ill-sun);opacity:.75}.ill-plane{fill:var(--ill-plane)}
+.ill-path{fill:none;stroke:var(--stamp);stroke-width:2;stroke-dasharray:6 8;opacity:.85}
+.ill-txt{fill:var(--band-muted);font-family:var(--f-mono);font-size:12px;letter-spacing:.14em}
+.ill-txt.hi{fill:var(--stamp)}
+.pr-road{fill:none;stroke:var(--line);stroke-width:3;stroke-dasharray:2 9;stroke-linecap:round}
+.pr-dot{fill:var(--accent-soft);stroke:var(--accent);stroke-width:2}
+.pr-ic{fill:none;stroke:var(--accent);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.pr-fill{fill:var(--accent)}
+.pr-lbl{fill:var(--ink);font-family:var(--f-body);font-size:15px;font-weight:600}
+.pr-sub{fill:var(--muted);font-family:var(--f-mono);font-size:11.5px}
+.jb-tower{fill:var(--surface-2);stroke:var(--line);stroke-width:1.5}
+.jb-win{fill:var(--line)}
+.jb-ink{fill:var(--ink)}
+.jb-ok{fill:var(--good)}.jb-bad{fill:var(--crit)}
+.jb-sign{fill:var(--surface);stroke:var(--line);stroke-width:1.5}
+.jb-txt{fill:var(--ink);font-family:var(--f-body);font-size:13px;font-weight:600}
+.jb-mut{fill:var(--muted);font-family:var(--f-mono);font-size:11px}
+.scene{margin:-22px -22px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.scene svg{display:block;width:100%;height:auto}
+.ill-badge{fill:rgba(255,255,255,.06);stroke:var(--stamp);stroke-width:1.5;stroke-dasharray:4 4}
+.ill-badge-in{fill:none;stroke:var(--stamp);stroke-width:1;opacity:.5}
+.ill-stampfill{fill:var(--stamp)}
+.ill-code{fill:var(--stamp);font-family:var(--f-mono);font-size:12px;letter-spacing:.16em}
+.ill-snow{fill:#E8EEF7;opacity:.85}
+.iso-t{fill:var(--iso-t)}.iso-l{fill:var(--iso-l)}.iso-r{fill:var(--iso-r)}
+.iso-t2{fill:var(--iso-t2)}.iso-l2{fill:var(--iso-l2)}.iso-r2{fill:var(--iso-r2)}
+.iso-shadow{fill:var(--iso-sh)}
+.iso-line{stroke:var(--iso-r);stroke-width:2;fill:none;stroke-linecap:round}.iso-line.w{stroke:var(--surface);stroke-dasharray:6 6}
+.iso-gold{fill:var(--iso-l2)}.iso-plane{fill:var(--accent)}
+.iso-tassel{stroke:var(--iso-l2);stroke-width:2.2;fill:none}
+.iso-win{fill:var(--surface);opacity:.7}
+.jb-case{fill:var(--iso-l2)}
+.blades{transform-box:fill-box;transform-origin:center;animation:spin 14s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.blades{animation:none}}
+.vision-cap{position:absolute;left:24px;top:20px;color:var(--band-ink);max-width:46ch}
+.vision-cap b{font-family:var(--f-display);font-size:clamp(18px,2.6vw,26px);display:block;line-height:1.15}
+.vision-cap span{color:var(--band-muted);font-size:14px}
+@media (max-width:640px){.vision-cap{position:static;padding:12px 16px 16px}}
+.modebar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--surface)}
+.seg button{border:0;background:transparent;border-radius:999px;padding:6px 14px;cursor:pointer;font-weight:500;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.modehint{font-size:13px;color:var(--muted)}
+.y27{font-size:13px;color:var(--band-ink);background:rgba(255,255,255,.08);border-radius:8px;padding:8px 12px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (max-width:520px){.wrap{padding-inline:16px}.panel{padding:14px}.total{font-size:32px}}
+</style>
+</head>
+<body>
+
+
+<header class="band">
+  <div class="wrap">
+    <div class="brand">
+      <div>
+        <div class="eyebrow" style="color:var(--band-muted)">For Indian students · Masters &amp; Bachelor's</div>
+        <h1>Study Abroad Atlas</h1>
+        <p>Pick a country to see the admission steps, visa documents, tuition, universities Indians go to, and what a first year really costs in rupees.</p>
+        <div class="asof" style="margin-top:10px">Data as of Oct 2026 · verify fees on official sites</div>
+      </div>
+      <div class="hero-art story" id="heroArt" tabindex="0" aria-roledescription="carousel" aria-label="One student's journey abroad, as a slideshow"></div>
+    </div>
+    <nav class="views" role="tablist" aria-label="Views">
+      <button role="tab" data-view="country" aria-selected="true" id="v-country">Country explorer</button>
+      <button role="tab" data-view="compare" aria-selected="false" id="v-compare">Compare countries</button>
+      <button role="tab" data-view="process" aria-selected="false" id="v-process">How the process works</button>
+      <button role="tab" data-view="consult" aria-selected="false" id="v-consult">Consultancies</button>
+      <button role="tab" data-view="jobs" aria-selected="false" id="v-jobs">Jobs abroad</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+<!-- COUNTRY VIEW -->
+<section id="view-country" data-v="country" style="display:grid;gap:20px">
+  <div class="modebar"><span class="eyebrow">Planning for</span><div class="seg" role="group" aria-label="Rules to show"><button id="m2027" data-m="2027">2027 intake</button><button id="mnow" data-m="now">Today's rules</button></div><span class="modehint" id="modeHint"></span></div>
+  <div class="chips" id="countryChips" aria-label="Choose a country"></div>
+  <div class="pass" id="pass"></div>
+  <div class="panel">
+    <div class="subtabs" role="tablist" id="subtabs">
+      <button role="tab" data-sub="steps" aria-selected="true">Step-by-step</button>
+      <button role="tab" data-sub="docs" aria-selected="false">Documents</button>
+      <button role="tab" data-sub="unis" aria-selected="false">Universities &amp; tuition</button>
+      <button role="tab" data-sub="cost" aria-selected="false">Cost calculator</button>
+      <button role="tab" data-sub="rules" aria-selected="false">Rules &amp; 2027 watch-outs</button>
+    </div>
+    <div id="sub-steps" data-s="steps"></div>
+    <div id="sub-docs" data-s="docs" hidden></div>
+    <div id="sub-unis" data-s="unis" hidden></div>
+    <div id="sub-cost" data-s="cost" hidden></div>
+    <div id="sub-rules" data-s="rules" hidden></div>
+  </div>
+</section>
+
+<!-- COMPARE VIEW -->
+<section id="view-compare" data-v="compare" hidden style="display:grid;gap:20px">
+  <div class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Estimated first-year cost, in lakh rupees</h2>
+        <p class="lead">Tuition range plus the living funds each visa asks you to show, plus visa and insurance fees. Germany is cheapest because most public universities charge no tuition.</p>
+      </div>
+    </div>
+    <div class="chart-wrap" id="compareChart"></div>
+    <p class="note">Bar = cheapest to most expensive typical master's program; dot = midpoint. Uses the 7 Oct 2026 exchange rates at the bottom of the page.</p>
+  </div>
+  <div class="panel">
+    <div class="panel-head"><h2>Side by side</h2></div>
+    <div class="tbl-wrap"><table id="compareTable"></table></div>
+  </div>
+</section>
+
+<!-- PROCESS VIEW -->
+<section id="view-process" data-v="process" hidden style="display:grid;gap:20px">
+  <div class="panel">
+    <div class="panel-head">
+      <div class="art" id="procArt" aria-hidden="true" style="flex-basis:100%"></div>
+      <div>
+        <h2>The 10 stages every application goes through</h2>
+        <p class="lead">Whichever country you choose, the work runs in this order over 9 to 15 months. The chips show who does each stage. Consultancies help most at shortlisting, SOP editing and the visa file.</p>
+      </div>
+      <div class="who"><span class="you">You</span><span class="con">Consultancy (optional)</span><span>University</span><span class="emb">Embassy / visa office</span></div>
+    </div>
+    <div class="pipe" id="pipe"></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Who decides what</h3>
+      <p>Universities decide admission. Embassies decide visas. Employers decide jobs. A consultancy prepares and submits your file but cannot grant any of these.</p>
+    </div>
+    <div class="card">
+      <h3>How consultancies earn</h3>
+      <p>Most are free to students because partner universities pay them 10–20% of first-year tuition. That is why they push partner universities. Top US schools and German public universities pay no commission, so consultancies charge a service fee for them.</p>
+    </div>
+    <div class="card">
+      <h3>The visa-enabling document</h3>
+      <p>Every visa hangs on one document from the university: I-20 (USA), CAS (UK), CoE (Australia), LOA + PAL (Canada), admission letter (Germany). No document, no visa application.</p>
+    </div>
+  </div>
+  <div class="panel">
+    <div class="panel-head"><h2>Typical consultancy fee models</h2></div>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Model</th><th>What you pay</th><th>Where you see it</th></tr></thead>
+      <tbody>
+        <tr><td>Commission-funded</td><td>Nothing; the university pays the agent</td><td>UK, Australia, Canada, Ireland, NZ, private German schools</td></tr>
+        <tr><td>Flat service fee</td><td>About ₹30,000–1,50,000 per package</td><td>USA top schools, German public universities</td></tr>
+        <tr><td>Per application</td><td>About ₹5,000–15,000 per university</td><td>USA</td></tr>
+        <tr><td>Premium coaching</td><td>₹2–5 lakh and up</td><td>US/UK top-20 profiles</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">These are typical market ranges, not quoted from a source. Get any fee in writing.</p>
+  </div>
+</section>
+
+<!-- CONSULTANCIES VIEW -->
+<section id="view-consult" data-v="consult" hidden style="display:grid;gap:20px">
+  <div class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>Major consultancies by city</h2>
+        <p class="lead">The same national chains (IDP, KC Overseas, AECC, Global Tree, IVY Overseas) appear in most cities, alongside strong local firms. Lists come from aggregator sites that are consultancies themselves, so treat "visa success rate" claims as marketing.</p>
+      </div>
+    </div>
+    <div class="chips" id="cityChips" style="margin-bottom:12px"></div>
+    <div class="filters"><input id="consultSearch" type="search" placeholder="Search by name or country, e.g. Germany" aria-label="Search consultancies"></div>
+    <div class="tbl-wrap"><table id="consultTable"></table></div>
+    <p class="note">Sources: <a href="https://yocket.com/blog/study-abroad-consultants-in-hyderabad" target="_blank" rel="noopener">Yocket Hyderabad</a>, <a href="https://yocket.com/blog/top-7-study-abroad-consultants-in-vijayawada" target="_blank" rel="noopener">Yocket Vijayawada</a>, <a href="https://ischoolconnect.com/pages/study-abroad-consultants-in-visakhapatnam" target="_blank" rel="noopener">iSchoolConnect Vizag</a>, <a href="https://yocket.com/blog/top-6-study-abroad-consultants-in-chennai" target="_blank" rel="noopener">Yocket Chennai</a>, <a href="https://yocket.com/blog/find-top-study-abroad-consultants-near-you-in-india" target="_blank" rel="noopener">Yocket India</a>. Rows marked "general" are well-known brands added without a cited page; check branch addresses before visiting.</p>
+  </div>
+</section>
+
+<!-- JOBS VIEW -->
+<section id="view-jobs" data-v="jobs" hidden style="display:grid;gap:20px">
+  <div class="panel">
+    <div class="panel-head">
+      <div class="art" id="jobsArt" aria-hidden="true" style="flex-basis:100%"></div>
+      <div>
+        <h2>How a genuine job abroad works</h2>
+        <p class="lead">A real overseas job comes from an employer who sponsors your work visa. Anyone in India who recruits for jobs abroad must hold a Recruiting Agent licence from the Ministry of External Affairs, listed on <a href="https://emigrate.gov.in/" target="_blank" rel="noopener">eMigrate</a>.</p>
+      </div>
+    </div>
+    <div class="two" id="routes"></div>
+  </div>
+  <div class="two">
+    <div class="panel">
+      <h2 style="margin-bottom:10px">Licensed recruiting agent: the steps</h2>
+      <ol class="steps" id="agentSteps"></ol>
+    </div>
+    <div class="panel">
+      <h2 style="margin-bottom:10px">Walk away if you see these</h2>
+      <ul class="flags">
+        <li>No Recruiting Agent licence number, or it does not match the eMigrate listing.</li>
+        <li>"Guaranteed job", "visa in 15 days", or an offer without any interview with the employer.</li>
+        <li>Fees above the legal cap, cash-only payment, or no receipt.</li>
+        <li>Travel on a tourist visa "to convert to a work visa later". This is the usual route into trafficking and scam compounds.</li>
+        <li>A contract in a language you cannot read, or someone holding your passport.</li>
+      </ul>
+      <p class="note">Complaints: eMigrate portal, or the Overseas Workers Resource Centre helpline <span class="mono">1800-113-090</span> (24×7), per <a href="https://www.mea.gov.in/issues-of-intending-emigrants" target="_blank" rel="noopener">MEA</a>.</p>
+      <h3 style="font-size:16px;font-family:var(--f-body);margin-top:16px">Documents for most work visas</h3>
+      <p class="note" style="margin-top:4px">Passport, signed offer and contract, degree and transcripts (often attested or apostilled), experience letters with payslips, skills assessment or professional licence, police clearance certificate, medical exam, English test where required (IELTS General, OET for nurses), CV and photos.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="rates" id="rates"></div>
+  <p>Fees and thresholds change often. Each figure is marked <span class="src s">sourced</span> when taken from a cited page and <span class="src">approx</span> when it is a typical figure without a cited page. Always confirm on the university page and the official visa site before paying.</p>
+</footer>
+
+</div>
+</main>
+
+<script>
+(function(){
+const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+
+const RATE_DEFAULTS={USD:96.3,GBP:128.0,EUR:108.6,CAD:67.7,AUD:67.3,NZD:54.2,CHF:116.1};
+let RATES=Object.assign({},RATE_DEFAULTS,store.get('atlas-rates-v3')||{});
+const SYM={USD:'$',GBP:'£',EUR:'€',CAD:'C$',AUD:'A$',NZD:'NZ$',CHF:'CHF '};
+
+/* ---------- DATA ---------- */
+const BASE=[
+{id:'usa',code:'USA',name:'United States',cur:'USD',visa:'F-1 student visa',keyDoc:'I-20',
+ tag:'Largest destination for Indians: 363,019 Indian students in 2024–25 (Open Doors 2025). Strongest for STEM master\'s with up to 3 years of OPT work.',
+ intake:'Fall (Aug) main · Spring (Jan)',dur:'MS: 1.5–2 years',
+ tuition:[20000,70000],living:15000,livingNote:'Living cost on the I-20, typically $12k–20k; using $15k',
+ fees:[{n:'Visa (MRV) fee',a:185},{n:'SEVIS I-901 fee',a:350},{n:'Visa integrity fee (where collected)',a:250}],insurance:2500,
+ work:'20 h/week on campus',post:'OPT 12 months + 24 months STEM',proc:'Interview slot is the bottleneck',eng:'TOEFL 80–100 / IELTS 6.5–7',
+ risk:['Higher','Interview-based, social media vetted'],
+ steps:[
+  ['Jun–Aug, year before','Shortlist 8–12 programs','Mix ambitious, moderate and safe schools. Check the program is STEM-designated: that gives 3 years of OPT in total.'],
+  ['By Sep–Oct','Take TOEFL / IELTS / Duolingo, and GRE if needed','Many MS programs are now GRE-optional; strong scores still help funding.'],
+  ['Sep–Jan','Apply on each university portal','Fee $50–150 each. Upload SOP, CV, transcripts; recommenders submit LORs online. Some schools want a WES evaluation.'],
+  ['Jan–Apr','Accept an admit and pay the deposit','Send bank or loan proof covering the year-1 cost so the school can issue the I-20.'],
+  ['Apr–May','Receive the I-20','Issued by the university\'s DSO. It states the cost of attendance you must prove.'],
+  ['After I-20','Pay SEVIS I-901 fee: $350','At fmjfee.com. Keep the receipt for the interview.'],
+  ['After SEVIS','Fill DS-160','At ceac.state.gov. List social media handles for the last 5 years; accounts must be set to public.'],
+  ['May–Jul','Pay MRV fee ($185) and book slots','Biometrics (OFC) plus interview at Hyderabad, Chennai, Mumbai, Kolkata or New Delhi. Check whether your post collects the $250 visa integrity fee.'],
+  ['Interview day','2–3 minute interview','Why this university, why this course, who pays, plans after graduation. Answers must match your DS-160 and SOP.'],
+  ['Jul–Aug','Visa stamped, travel','Enter no earlier than 30 days before the program start date on the I-20.']
+ ],
+ docs:[['visa','Passport','Valid 6+ months beyond stay'],['visa','DS-160 confirmation page',''],['visa','Appointment letter + MRV receipt',''],['visa','SEVIS I-901 receipt','$350'],['visa','Signed I-20',''],['acad','Admission letter',''],['fin','Loan sanction letter / bank statements / FDs','Must cover year-1 cost on the I-20'],['fin','Sponsor ITRs (3 yrs) + salary slips',''],['fin','CA net-worth statement',''],['acad','Transcripts, degree, consolidated marksheet',''],['acad','TOEFL / IELTS / GRE score reports',''],['acad','SOP copy + resume','Keep consistent with the interview'],['visa','Photo 2×2 inch','White background']],
+ rules:[['warn','In-person interviews are back for most students; interview waivers were cut back.'],['warn','Social media accounts must be public and listed on the DS-160.'],['warn','$250 visa integrity fee is being phased in unevenly by post (Ellis, 2026).'],['warn','Final rule in force from 15 Sep 2026: F-1 students get a fixed admission period (up to 4 years, tied to the I-20) instead of "duration of status"; grace period after study cut from 60 to 30 days; staying longer needs a USCIS extension.'],['warn','Under the same rule, graduate students face strict limits on changing programs, and a student who finishes a US degree cannot start a second degree at the same level.'],['info','H-1B: a $100,000 fee now applies to many new petitions filed for workers abroad, which affects post-OPT plans.']],
+ src:[['Mintz: DHS fixed-admission final rule','https://www.mintz.com/insights-center/viewpoints/2806/2026-07-23-dhs-issues-final-rule-creating-fixed-period-admission-f'],['Federal Register: fixed time period of admission','https://www.federalregister.gov/documents/2026/07/17/2026-14439/establishing-a-fixed-time-period-of-admission-and-an-extension-of-stay-procedure-for-nonimmigrant'],['IDP 2026 US rules','https://www.idp.com/india/blog/visa-rules-for-internaional-students-us/'],['Ellis: visa integrity fee','https://www.ellis.com/resources/visa-integrity-fee'],['GradRight: Open Doors 2025','https://gradright.com/news/india-tops-open-doors-2025-international-students-usa/'],['US travel: student visa','https://travel.state.gov/content/travel/en/us-visas/study/student-visa.html']],
+ unis:[
+  ['Northeastern University','Boston, MA',[54000,54000],'Popular','MS CS / Info Systems',1],
+  ['George Mason University','Fairfax, VA',[41124,41124],'Popular','MS CS',1],
+  ['University of Texas at Arlington','Arlington, TX',[41130,41130],'Popular','MS CS',1],
+  ['University of Illinois Chicago','Chicago, IL',[38292,38292],'Popular','MS CS',1],
+  ['University at Buffalo (SUNY)','Buffalo, NY',[36178,36178],'Popular','MS CS',1],
+  ['San Jose State University','San Jose, CA',[19422,19422],'Budget','MS CS, Silicon Valley',1],
+  ['Carnegie Mellon University','Pittsburgh, PA',[55000,65000],'Top-ranked','Large Indian grad share',0],
+  ['University of Southern California','Los Angeles, CA',[60000,70000],'Top-ranked','Big Indian MS cohort',0],
+  ['Columbia University','New York, NY',[60000,72000],'Top-ranked','Engineering, data science',0],
+  ['New York University','New York, NY',[55000,65000],'Top-ranked','Tandon engineering',0],
+  ['Georgia Institute of Technology','Atlanta, GA',[30000,36000],'Top-ranked','Strong value for STEM',0],
+  ['Purdue University','West Lafayette, IN',[30000,34000],'Top-ranked','Engineering',0],
+  ['University of Illinois Urbana-Champaign','Champaign, IL',[38000,46000],'Top-ranked','CS, engineering',0],
+  ['University of Texas at Dallas','Richardson, TX',[30000,36000],'Popular','MS CS, MIS, business analytics',0],
+  ['Texas A&M University','College Station, TX',[30000,36000],'Popular','Engineering',0]
+ ]},
+{id:'uk',code:'GBR',name:'United Kingdom',cur:'GBP',visa:'Student visa',keyDoc:'CAS',
+ tag:'Fastest route: a 1-year master\'s and a visa in about 3 weeks. Money rules are strict: funds must sit in the account for 28 days.',
+ intake:'September main · January',dur:'Master\'s: 1 year',
+ tuition:[12000,40000],living:10539,livingNote:'£1,171/month × 9 outside London (£13,761 in London); rises 30 Nov 2026',
+ fees:[{n:'Visa application fee',a:558},{n:'Immigration Health Surcharge (1 yr)',a:776}],insurance:0,
+ work:'20 h/week in term',post:'Graduate route 2 yrs; 18 months from 1 Jan 2027',proc:'About 3 weeks',eng:'IELTS 6.0–7.0 (UKVI for some)',
+ risk:['Medium','Credibility interview + 28-day funds rule'],
+ steps:[
+  ['Aug–Nov, year before','Shortlist by intake','September is the main intake. Undergrad applies through UCAS; postgrad applies directly or through an agent portal.'],
+  ['Oct–Mar','Apply','SOP, 2 LORs, CV, transcripts, IELTS. Some universities accept a medium-of-instruction letter instead of IELTS.'],
+  ['2–6 weeks later','Conditional, then unconditional offer','Clear conditions such as final transcripts or English score.'],
+  ['After offer','Pay tuition deposit','Usually £2,000–5,000.'],
+  ['Before CAS','Credibility interview','A short video call from the university testing whether you are a genuine student. Common for Indian applicants.'],
+  ['4–8 weeks before visa','Receive the CAS','The Confirmation of Acceptance for Studies number. You cannot apply for the visa without it.'],
+  ['Any time before applying','TB test','At an approved clinic in India.'],
+  ['28 days before applying','Hold funds','Remaining year-1 tuition plus living costs for up to 9 months, held 28 consecutive days, statement no older than 31 days.'],
+  ['Up to 6 months before course','Apply online on gov.uk','Pay the visa fee and Immigration Health Surcharge.'],
+  ['After applying','Biometrics at VFS, decision','Decision in about 3 weeks; priority service available. Collect your eVisa access on arrival.']
+ ],
+ docs:[['visa','Passport',''],['visa','CAS number',''],['fin','Bank statement / loan letter','Held 28 days; under 31 days old'],['fin','Birth certificate + parent consent letter','If funds are in a parent\'s name'],['visa','TB test certificate',''],['acad','Academic documents listed on the CAS',''],['acad','English test (if on CAS)',''],['visa','ATAS certificate','Only for certain STEM subjects']],
+ rules:[['warn','Maintenance rises on 30 Nov 2026: London £1,529 → £1,570/month; outside London £1,171 → £1,203/month. The application date decides which applies.'],['warn','Graduate route drops from 2 years to 18 months for bachelor\'s and master\'s from 1 Jan 2027. PhD keeps 3 years.'],['info','Taught master\'s students can no longer bring dependants.'],['info','Visa fee £558 and Immigration Health Surcharge £776 per year (gov.uk, checked Oct 2026).']],
+ src:[['OTS Solicitors: funds from 30 Nov 2026','https://www.otssolicitors.co.uk/news/student-visa-maintenance-funds-increase-from-30-november-2026/'],['ApplyBoard: UK 2026 policies','https://www.applyboard.com/blog/key-policies-affecting-international-students-in-the-uk-in-2026'],['UniAcco: UK universities with most Indian students','https://uniacco.com/blog/uk-universities-with-most-indian-students'],['gov.uk Student visa','https://www.gov.uk/student-visa'],['gov.uk Immigration Health Surcharge','https://www.gov.uk/healthcare-immigration-application/how-much-pay'],['UKCISA: Graduate route from 1 Jan 2027','https://www.ukcisa.org.uk/news/student-update-changes-to-the-student-and-graduate-rules/']],
+ unis:[
+  ['BPP University','London + others',[11000,22700],'Popular','13,840 Indian students',1],
+  ['University of Hertfordshire','Hatfield',[15965,19800],'Popular','8,515 Indian students',1],
+  ['University of East London','London',[15560,18960],'Popular','6,720 Indian students',1],
+  ['Coventry University','Coventry',[16800,22000],'Popular','6,485 Indian students',1],
+  ['University of Bedfordshire','Luton',[15500,18900],'Budget','5,900 Indian students',1],
+  ['University of Greenwich','London',[17500,21000],'Popular','4,085 Indian students',1],
+  ['De Montfort University','Leicester',[12085,35195],'Popular','3,715 Indian students',1],
+  ['Anglia Ruskin University','Cambridge / Chelmsford',[16700,20200],'Popular','3,705 Indian students',1],
+  ['Northumbria University','Newcastle',[19350,21500],'Popular','2,870 Indian students',1],
+  ['Leeds Beckett University','Leeds',[14850,18440],'Budget','2,785 Indian students',1],
+  ['Imperial College London','London',[38000,45000],'Top-ranked','Engineering, CS',0],
+  ['University College London','London',[32000,40000],'Top-ranked','Broad range',0],
+  ['University of Edinburgh','Edinburgh',[30000,40000],'Top-ranked','Data science, AI',0],
+  ['University of Manchester','Manchester',[28000,35000],'Top-ranked','Engineering, business',0],
+  ['University of Warwick','Coventry',[28000,36000],'Top-ranked','WMG, business',0]
+ ]},
+{id:'germany',code:'DEU',name:'Germany',cur:'EUR',visa:'National student visa',keyDoc:'Admission letter + APS',
+ tag:'Cheapest quality option: most public universities charge no tuition. India is the largest source of international students, with 59,000+ enrolled.',
+ intake:'Winter (Oct) main · Summer (Apr)',dur:'Master\'s: 2 years',
+ tuition:[0,12000],living:11904,livingNote:'Blocked account €11,904/yr (€992/month), confirmed by German missions in India, Oct 2026',
+ fees:[{n:'Visa fee',a:75},{n:'APS certificate (~₹18,000)',a:166},{n:'uni-assist (first application)',a:75},{n:'Semester contributions (2)',a:600}],insurance:1680,
+ work:'140 full / 280 half days per year',post:'18-month job-seeker permit → EU Blue Card',proc:'6–12 weeks',eng:'IELTS 6.5 for English programs',
+ risk:['Medium','APS first; long visa queues in summer'],
+ steps:[
+  ['12–15 months before','Check eligibility','Your Indian bachelor\'s must match the German program. 3-year degrees (B.Sc., B.Com.) often do not qualify for direct master\'s admission.'],
+  ['First move','Apply for the APS certificate','Academic Evaluation Centre, New Delhi. About ₹18,000, 4–8 weeks, longer in peak season.'],
+  ['In parallel','Language tests','IELTS/TOEFL for English-taught programs; TestDaF/DSH for German-taught. A1–A2 German helps your visa interview.'],
+  ['Winter: 31 May–15 Jul · Summer: 1 Dec–15 Jan','Apply via uni-assist or directly','uni-assist costs €75 for the first application and €30 for each extra. Some schools want a VPD first.'],
+  ['4–10 weeks later','Receive the admission letter','Public universities charge only a semester contribution. Baden-Württemberg charges non-EU students €1,500/semester; TUM charges its own fees.'],
+  ['Right after admission','Open the blocked account','Fintiba, Expatrio or Coracle. Today €11,904 (€992/month); for winter 2027/28 plan for about €13,236 (€1,103/month) if the BAföG reform passes. Check the embassy figure the week you open it.'],
+  ['Before visa','Health insurance','Travel or incoming insurance for the visa, then statutory insurance (~€140/month) at enrolment.'],
+  ['The day admission arrives','Pre-file on the Consular Services Portal','Then attend VFS for biometrics and originals. Visa fee €75; processing 6–12 weeks.'],
+  ['First 2 weeks in Germany','Register your address (Anmeldung)','Then open a bank account and enrol.'],
+  ['Within 90 days','Residence permit','At the Ausländerbehörde (foreigners\' office).']
+ ],
+ docs:[['visa','Passport + 2 copies',''],['visa','2 biometric photos','35×45 mm'],['visa','Consular Services Portal printout',''],['acad','Admission letter (Zulassungsbescheid)',''],['acad','APS certificate','Mandatory for Indians'],['fin','Blocked account confirmation','Or scholarship / Verpflichtungserklärung'],['visa','Health / travel insurance',''],['acad','Degree, transcripts, language certificate',''],['acad','Motivation letter + tabular CV','Signed'],['visa','Declarations required by the mission','Accuracy declaration, §54 residence act']],
+ rules:[['warn','Blocked account is €11,904/year (€992/month), confirmed Oct 2026 by the German missions in India and Fintiba. It is tied to the BAföG maximum rate.'],['warn','Expected increase for 2027: the cabinet approved a BAföG reform on 12 Aug 2026. Planned maximum: about €1,075/month from 1 Apr 2027 (€475 basic + €440 housing + €160 insurance), then about €1,103/month from Aug 2027 when the basic rate rises to €503. That is about €13,236/year for a winter 2027/28 visa. Parliament still has to pass it, and the embassy sets the binding figure.'],['warn','TUM now charges non-EU students €4,000–6,000 per semester for master\'s; Baden-Württemberg charges €1,500/semester.'],['info','Visa applications are pre-filed online on the Consular Services Portal before the VFS appointment.'],['info','Without a German degree, the Opportunity Card (Chancenkarte) lets you come to look for work.']],
+ src:[['German Missions in India: student visa','https://india.diplo.de/in-en/service/-/2552164'],['Fintiba: blocked account amount','https://www.fintiba.com/blocked-account/'],['Auswärtiges Amt Merkblatt D3f (financial proof)','https://tiflis.diplo.de/ge-de/service/visum/2722272-2722272'],['StudierenPlus: BAföG reform 2027 timeline','https://www.studierenplus.de/bafoeg/bafoeg-reform-2027'],['GradGermany: student visa 2026','https://www.gradgermany.com/blog/germany-student-visa-2026-guide'],['Collegedunia: blocked account 2026','https://collegedunia.com/Germany/article/germany-blocked-account-for-indian-students'],['MS in Germany: 2026 tuition tracker','https://msingermany.com/blog/is-germany-still-free-2026-tuition-tracker'],['GradRight: public universities','https://gradright.com/top-public-universities-in-germany-for-indian-students/']],
+ unis:[
+  ['Technical University of Munich (TUM)','Munich, Bavaria',[8000,12000],'Top-ranked','€4,000–6,000/semester tuition for non-EU master\'s',1],
+  ['LMU Munich','Munich, Bavaria',[170,170],'Top-ranked','No tuition; €85/semester',1],
+  ['RWTH Aachen','Aachen, NRW',[720,720],'Top-ranked','No tuition; ~€360/semester',1],
+  ['Karlsruhe Institute of Technology (KIT)','Karlsruhe, BW',[3302,3302],'Top-ranked','€1,500 + €151/semester',1],
+  ['TU Dresden','Dresden, Saxony',[600,700],'Popular','No tuition; €300–350/semester',1],
+  ['Heidelberg University','Heidelberg, BW',[3322,3322],'Top-ranked','€1,500 + €161/semester',1],
+  ['TU Berlin','Berlin',[640,640],'Popular','No tuition; semester ticket included',0],
+  ['TU Darmstadt','Darmstadt, Hesse',[600,600],'Popular','No tuition',0],
+  ['University of Stuttgart','Stuttgart, BW',[3400,3400],'Popular','€1,500/semester (BW)',0],
+  ['Private universities (SRH, IU, GISMA, Arden)','Berlin and others',[8000,15000],'Budget','Easier entry, English-taught; check recognition',0]
+ ]},
+{id:'canada',code:'CAN',name:'Canada',cur:'CAD',visa:'Study permit',keyDoc:'LOA (+ PAL)',
+ tag:'Sharply capped: the levels plan targets 150,000 new study permits in 2027. Master\'s and PhD students are exempt from the cap and the provincial attestation letter, which makes graduate study the safer route.',
+ intake:'September main · January · May',dur:'Master\'s: 1–2 years',
+ tuition:[18000,60000],living:23448,livingNote:'CAD 23,448 for a single student outside Quebec (applications from 1 Sep 2026)',
+ fees:[{n:'Study permit fee',a:150},{n:'Biometrics',a:85}],insurance:900,
+ work:'24 h/week off campus',post:'PGWP up to 3 years',proc:'Varies; apply 3–4 months ahead',eng:'IELTS 6.5 (each band 6.0)',
+ risk:['Higher','National cap, PAL for most non-graduate programs'],
+ steps:[
+  ['12 months before','Pick a DLI and program','Choose a Designated Learning Institution. Check the program is eligible for a post-graduation work permit (PGWP).'],
+  ['Oct–Feb','Apply','Transcripts, IELTS/PTE/CELPIP/TOEFL, SOP, LORs. Application fee about CAD 100–150.'],
+  ['After admission','Accept the Letter of Acceptance (LOA)','Paying first-year tuition up front strengthens the file.'],
+  ['After LOA','Get the PAL/TAL','The school requests the provincial attestation letter for you. Not needed for master\'s/PhD at public DLIs.'],
+  ['Before applying','Arrange funds','CAD 23,448 living plus tuition plus travel. A GIC (ICICI, SBI Canada, Scotiabank) is optional but the cleanest proof.'],
+  ['Before applying','Upfront medical','With an IRCC panel physician.'],
+  ['3–4 months before start','Apply online on IRCC','Fee CAD 150 plus biometrics CAD 85. Include a study plan explaining why Canada and your ties to India.'],
+  ['After applying','Biometrics at VFS','Then the passport request.'],
+  ['On arrival','Permit issued at the port of entry','Show your port-of-entry letter to the officer.']
+ ],
+ docs:[['visa','Passport',''],['acad','Letter of Acceptance',''],['acad','PAL / TAL','Unless master\'s/PhD at a public DLI'],['fin','Tuition receipt',''],['fin','GIC certificate / bank statements / loan letter','CAD 23,448 + tuition'],['fin','Sponsor ITRs + affidavit',''],['acad','Study plan (SOP to the visa officer)','Why Canada, why this program, ties to India'],['acad','Academic documents + English test',''],['visa','Medical exam confirmation',''],['visa','Photos + family information form','']],
+ rules:[['warn','Levels plan targets 155,000 new study permits in 2026 and 150,000 in 2027 and 2028; master\'s and doctoral students are exempt from the cap.'],['warn','Proof of funds rose to CAD 23,448 for applications from 1 Sep 2026 (was CAD 22,895).'],['info','Master\'s and doctoral students at public DLIs are exempt from the PAL from 1 Jan 2026.'],['warn','PGWP needs language proof: CLB 7 for degree holders, CLB 5 for diploma holders.'],['info','Spouse open work permits now only for master\'s programs of 16+ months, PhD, and some professional programs.']],
+ src:[['IRCC: proof of financial support','https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/get-documents/financial-support.html'],['CIC News: levels plan 2026–2028 for students','https://www.cicnews.com/2025/11/what-international-students-need-to-know-about-canadas-immigration-levels-plan-2026-2028-1162044.html'],['SI Laws: Canada study permit 2026','https://silaws.com/2026/04/28/2026-canada-study-permit-caq-quebec-comprehensive-guide/'],['Digit: Canadian universities for Indians','https://www.godigit.com/student-guides/best-universities-in-canada-for-indian-students.amp.html'],['IRCC: study permit','https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit.html']],
+ unis:[
+  ['University of Toronto','Toronto, ON',[6210,43990],'Top-ranked','Graduate range per source; professional MEng costs more',1],
+  ['McGill University','Montreal, QC',[17193,27011],'Top-ranked','Graduate',1],
+  ['University of British Columbia','Vancouver, BC',[9131,9131],'Top-ranked','Thesis-based base fee; course-based is higher',1],
+  ['University of Waterloo','Waterloo, ON',[4380,13392],'Top-ranked','Graduate; co-op strong',1],
+  ['McMaster University','Hamilton, ON',[6307,17096],'Popular','Graduate',1],
+  ['University of Alberta','Edmonton, AB',[11186,11186],'Popular','Graduate',1],
+  ['University of Ottawa','Ottawa, ON',[16334,29445],'Popular','Graduate',1],
+  ['University of Calgary','Calgary, AB',[8243,21597],'Popular','Graduate',1],
+  ['Dalhousie University','Halifax, NS',[19803,25959],'Popular','Graduate',1],
+  ['Western University','London, ON',[19364,19364],'Popular','Graduate',1],
+  ['Colleges (Conestoga, Humber, Seneca)','Ontario',[15000,20000],'Budget','Diplomas; PAL needed; check PGWP field',0]
+ ]},
+{id:'australia',code:'AUS',name:'Australia',cur:'AUD',visa:'Student visa (subclass 500)',keyDoc:'CoE',
+ tag:'Expensive visa (AUD 2,500) and high funds bar (AUD 29,710/yr). Most Indian refusals happen on the Genuine Student answers.',
+ intake:'February main · July · some November',dur:'Master\'s: 1.5–2 years',
+ tuition:[30000,55000],living:29710,livingNote:'AUD 29,710 per year',
+ fees:[{n:'Visa fee',a:2500},{n:'Health exam + biometrics (approx)',a:400}],insurance:700,
+ work:'48 h per fortnight in term',post:'485 visa: 2–3 years',proc:'Often 2–6 weeks',eng:'IELTS 6.0 overall minimum',
+ risk:['Medium','Genuine Student test; university risk tiers'],
+ steps:[
+  ['10–12 months before','Choose the intake','February is the main intake. Universities near their enrolment caps process more slowly.'],
+  ['8–10 months before','Apply','Mostly through agents; fees often waived. Transcripts, IELTS 6.0+ (PTE is common), SOP, CV.'],
+  ['2–6 weeks later','Offer letter','The university runs its own Genuine Student check before issuing the CoE.'],
+  ['After offer','Pay first-semester tuition and OSHC','Overseas Student Health Cover for the whole visa period.'],
+  ['After payment','Receive the Confirmation of Enrolment (CoE)',''],
+  ['Next','Apply on ImmiAccount','Answer the Genuine Student questions in your own words, up to 150 words each.'],
+  ['With the application','Show financial capacity','Year-1 tuition + AUD 29,710 living + travel, or parents\' income evidence where accepted.'],
+  ['After applying','Biometrics and health exam','Biometrics at VFS; health exam with a panel physician (HAP ID).'],
+  ['2–6 weeks','Visa grant','Read your conditions: 8105 work limit, 8202 attendance.']
+ ],
+ docs:[['visa','Passport',''],['acad','Confirmation of Enrolment (CoE)',''],['visa','OSHC certificate',''],['acad','Genuine Student answers + evidence',''],['fin','Loan sanction / bank & FD statements','3–6 months history'],['fin','Sponsor ITRs + CA statement',''],['acad','English test + academics',''],['acad','Work experience letters',''],['visa','Health exam + biometrics receipts','']],
+ rules:[['warn','Visa fee rose to AUD 2,500 on 1 Jul 2026 (was AUD 2,000). The 485 graduate visa fee rose to AUD 5,750.'],['warn','2027 cap: the National Planning Level stays at 295,000 new international students (announced Jul 2026). Universities near their allocation process more slowly.'],['warn','Living funds rose to AUD 29,710 per year.'],['info','Minimum IELTS is now 6.0 overall for degree courses.'],['info','485 graduate visa: 2 years for coursework master\'s, 3 for research; age limit 35.']],
+ src:[['Study Australia: visa charge increase','https://www.studyaustralia.gov.au/en/Agent-Hub/agent-news-index/student-visa-application-charge-increase'],['ProVisa: 2027 planning level','https://www.provisa.com.au/blog/australia-caps-international-student-commencements-at-295000-for-2027-what-every-prospective-student-needs-to-know'],['IDP: Australia 2026 rules','https://www.idp.com/blog/visa-rules-for-internaional-students-australia'],['Digit: Australian universities for Indians','https://www.godigit.com/student-guides/top-universities-in-australia-for-indian-students'],['Home Affairs: subclass 500','https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500']],
+ unis:[
+  ['University of Melbourne','Melbourne',[39000,51000],'Top-ranked','',1],
+  ['University of Sydney','Sydney',[27000,67000],'Top-ranked','',1],
+  ['Monash University','Melbourne',[30000,45000],'Top-ranked','Large Indian cohort',1],
+  ['Australian National University','Canberra',[35000,48000],'Top-ranked','',1],
+  ['University of Queensland','Brisbane',[10644,42512],'Top-ranked','',1],
+  ['University of Technology Sydney','Sydney',[35184,52338],'Popular','IT, engineering',1],
+  ['RMIT University','Melbourne',[25920,39360],'Popular','',1],
+  ['Deakin University','Melbourne / Geelong',[30056,77320],'Popular','Large Indian cohort',1],
+  ['Griffith University','Gold Coast / Brisbane',[15500,86500],'Popular','',1],
+  ['University of Adelaide','Adelaide',[50000,50000],'Popular','',1],
+  ['University of Western Australia','Perth',[21500,21500],'Budget','',1],
+  ['UNSW Sydney','Sydney',[45000,55000],'Top-ranked','Engineering, CS',0]
+ ]},
+{id:'scotland',code:'SCO',name:'Scotland',cur:'GBP',visa:'UK Student visa',keyDoc:'CAS',
+ tag:'Part of the UK, so the same Student visa, CAS and Graduate route apply. Strong engineering, AI and energy programs, 1-year master\'s, and living costs below London.',
+ intake:'September main · January',dur:'Master\'s: 1 year',
+ tuition:[17000,40000],living:10539,livingNote:'£1,171/month × 9 (outside-London rate applies across Scotland)',
+ fees:[{n:'Visa application fee',a:558},{n:'Immigration Health Surcharge (1 yr)',a:776}],insurance:0,
+ work:'20 h/week in term',post:'UK Graduate route 2 yrs; 18 months from 1 Jan 2027',proc:'About 3 weeks',eng:'IELTS 6.5 (6.0 per band typical)',
+ risk:['Medium','Same UK rules: credibility check + 28-day funds'],
+ steps:[
+  ['Aug–Nov, year before','Shortlist Scottish universities','Most taught master\'s run 12 months from September. Scottish bachelor\'s degrees take 4 years, so UK entry rules for Indian 3-year degrees vary by university: check each program page.'],
+  ['Oct–Mar','Apply directly or through an agent portal','SOP, 2 LORs, CV, transcripts, IELTS. Several Scottish universities accept a medium-of-instruction letter for some programs.'],
+  ['2–6 weeks later','Conditional, then unconditional offer',''],
+  ['After offer','Pay the tuition deposit','Often £2,000–5,000.'],
+  ['Before CAS','Credibility interview','A short video call testing that you are a genuine student.'],
+  ['4–8 weeks before visa','Receive the CAS',''],
+  ['Any time before applying','TB test at an approved clinic in India',''],
+  ['28 days before applying','Hold funds','Remaining year-1 tuition plus £1,171/month for up to 9 months (£1,203 for applications from 30 Nov 2026).'],
+  ['Up to 6 months before course','Apply online on gov.uk','Visa fee £558 plus Immigration Health Surcharge £776/year.'],
+  ['After applying','Biometrics at VFS, decision in about 3 weeks','']
+ ],
+ docs:[['visa','Passport',''],['visa','CAS number',''],['fin','Bank statement / loan letter','Held 28 days; under 31 days old'],['fin','Birth certificate + parent consent letter','If funds are in a parent\'s name'],['visa','TB test certificate',''],['acad','Academic documents listed on the CAS',''],['acad','English test (if on CAS)',''],['visa','ATAS certificate','Only for certain STEM subjects']],
+ rules:[['info','Scotland uses the UK immigration system: same Student visa, fees and Graduate route as the rest of the UK.'],['warn','Maintenance rises on 30 Nov 2026: £1,171 → £1,203/month (Scotland uses the outside-London rate).'],['warn','Graduate route drops to 18 months for bachelor\'s and master\'s from 1 Jan 2027.'],['info','Scottish universities set their own tuition: Glasgow 2026/27 international taught master\'s run £27,390–38,670; St Andrews £27,200–31,450.']],
+ src:[['University of Glasgow: PGT fee table 2026/27','https://www.gla.ac.uk/postgraduate/feesandfunding/feetable/live'],['University of St Andrews: PG fees 2026/27','https://www.st-andrews.ac.uk/study/tuition-fees/postgraduate/'],['gov.uk Student visa','https://www.gov.uk/student-visa'],['gov.uk Immigration Health Surcharge','https://www.gov.uk/healthcare-immigration-application/how-much-pay'],['OTS Solicitors: funds from 30 Nov 2026','https://www.otssolicitors.co.uk/news/student-visa-maintenance-funds-increase-from-30-november-2026/']],
+ unis:[
+  ['University of Glasgow','Glasgow',[27390,38670],'Top-ranked','2026/27 international PGT range',1],
+  ['University of St Andrews','St Andrews',[27200,31450],'Top-ranked','Band A arts / Band B STEM, 2026/27',1],
+  ['University of Edinburgh','Edinburgh',[33000,45000],'Top-ranked','Informatics, AI, engineering',0],
+  ['University of Strathclyde','Glasgow',[24000,32000],'Popular','Engineering, business',0],
+  ['Heriot-Watt University','Edinburgh',[22000,28000],'Popular','Petroleum, robotics, actuarial',0],
+  ['University of Aberdeen','Aberdeen',[24000,30000],'Popular','Energy, data science',0],
+  ['University of Dundee','Dundee',[22000,28000],'Popular','Design, life sciences',0],
+  ['Edinburgh Napier University','Edinburgh',[17000,21000],'Budget','',0],
+  ['Glasgow Caledonian University','Glasgow',[17000,21000],'Budget','',0],
+  ['Robert Gordon University','Aberdeen',[17000,22000],'Budget','',0]
+ ]},
+{id:'switzerland',code:'CHE',name:'Switzerland',cur:'CHF',visa:'National visa (D) + cantonal permit',keyDoc:'Admission letter + canton approval',
+ tag:'World-class public universities with low tuition even after recent rises, but the highest living costs in Europe. Visas are approved by the canton, so allow about 3 months.',
+ intake:'September (autumn semester) main · February',dur:'Master\'s: 1.5–2 years',
+ tuition:[1400,8000],living:21000,livingNote:'CHF 21,000/year proof (canton Zurich guidance; other cantons similar)',
+ fees:[{n:'Cantonal authorisation (Zurich)',a:95},{n:'Residence permit (Zurich city)',a:182}],insurance:1300,
+ work:'Up to 15 h/week after 6 months',post:'6-month job-search permit after graduation',proc:'About 3 months',eng:'IELTS 7.0 / TOEFL 100 typical',
+ risk:['Medium','Canton decides; ~3 months; high funds bar'],
+ steps:[
+  ['12–15 months before','Shortlist programs','ETH Zurich and EPFL master\'s deadlines are often in December for the next autumn; other universities run to March–April.'],
+  ['Oct–Mar','Apply on each university portal','Transcripts, CV, motivation letter, LORs, English test (IELTS/TOEFL). ETH and EPFL look closely at grades and course match.'],
+  ['Feb–May','Receive the admission letter','Pay any enrolment deposit and confirm the fee group. Most Indian students pay the international rate.'],
+  ['Right after admission','Arrange funds','Show CHF 21,000 per year plus tuition: bank statements, a Swiss bank deposit or a scholarship letter. Sponsor ITRs for 2 years and 3 months of statements are asked for.'],
+  ['3 months before start','Book VFS appointment','National (D) visa for studies over 90 days. VFS checklist: 3 application forms, 4 photos, cover letter, CV, admission and fee proof, degrees, English certificate, sponsor letter and solvency proof.'],
+  ['After submission','Canton reviews the file','The Swiss mission sends it to the canton\'s migration office. Allow about 3 months in total.'],
+  ['On approval','Collect the visa and travel',''],
+  ['Within 14 days of arrival','Register with the commune','Then collect the residence permit (L or B). Buy Swiss health insurance within 3 months (mandatory).']
+ ],
+ docs:[['visa','Passport','Issued within 10 years, 2 blank pages'],['visa','3 visa application forms + 4 photos',''],['acad','Cover letter on study plans','Why Switzerland, plans after study'],['acad','CV (2 copies)',''],['acad','Admission letter + proof of fee payment',''],['acad','Degree certificates (original + 2 copies)',''],['acad','IELTS / TOEFL certificate','Mandatory'],['fin','Sponsor confirmation letter + passport copy',''],['fin','Sponsor ITR-V (2 years) + 3 months bank statements','Funds of CHF 21,000/yr'],['visa','Swiss health insurance','Within 3 months of arrival']],
+ rules:[['warn','ETH Zurich and EPFL tripled fees for students from abroad from autumn 2025: CHF 2,190 per semester (Swiss/EU-qualified students pay CHF 730).'],['warn','Proof of means: CHF 21,000 per year in canton Zurich; check your canton.'],['info','No work in the first 6 months; then up to 15 hours a week in term, full time in holidays.'],['info','After graduating, a 6-month permit lets you look for a job.']],
+ src:[['ETH Zurich: tuition fees','https://ethz.ch/students/en/studies/financial/tuition-fees.html'],['IamExpat: Swiss tuition by university','https://www.iamexpat.ch/education/higher-education/tuition-fees-switzerland'],['ZHdK: non-EU entry checklist 2026 (canton Zurich)','https://www.zhdk.ch/file/live/92/92513af55ae3169a4ffd31a00b82a0d670b7406c/2026_e_cl_nicht_eu_efta_komplett.pdf'],['VFS: Swiss student D visa checklist (India)','https://www.vfsglobal.com/one-pager/switzerland/india/english/pdf/D-Checklist-Student-more-than-90-days.pdf'],['Karan Gupta: Swiss student visa for Indians','https://www.karangupta.com/blog/switzerland-student-visa-for-indian-students-cantonal-permits-and-application-gu']],
+ unis:[
+  ['ETH Zurich','Zurich',[4380,4380],'Top-ranked','CHF 2,190/semester for students from abroad',1],
+  ['EPFL','Lausanne',[4380,4380],'Top-ranked','CHF 2,190/semester for students from abroad',1],
+  ['University of Zurich','Zurich',[2440,2440],'Top-ranked','CHF 1,220/semester international rate (bachelor figure)',1],
+  ['University of St. Gallen (HSG)','St. Gallen',[6687,6687],'Top-ranked','CHF 3,343.50/semester international (bachelor figure); business',1],
+  ['Università della Svizzera italiana (USI)','Lugano',[8000,8000],'Popular','CHF 4,000/semester non-Swiss',1],
+  ['University of Bern','Bern',[1900,1900],'Popular','CHF 950/semester non-Swiss',1],
+  ['University of Basel','Basel',[1700,1700],'Popular','Same fee for all students',1],
+  ['University of Geneva','Geneva',[1000,1700],'Budget','Same fee for all students',1],
+  ['University of Lausanne','Lausanne',[1160,1700],'Budget','Same fee for all students',1],
+  ['University of Fribourg','Fribourg',[1740,1740],'Budget','CHF 870/semester non-Swiss',1]
+ ]},
+{id:'ireland',code:'IRL',name:'Ireland',cur:'EUR',visa:'Study visa (Stamp 2)',keyDoc:'Offer + fee receipt',
+ tag:'English-speaking EU option with 1-year master\'s and up to 2 years of post-study work. Large tech employer base in Dublin.',
+ intake:'September main · January',dur:'Master\'s: 1 year',
+ tuition:[10000,30000],living:10000,livingNote:'€10,000 per year',
+ fees:[{n:'Visa fee (approx)',a:60},{n:'IRP registration',a:300}],insurance:500,
+ work:'20 h/week in term, 40 in holidays',post:'Stamp 1G: 12–24 months',proc:'4–8 weeks',eng:'IELTS 6.5',
+ risk:['Lower','Clear rules; fund history scrutinised'],
+ steps:[
+  ['9–12 months before','Apply to universities','A 1-year master\'s is the common choice.'],
+  ['After offer','Pay at least €6,000 of tuition','Or the full fee if it is lower.'],
+  ['Before visa','Show €10,000 living funds','With a stable, explainable history. Explain any large recent deposit.'],
+  ['3 months before','AVATS online form','On irishimmigration.ie, then submit documents and biometrics at VFS.'],
+  ['On arrival','Register for an IRP card','Irish Residence Permit.']
+ ],
+ docs:[['acad','Offer letter',''],['fin','Tuition fee receipt','Min €6,000'],['fin','Funds proof','€10,000 with history'],['acad','English test + academics',''],['visa','Private medical insurance',''],['acad','Gap explanation',''],['visa','Cover letter + AVATS summary','']],
+ rules:[['info','Standard funds proof of €10,000/year since 30 Jun 2025.'],['warn','Proof of tuition payment is now required with the visa application.'],['info','Biometrics at VFS are mandatory for Indian nationals.']],
+ src:[['IDP: Ireland 2026 rules','https://www.idp.com/india/blog/visa-rules-for-international-students-ireland/'],['Yocket: MS in Ireland','https://yocket.com/blog/masters-ms-in-ireland'],['Irish Immigration','https://www.irishimmigration.ie/']],
+ unis:[
+  ['Trinity College Dublin','Dublin',[10000,35000],'Top-ranked','',1],
+  ['University College Dublin','Dublin',[13000,30000],'Top-ranked','',1],
+  ['University College Cork','Cork',[7000,20000],'Popular','',1],
+  ['University of Galway','Galway',[9000,26000],'Popular','',1],
+  ['University of Limerick','Limerick',[10000,19000],'Popular','',1],
+  ['Dublin City University','Dublin',[10000,23000],'Popular','',1],
+  ['Maynooth University','Maynooth',[12000,25000],'Popular','',1],
+  ['TU Dublin','Dublin',[9000,22000],'Budget','',1]
+ ]},
+{id:'nz',code:'NZL',name:'New Zealand',cur:'NZD',visa:'Fee Paying Student visa',keyDoc:'Offer of place',
+ tag:'Small, steady option with up to 3 years of post-study work. Fewer universities, so check your field is offered.',
+ intake:'February · July',dur:'Master\'s: 1–2 years',
+ tuition:[35000,50000],living:20000,livingNote:'About NZD 20,000 per year',
+ fees:[{n:'Visa fee (approx)',a:750}],insurance:700,
+ work:'Up to 25 h/week (check conditions)',post:'Post-study work visa up to 3 years',proc:'4–8 weeks',eng:'IELTS 6.5',
+ risk:['Lower',''],
+ steps:[
+  ['9–12 months before','Apply and get an offer of place',''],
+  ['After offer','Pay tuition','Keep the receipt.'],
+  ['Before applying','Medicals and police certificate','Chest X-ray and medical for courses of 12+ months; PCC from Passport Seva.'],
+  ['3 months before','Apply online','Show about NZD 20,000/year for living, plus insurance.']
+ ],
+ docs:[['acad','Offer of place',''],['fin','Tuition receipt',''],['fin','Funds proof','~NZD 20,000/yr'],['visa','Medical + chest X-ray',''],['visa','Police clearance certificate',''],['visa','Insurance','']],
+ rules:[['info','Funds and fee figures here are commonly cited levels; check immigration.govt.nz.']],
+ src:[['Immigration New Zealand','https://www.immigration.govt.nz/']],
+ unis:[
+  ['University of Auckland','Auckland',[45000,55000],'Top-ranked','',0],
+  ['University of Otago','Dunedin',[35000,45000],'Popular','',0],
+  ['University of Canterbury','Christchurch',[35000,45000],'Popular','',0],
+  ['Victoria University of Wellington','Wellington',[35000,45000],'Popular','',0],
+  ['Auckland University of Technology','Auckland',[35000,42000],'Budget','',0],
+  ['Massey University','Palmerston North',[35000,42000],'Budget','',0]
+ ]},
+{id:'france',code:'FRA',name:'France',cur:'EUR',visa:'Long-stay student visa (VLS-TS)',keyDoc:'Campus France acceptance',
+ tag:'Low public-university fees and strong business schools. Every application from India runs through Campus France.',
+ intake:'September main · January (business schools)',dur:'Master\'s: 1–2 years',
+ tuition:[3900,40000],living:7380,livingNote:'About €615/month',
+ fees:[{n:'Visa fee (approx)',a:99},{n:'Campus France fee (approx)',a:200}],insurance:400,
+ work:'964 h per year',post:'Job-seeker permit; 5-year Schengen visa for Indian master\'s grads',proc:'3–6 weeks',eng:'IELTS 6.0–6.5 for English programs',
+ risk:['Lower',''],
+ steps:[
+  ['10–12 months before','Create a Campus France account','"Études en France" procedure.'],
+  ['Oct–Mar','Apply through Campus France','Some grandes écoles take direct applications.'],
+  ['After applying','Campus France interview',''],
+  ['After acceptance','Long-stay student visa at VFS','Show about €615/month.']
+ ],
+ docs:[['acad','Campus France acceptance',''],['fin','Funds proof','~€615/month'],['visa','Accommodation proof',''],['acad','Academics + English or French test',''],['visa','Insurance','']],
+ rules:[['info','Figures here are commonly cited levels; check Campus France India.']],
+ src:[['Campus France India','https://www.inde.campusfrance.org/']],
+ unis:[
+  ['Public universities (Paris-Saclay, Sorbonne etc.)','Various',[3900,3900],'Budget','Differentiated non-EU fee; many waive it',0],
+  ['HEC Paris','Jouy-en-Josas',[30000,45000],'Top-ranked','Business',0],
+  ['ESSEC Business School','Cergy',[25000,40000],'Top-ranked','Business',0],
+  ['Grenoble Ecole de Management','Grenoble',[15000,22000],'Popular','Business',0],
+  ['EPITA','Paris',[12000,17000],'Popular','CS',0]
+ ]},
+{id:'nl',code:'NLD',name:'Netherlands',cur:'EUR',visa:'MVV + residence permit',keyDoc:'University files with IND',
+ tag:'English-taught programs everywhere and the university files your visa for you. One-year orientation year after graduation.',
+ intake:'September main · February',dur:'Master\'s: 1–2 years',
+ tuition:[15000,25000],living:14000,livingNote:'About €14,000 per year (check IND norm)',
+ fees:[{n:'MVV / residence fee (approx)',a:250}],insurance:600,
+ work:'16 h/week with permit',post:'Orientation year (zoekjaar): 1 year',proc:'2–4 weeks after IND filing',eng:'IELTS 6.5',
+ risk:['Lower','University is your sponsor'],
+ steps:[
+  ['10–12 months before','Apply through Studielink',''],
+  ['After admission','Deposit tuition + one year of living costs','Paid to the university.'],
+  ['University files','MVV + residence permit with the IND','You do not apply yourself.'],
+  ['After approval','Collect the MVV at the embassy / VFS','']
+ ],
+ docs:[['acad','Admission',''],['fin','Tuition + living deposit to university',''],['visa','Passport + photo',''],['visa','TB test declaration','']],
+ rules:[['info','Figures here are commonly cited levels; check IND.']],
+ src:[['IND','https://ind.nl/en']],
+ unis:[
+  ['TU Delft','Delft',[20000,25000],'Top-ranked','Engineering',0],
+  ['Eindhoven University of Technology','Eindhoven',[18000,22000],'Top-ranked','Engineering',0],
+  ['University of Amsterdam','Amsterdam',[16000,25000],'Top-ranked','',0],
+  ['Leiden University','Leiden',[18000,24000],'Popular','',0],
+  ['Erasmus University Rotterdam','Rotterdam',[18000,30000],'Popular','Business',0],
+  ['University of Twente','Enschede',[16000,20000],'Budget','',0]
+ ]}
+];
+const Y27={
+ usa:{note27:'The fixed-admission rule (in force since 15 Sep 2026) will apply to your whole stay. No other 2027-specific change confirmed.'},
+ uk:{living:10827,livingNote:'£1,203/month × 9 outside London (£14,130 in London), for applications from 30 Nov 2026',post:'Graduate route: 18 months (applications from 1 Jan 2027)',note27:'2027 figures: higher maintenance funds and the 18-month Graduate route both apply to you.'},
+ germany:{living:13236,livingNote:'Expected €1,103/month for winter 2027/28 if the BAföG reform passes (today €992/month)',note27:'Blocked account shown at the expected 2027 level (pending in parliament). Today it is €11,904.'},
+ canada:{note27:'2027 target: 150,000 new study permits. Master\'s and PhD students are exempt from the cap.'},
+ australia:{note27:'2027 planning level held at 295,000 new students; visa fee AUD 2,500.'},
+ scotland:{living:10827,livingNote:'£1,203/month × 9, for applications from 30 Nov 2026',post:'UK Graduate route: 18 months (applications from 1 Jan 2027)',note27:'2027 figures: higher UK maintenance funds and the 18-month Graduate route both apply.'},
+ switzerland:{note27:'No 2027 change confirmed as of Oct 2026; ETH/EPFL\'s higher fees for students from abroad already apply.'},
+ ireland:{note27:'No 2027 change confirmed as of Oct 2026; figures are today\'s rules.'},
+ nz:{note27:'No 2027 change confirmed as of Oct 2026; figures are today\'s rules.'},
+ france:{note27:'No 2027 change confirmed as of Oct 2026; figures are today\'s rules.'},
+ nl:{note27:'No 2027 change confirmed as of Oct 2026; figures are today\'s rules.'}
+};
+let MODE=store.get('atlas-mode')||'2027';
+let C=[];
+function applyMode(){C=BASE.map(c=>MODE==='2027'&&Y27[c.id]?Object.assign({},c,Y27[c.id]):c);}
+applyMode();
+const CAT={acad:['Academic','ac'],fin:['Financial','fin'],visa:['Visa','visa']};
+
+const COMMON=[['acad','Class 10 + 12 marksheets',''],['acad','Semester marksheets + consolidated marksheet',''],['acad','Provisional / original degree certificate','Request early'],['acad','2–3 Letters of Recommendation','Official letterhead'],['acad','SOP / motivation letter',''],['acad','CV','Europass for EU'],['acad','Work experience letters / payslips',''],['fin','Bank statements (6 months)','Clear source of funds'],['fin','Education loan sanction letter','']];
+
+const CONSULT=[
+['Hyderabad','IDP Education','Somajiguda','UK, Canada, Australia, NZ','Co-owner of IELTS',1],
+['Hyderabad','Global Tree','Begumpet','USA, UK, Canada, Australia, NZ','Large Telugu-state network',1],
+['Hyderabad','Edwise International','Somajiguda / Dilsukhnagar','USA, UK, Australia, Canada, Singapore','Long-standing brand',1],
+['Hyderabad','KC Overseas Education','Himayatnagar / Banjara Hills','USA, UK, Canada, Australia, Germany','600+ university tie-ups',1],
+['Hyderabad','IVY Overseas','S.R. Nagar / Himayatnagar','USA, Canada, UK, Australia','IELTS/PTE coaching',1],
+['Hyderabad','Hyderabad Overseas Consulting','Punjagutta','USA','USA-focused',1],
+['Hyderabad','Prosper Overseas','Ameerpet / Kukatpally','Canada, USA, UK, Australia','Frequent seminars',1],
+['Hyderabad','IDI Overseas','Begumpet','15+ countries','',1],
+['Hyderabad','Global Opportunities','Punjagutta / Banjara Hills','USA, UK, Australia, NZ, Canada','',1],
+['Hyderabad','Y-Axis','Multiple branches','Work, PR and immigration visas','Immigration rather than admissions',0],
+['Vijayawada','Global Tree','MG Road, Labbipet','USA, UK','',1],
+['Vijayawada','KC Overseas Education','MG Road (Jagirdar Mall)','Multiple','',1],
+['Vijayawada','AECC Global','Benz Circle','Multiple','',1],
+['Vijayawada','IVY Overseas','Labbipet (Uttam Towers)','USA, Canada, Australia, UK, Ireland','',1],
+['Vijayawada','Eduxperts','Benz Circle','USA, UK, Canada, Australia, Germany','',1],
+['Vijayawada','Makoverseas','Labbipet','UK, USA, Canada, Australia, Germany','20+ years; post-arrival help',1],
+['Vijayawada','Global Degrees','Benz Circle','USA, UK, Australia, Ireland, France','Loan assistance',1],
+['Vijayawada','Enlight Consultancy','Lakshmipuram, Labbipet','USA, UK, Ireland, Australia, Canada','Also work permits',1],
+['Visakhapatnam','IVY Overseas','Vizag branch','Canada, USA, UK','',1],
+['Visakhapatnam','MeritGuide','Waltair Main Road','USA, Canada, France, Germany, Australia','IELTS training',1],
+['Visakhapatnam','Study Connect','Vizag','Australia','',1],
+['Visakhapatnam','Skylark Overseas Education','Vizag','Multiple','IELTS coaching',1],
+['Chennai','TC Global','Nungambakkam','40+ countries','Since 1995',1],
+['Chennai','AECC','Nungambakkam','14+ countries','SOP/LOR support',1],
+['Chennai','KC Overseas Education','Nungambakkam','31 countries','',1],
+['Chennai','Santamonica Study Abroad','Nungambakkam','30+ countries','Since 2002',1],
+['Chennai','KCR Consultants','Chetpet','Germany, France, Finland','Germany + Ausbildung specialist',1],
+['Chennai','ForEd Overseas','Anna Nagar','16+ countries','',1],
+['Chennai','BroadMind Study Abroad','Vadapalani','Europe, Asia','',1],
+['Chennai','Edvoy','Alwarpet','UK, USA, Canada, Ireland','App-based',1],
+['Bengaluru','Leap Scholar','HSR Layout / online','UK, Canada, Australia, Ireland','Online-first, loan tie-ups',1],
+['Bengaluru','IDP, AECC, KC Overseas','Multiple','Multiple','National chains',0],
+['Delhi NCR','The Chopras','Nehru Place','UK, Australia, Canada, NZ','30+ years',1],
+['Delhi NCR','Leverage Edu','Online / Delhi','UK, Canada, Australia, USA','Online-first',0],
+['Delhi NCR','Jamboree Education','Multiple','USA','GRE/GMAT + admissions',0],
+['Mumbai','Collegepond','Andheri / online','USA (MS, MBA)','Strong for STEM MS',0],
+['Mumbai','GEEBEE Education','Churchgate','Canada, UK, Australia','',1],
+['Mumbai','Harjai Global Gurukul','Malad','Multiple','',1],
+['Online','Yocket, upGrad Abroad, iSchoolConnect','Online','USA, Germany, Canada','Paid premium tiers',0]
+];
+
+const PIPE=[
+['Month 1','Profile check','Marks, CGPA, backlogs, work experience, test scores, budget and family finances.',['you','con']],
+['Months 1–2','Country + university shortlist','6–12 universities. Partner universities get pushed first.',['you','con']],
+['Months 1–4','Tests','IELTS/TOEFL/PTE/Duolingo; GRE/GMAT for some US programs; German A1–B1 for Germany.',['you']],
+['Months 2–4','Collect documents','Transcripts, degree, backlog and medium-of-instruction letters, WES where asked.',['you']],
+['Months 2–4','SOP, LORs, CV','Write your own SOP. Visa systems now check for copied and AI-written text.',['you','con']],
+['Months 3–6','Applications','University portals, UCAS, uni-assist, or agent portals.',['you','con']],
+['Months 5–8','Offer + acceptance','Pay deposit; receive I-20 / CAS / CoE / LOA / admission letter.',['uni','you']],
+['Months 5–9','Funds + loan','Loan sanction, FDs, CA statement, blocked account or GIC.',['you']],
+['Months 7–10','Visa file + interview','Forms, fees, biometrics, interview where required.',['you','con','emb']],
+['Final month','Pre-departure','Forex, insurance, accommodation, tickets, airport pickup.',['you','con']]
+];
+const ROUTES=[
+['Employer-sponsored work visa','The employer offers the job and files your visa. Examples: US H-1B (lottery), UK Skilled Worker, EU Blue Card, Australia Skills in Demand (482), Canada LMIA permit.'],
+['Job-seeker visa','You go first and search on the ground. Examples: Germany Opportunity Card (Chancenkarte, up to 1 year), Austria job-seeker visa.'],
+['Post-study work','Study first, then work. US OPT, UK Graduate route, Canada PGWP, Australia 485, Germany 18-month permit, Ireland Stamp 1G.'],
+['Vocational training','Germany Ausbildung: a paid apprenticeship, needs German B1–B2.']
+];
+const AGENT=[
+['Before paying','Check the licence','The agent\'s MEA Recruiting Agent licence number must appear on eMigrate.'],
+['Agent side','Employer demand letter','The foreign employer gives the agent a demand letter and power of attorney; the job is posted with salary and terms.'],
+['Selection','Interview with the employer','Not just with the agent. Then sign the employment contract.'],
+['Visa','Employer files your work visa','ECR-passport holders going to the 18 ECR countries also need emigration clearance on eMigrate.'],
+['Fees','Pay only the capped service charge','Commonly cited as ₹30,000 + GST; check the current cap on eMigrate and get a receipt.'],
+['Departure','Orientation + insurance','Pravasi Bharatiya Bima Yojana for ECR emigrants.']
+];
+
+/* ---------- helpers ---------- */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmt=n=>Math.round(n).toLocaleString('en-IN');
+const money=(n,cur)=>SYM[cur]+Math.round(n).toLocaleString('en-US');
+const lakh=n=>(n/100000).toFixed(1)+' L';
+const inr=(n,cur)=>n*RATES[cur];
+const feeSum=c=>c.fees.reduce((s,f)=>s+f.a,0);
+function totals(c){const extra=c.living+feeSum(c)+c.insurance;return [inr(c.tuition[0]+extra,c.cur),inr(c.tuition[1]+extra,c.cur)];}
+
+let cur=C[0], sub='steps';
+const hashId=(location.hash||'').slice(1);
+const saved=store.get('atlas-country');
+cur=C.find(c=>c.id===hashId)||C.find(c=>c.id===saved)||C[0];
+
+/* ---------- views ---------- */
+function setView(v){
+  document.querySelectorAll('.views button').forEach(b=>b.setAttribute('aria-selected',b.dataset.view===v));
+  document.querySelectorAll('[data-v]').forEach(s=>{s.hidden=s.dataset.v!==v});
+  if(v==='compare')renderCompare();
+}
+document.querySelectorAll('.views button').forEach(b=>b.addEventListener('click',()=>setView(b.dataset.view)));
+
+/* ---------- country chips ---------- */
+function renderChips(){
+  $('#countryChips').innerHTML=C.map(c=>`<button class="chip" aria-pressed="${c===cur}" data-id="${c.id}"><span class="cc">${c.code}</span>${esc(c.name)}</button>`).join('');
+  document.querySelectorAll('#countryChips .chip').forEach(b=>b.addEventListener('click',()=>{cur=C.find(c=>c.id===b.dataset.id);store.set('atlas-country',cur.id);renderCountry();}));
+}
+function renderPass(){
+  const c=cur,t=totals(c);
+  const mrz=('VISA<'+c.code+'<<'+c.visa.toUpperCase().replace(/[^A-Z0-9]+/g,'<')+'<<'+c.keyDoc.toUpperCase().replace(/[^A-Z0-9]+/g,'<')+'<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<').slice(0,88);
+    $('#pass').innerHTML=`
+   <div class="scene" aria-hidden="true">${ART.country(c.id)}</div>
+   <div class="pass-top">
+     <div style="min-width:0">
+       <div class="eyebrow" style="color:var(--band-muted)">${esc(c.visa)} · key document: ${esc(c.keyDoc)}</div>
+       <h2>${esc(c.name)}</h2>
+       <p class="tag">${esc(c.tag)}</p>
+     </div>
+     <div class="stamp">Visa difficulty<b>${c.risk[0]}</b>${esc(c.risk[1]||'')}</div>
+   </div>
+   ${MODE==='2027'&&c.note27?`<div class="y27"><b>2027 intake:</b> ${esc(c.note27)}</div>`:''}
+   <div class="kpis">
+     <div class="kpi"><div class="k">Tuition / year</div><div class="v">${money(c.tuition[0],c.cur)}–${money(c.tuition[1],c.cur).replace(SYM[c.cur],'')}</div><div class="s">₹${lakh(inr(c.tuition[0],c.cur))}–${lakh(inr(c.tuition[1],c.cur))}</div></div>
+     <div class="kpi"><div class="k">Living funds to show</div><div class="v">${money(c.living,c.cur)}</div><div class="s">${esc(c.livingNote)}</div></div>
+     <div class="kpi"><div class="k">First-year total</div><div class="v">₹${lakh(t[0])}–${lakh(t[1])}</div><div class="s">Tuition + living + fees + insurance</div></div>
+     <div class="kpi"><div class="k">Work while studying</div><div class="v" style="font-size:17px">${esc(c.work)}</div><div class="s">English: ${esc(c.eng)}</div></div>
+     <div class="kpi"><div class="k">After graduation</div><div class="v" style="font-size:17px">${esc(c.post)}</div><div class="s">${esc(c.intake)} · ${esc(c.dur)}</div></div>
+   </div>
+   <div class="mrz" aria-hidden="true">${esc(mrz)}</div>`;
+}
+
+/* sub tabs */
+document.querySelectorAll('#subtabs button').forEach(b=>b.addEventListener('click',()=>{sub=b.dataset.sub;renderSub();}));
+function renderSub(){
+  document.querySelectorAll('#subtabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.sub===sub));
+  document.querySelectorAll('[data-s]').forEach(d=>d.hidden=d.dataset.s!==sub);
+}
+
+function renderSteps(){
+  const c=cur;
+  $('#sub-steps').innerHTML=`<div class="panel-head"><div><h2>${esc(c.name)}: admission to visa, in order</h2><p class="lead">Each step lists when to do it relative to your intake.</p></div></div>
+  <ol class="steps">${c.steps.map(s=>`<li><div></div><div><div class="when">${esc(s[0])}</div><h3>${esc(s[1])}</h3>${s[2]?`<p>${esc(s[2])}</p>`:''}</div></li>`).join('')}</ol>
+  <p class="note">Sources: ${c.src.map(s=>`<a href="${s[1]}" target="_blank" rel="noopener">${esc(s[0])}</a>`).join(' · ')}</p>`;
+  $('#sub-steps').querySelectorAll('.steps li > div:first-child').forEach(d=>d.remove());
+  $('#sub-steps').querySelectorAll('.steps li').forEach(li=>li.style.gridTemplateColumns='32px 1fr');
+}
+
+function renderDocs(){
+  const c=cur, key='atlas-docs-'+c.id; let done=store.get(key)||{};
+  const all=[...c.docs.map(d=>({d,spec:1})),...COMMON.map(d=>({d,spec:0}))];
+  let filter='all';
+  const box=$('#sub-docs');
+  box.innerHTML=`<div class="panel-head"><div><h2>Document checklist for ${esc(c.name)}</h2><p class="lead">Tick items as you collect them; ticks are saved in this browser. Country-specific items come first, then the documents every country asks for.</p></div></div>
+   <div class="doc-tools">
+     <div class="progress"><div class="track"><i id="docBar"></i></div><span class="num mono" id="docCount"></span></div>
+     <div class="chips" id="docFilter">
+       <button class="chip small" aria-pressed="true" data-f="all">All</button>
+       <button class="chip small" aria-pressed="false" data-f="acad">Academic</button>
+       <button class="chip small" aria-pressed="false" data-f="fin">Financial</button>
+       <button class="chip small" aria-pressed="false" data-f="visa">Visa</button>
+     </div>
+     <button class="btn" id="copyDocs">Copy checklist</button>
+   </div>
+   <div class="doclist" id="docList"></div>`;
+  function draw(){
+    const list=all.filter(x=>filter==='all'||x.d[0]===filter);
+    $('#docList').innerHTML=list.map(x=>{const id=x.d[1];const on=!!done[id];return `<label class="doc ${on?'done':''}"><input type="checkbox" data-id="${esc(id)}" ${on?'checked':''}><span><b>${esc(id)}<span class="pill ${CAT[x.d[0]][1]}">${CAT[x.d[0]][0]}</span>${x.spec?'':'<span class="pill">All countries</span>'}</b>${x.d[2]?`<small>${esc(x.d[2])}</small>`:''}</span></label>`}).join('');
+    $('#docList').querySelectorAll('input').forEach(i=>i.addEventListener('change',()=>{done[i.dataset.id]=i.checked;store.set(key,done);draw();}));
+    const n=all.filter(x=>done[x.d[1]]).length;
+    $('#docBar').style.width=(n/all.length*100)+'%';
+    $('#docCount').textContent=n+' / '+all.length+' ready';
+  }
+  box.querySelectorAll('#docFilter .chip').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.f;box.querySelectorAll('#docFilter .chip').forEach(x=>x.setAttribute('aria-pressed',x===b));draw();}));
+  $('#copyDocs').addEventListener('click',e=>{
+    const txt=c.name+' document checklist\n'+all.map(x=>'[ ] '+x.d[1]+(x.d[2]?' ('+x.d[2]+')':'')).join('\n');
+    const btn=e.currentTarget;
+    const ok=()=>{btn.textContent='Copied';setTimeout(()=>btn.textContent='Copy checklist',1600)};
+    try{navigator.clipboard.writeText(txt).then(ok,()=>{btn.textContent='Copy blocked here';});}catch(err){btn.textContent='Copy blocked here';}
+  });
+  draw();
+}
+
+function renderUnis(){
+  const c=cur, box=$('#sub-unis');
+  box.innerHTML=`<div class="panel-head"><div><h2>Universities Indian students choose in ${esc(c.name)}</h2><p class="lead">International tuition per year for master's, in ${c.cur} and rupees. Fees vary a lot by program; open the university page for your course.</p></div></div>
+  <div class="filters">
+    <input id="uniSearch" type="search" placeholder="Search university or city" aria-label="Search universities">
+    <select id="uniTag" aria-label="Filter by type"><option value="all">All types</option><option>Top-ranked</option><option>Popular</option><option>Budget</option></select>
+    <select id="uniSort" aria-label="Sort"><option value="fa">Tuition: low to high</option><option value="fd">Tuition: high to low</option><option value="n">Name</option></select>
+  </div>
+  <div class="tbl-wrap"><table><thead><tr><th>University</th><th>City</th><th>Type</th><th class="r">Tuition / yr</th><th class="r">In ₹</th><th>Note</th><th>Data</th></tr></thead><tbody id="uniBody"></tbody></table></div>
+  <p class="note">${c.id==='germany'?'German figures are yearly totals of tuition plus semester contributions. ':''}Sourced figures come from: ${c.src.filter(s=>!/gov|ircc|canada\.ca|homeaffairs|irishimmigration|ind\.nl|campusfrance|travel\.state|immigration\.govt/.test(s[1])).map(s=>`<a href="${s[1]}" target="_blank" rel="noopener">${esc(s[0])}</a>`).join(' · ')||'no cited page for this country'}.</p>`;
+  function draw(){
+    const q=$('#uniSearch').value.toLowerCase(), tg=$('#uniTag').value, so=$('#uniSort').value;
+    let rows=c.unis.filter(u=>(tg==='all'||u[3]===tg)&&(u[0]+' '+u[1]).toLowerCase().includes(q));
+    rows.sort((a,b)=>so==='n'?a[0].localeCompare(b[0]):so==='fa'?a[2][0]-b[2][0]:b[2][1]-a[2][1]);
+    const tagCls={'Top-ranked':'visa','Popular':'fin','Budget':'ok'};
+    $('#uniBody').innerHTML=rows.map(u=>{const f=u[2];const local=f[0]===f[1]?money(f[0],c.cur):money(f[0],c.cur)+'–'+money(f[1],c.cur).replace(SYM[c.cur],'');const r=f[0]===f[1]?'₹'+lakh(inr(f[0],c.cur)):'₹'+lakh(inr(f[0],c.cur))+'–'+lakh(inr(f[1],c.cur));
+      return `<tr><td><b>${esc(u[0])}</b></td><td>${esc(u[1])}</td><td><span class="pill ${tagCls[u[3]]}" style="margin:0">${u[3]}</span></td><td class="r num mono">${local}</td><td class="r num mono">${r}</td><td style="color:var(--muted)">${esc(u[4])}</td><td><span class="src ${u[5]?'s':''}">${u[5]?'sourced':'approx'}</span></td></tr>`}).join('')||`<tr><td colspan="7" style="color:var(--muted)">No universities match. Clear the search or pick "All types".</td></tr>`;
+  }
+  ['uniSearch','uniTag','uniSort'].forEach(id=>$('#'+id).addEventListener('input',draw));
+  draw();
+}
+
+function renderCost(){
+  const c=cur, box=$('#sub-cost');
+  const step=c.tuition[1]>20000?500:100;
+  const startT=Math.round((c.tuition[0]+c.tuition[1])/2/step)*step;
+  box.innerHTML=`<div class="panel-head"><div><h2>What your first year in ${esc(c.name)} costs</h2><p class="lead">Move the slider to your program's tuition. The total is what you need to pay or show as funds in year one.</p></div></div>
+  <div class="cost-grid">
+    <div>
+      <div class="field"><label for="tuiR"><span>Tuition per year</span><span class="mono num" id="tuiV"></span></label><input type="range" id="tuiR" min="${c.tuition[0]}" max="${c.tuition[1]}" step="${step}" value="${startT}"></div>
+      <div class="field"><label for="livR"><span>Living costs per year</span><span class="mono num" id="livV"></span></label><input type="range" id="livR" min="${Math.round(c.living*0.8)}" max="${Math.round(c.living*1.5)}" step="${step}" value="${c.living}"><small style="color:var(--muted)">Visa minimum: ${money(c.living,c.cur)} (${esc(c.livingNote)})</small></div>
+      <div class="check"><input type="checkbox" id="feesC" checked><label for="feesC">Include visa and application fees (${money(feeSum(c),c.cur)})</label></div>
+      <div class="check"><input type="checkbox" id="insC" ${c.insurance?'checked':''} ${c.insurance?'':'disabled'}><label for="insC">Include health insurance (${c.insurance?money(c.insurance,c.cur):'covered by IHS fee'})</label></div>
+      <div class="check"><input type="checkbox" id="flyC" checked><label for="flyC">Include one-way flight (~₹60,000)</label></div>
+    </div>
+    <div>
+      <div class="eyebrow">Estimated first year</div>
+      <div class="total num" id="costTotal"></div>
+      <div class="mono num" style="color:var(--muted)" id="costLocal"></div>
+      <div class="stack" id="costStack"></div>
+      <div class="legend" id="costLegend"></div>
+      <p class="note">Fees: ${c.fees.map(f=>esc(f.n)+' '+money(f.a,c.cur)).join(' · ')}. Some fee and insurance figures are approximate; confirm on the official site.</p>
+    </div>
+  </div>`;
+  const colors=['var(--bar)','var(--bar-2)','var(--warn)','var(--muted)','var(--crit)'];
+  function draw(){
+    const T=+$('#tuiR').value,L=+$('#livR').value,F=$('#feesC').checked?feeSum(c):0,I=$('#insC').checked?c.insurance:0,FL=$('#flyC').checked?60000:0;
+    $('#tuiV').textContent=money(T,c.cur);$('#livV').textContent=money(L,c.cur);
+    const parts=[['Tuition',inr(T,c.cur)],['Living',inr(L,c.cur)],['Visa & fees',inr(F,c.cur)],['Insurance',inr(I,c.cur)],['Flight',FL]];
+    const tot=parts.reduce((s,p)=>s+p[1],0);
+    $('#costTotal').textContent='₹'+lakh(tot).replace(' L',' lakh');
+    $('#costLocal').textContent='≈ '+money((T+L+F+I),c.cur)+' + flight · ₹'+fmt(tot);
+    $('#costStack').innerHTML=parts.map((p,i)=>p[1]>0?`<span style="width:${p[1]/tot*100}%;background:${colors[i]}" title="${p[0]}"></span>`:'').join('');
+    $('#costLegend').innerHTML=parts.map((p,i)=>`<div><i style="background:${colors[i]}"></i><span>${p[0]}</span><span class="mono num">₹${fmt(p[1])}</span></div>`).join('');
+  }
+  box.querySelectorAll('input').forEach(i=>i.addEventListener('input',draw));
+  draw();
+}
+
+function renderRules(){
+  const c=cur;
+  $('#sub-rules').innerHTML=`<div class="panel-head"><div><h2>Recent and upcoming changes: ${esc(c.name)}</h2><p class="lead">Rules that changed recently or are about to. Check these before you pay any fee.</p></div></div>
+  <div class="rules">${c.rules.map(r=>`<div class="rule"><span class="pill ${r[0]==='warn'?'fin':'visa'}" style="margin:0">${r[0]==='warn'?'Watch':'Note'}</span><p>${esc(r[1])}</p></div>`).join('')}</div>
+  <p class="note">Sources: ${c.src.map(s=>`<a href="${s[1]}" target="_blank" rel="noopener">${esc(s[0])}</a>`).join(' · ')}</p>`;
+}
+
+function renderCountry(){renderChips();renderPass();animatePlanes(document.getElementById('pass'));renderSteps();renderDocs();renderUnis();renderCost();renderRules();renderSub();}
+
+/* ---------- compare ---------- */
+function renderCompare(){
+  const rows=C.map(c=>({c,t:totals(c)})).sort((a,b)=>(a.t[0]+a.t[1])-(b.t[0]+b.t[1]));
+  const max=Math.ceil(Math.max(...rows.map(r=>r.t[1]))/100000/10)*10;
+  const W=820,L=150,R=70,rowH=36,top=26,H=top+rows.length*rowH+10;
+  const x=v=>L+(v/100000)/max*(W-L-R);
+  let g='';
+  for(let v=0;v<=max;v+=10){g+=`<line class="gridl" x1="${x(v*100000)}" x2="${x(v*100000)}" y1="${top-6}" y2="${H-6}"/><text class="axis" x="${x(v*100000)}" y="14" text-anchor="middle">₹${v}L</text>`;}
+  rows.forEach((r,i)=>{const y=top+i*rowH+rowH/2;const mid=(r.t[0]+r.t[1])/2;
+    g+=`<text x="${L-12}" y="${y+4}" text-anchor="end" font-size="13.5" font-weight="600">${esc(r.c.name)}</text>
+    <rect x="${x(r.t[0])}" y="${y-7}" width="${Math.max(2,x(r.t[1])-x(r.t[0]))}" height="14" rx="7" fill="var(--bar-2)" opacity=".55"/>
+    <circle cx="${x(mid)}" cy="${y}" r="6" fill="var(--bar)" stroke="var(--surface)" stroke-width="2"/>
+    <text class="axis" x="${x(r.t[1])+8}" y="${y+4}">${(r.t[0]/1e5).toFixed(0)}–${(r.t[1]/1e5).toFixed(0)}L</text>`;});
+  $('#compareChart').innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="100%" style="min-width:600px" role="img" aria-label="First-year cost range by country in lakh rupees">${g}</svg>`;
+  $('#compareTable').innerHTML=`<thead><tr><th>Country</th><th>Key document</th><th class="r">Tuition / yr</th><th class="r">Living funds</th><th class="r">Year 1 (₹ lakh)</th><th>Work in term</th><th>Post-study work</th><th>Visa difficulty</th></tr></thead><tbody>`+
+   C.map(c=>{const t=totals(c);const cls=c.risk[0]==='Higher'?'risk':c.risk[0]==='Medium'?'fin':'ok';return `<tr><td><button class="btn" data-go="${c.id}" style="padding:3px 10px">${esc(c.name)}</button></td><td>${esc(c.keyDoc)}</td><td class="r mono num">${money(c.tuition[0],c.cur)}–${money(c.tuition[1],c.cur).replace(SYM[c.cur],'')}</td><td class="r mono num">${money(c.living,c.cur)}</td><td class="r mono num">${(t[0]/1e5).toFixed(1)}–${(t[1]/1e5).toFixed(1)}</td><td>${esc(c.work)}</td><td>${esc(c.post)}</td><td><span class="pill ${cls}" style="margin:0">${c.risk[0]}</span></td></tr>`}).join('')+`</tbody>`;
+  document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>{cur=C.find(c=>c.id===b.dataset.go);store.set('atlas-country',cur.id);renderCountry();setView('country');window.scrollTo({top:0,behavior:'smooth'});}));
+}
+
+/* ---------- process / jobs ---------- */
+$('#pipe').innerHTML=PIPE.map((p,i)=>`<div class="stage"><div class="n">Stage ${i+1} · ${p[0]}</div><h3>${p[1]}</h3><p>${p[2]}</p><div class="who">${p[3].map(w=>({you:'<span class="you">You</span>',con:'<span class="con">Consultancy</span>',uni:'<span>University</span>',emb:'<span class="emb">Embassy</span>'}[w])).join('')}</div></div>`).join('');
+$('#routes').innerHTML=ROUTES.map(r=>`<div class="card"><h3>${r[0]}</h3><p>${r[1]}</p></div>`).join('');
+$('#agentSteps').innerHTML=AGENT.map(s=>`<li style="grid-template-columns:32px 1fr"><div><div class="when">${s[0]}</div><h3>${s[1]}</h3><p>${s[2]}</p></div></li>`).join('');
+
+
+/* ---------- illustrations (original SVG) ---------- */
+const ART=(function(){
+ const rng=seed=>()=>((seed=(seed*16807)%2147483647)/2147483647);
+ const planeShape=cls=>`<path class="${cls}" d="M-40 0Q-40 -5 -30 -5L30 -5Q45 -4 50 0Q45 4 30 5L-30 5Q-40 5 -40 0Z"/><path class="${cls}" d="M-5 -4L-22 -30L-13 -30L13 -4Z"/><path class="${cls}" d="M-5 4L-22 30L-13 30L13 4Z"/><path class="${cls}" d="M-34 -4L-44 -19L-37 -19L-26 -4Z"/>`;
+ const sky=(id,w,h)=>`<defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--band)"/><stop offset=".58" style="stop-color:var(--ill-dusk)"/><stop offset="1" style="stop-color:var(--ill-glow)"/></linearGradient></defs><rect width="${w}" height="${h}" fill="url(#${id})"/>`;
+ function stars(r,w,h,n){let o='';for(let i=0;i<n;i++)o+=`<circle class="ill-star" cx="${(r()*w).toFixed(0)}" cy="${(r()*h).toFixed(0)}" r="${(0.6+r()*1.2).toFixed(1)}"/>`;return o;}
+ function skyline(r,x0,x1,base,minH,maxH,cls,win){let o='',x=x0;while(x<x1){const w=16+r()*30,h=minH+r()*(maxH-minH);o+=`<rect class="${cls}" x="${x.toFixed(0)}" y="${(base-h).toFixed(0)}" width="${w.toFixed(0)}" height="${h.toFixed(0)}"/>`;
+   if(win){for(let yy=base-h+8;yy<base-8;yy+=12)for(let xx=x+4;xx<x+w-5;xx+=8)if(r()<.2)o+=`<rect class="ill-win" x="${xx.toFixed(0)}" y="${yy.toFixed(0)}" width="3" height="4"/>`;}
+   x+=w+2+r()*6;}return o;}
+ function flight(d,rest,sc){return `<path class="ill-path" d="${d}"/><g data-plane data-rest="${rest}" transform="${rest}"><g transform="scale(${sc||.55})">${planeShape('ill-plane')}</g></g>`;}
+
+ /* landmarks: base at y=0, drawn upward */
+ const L={
+  usa:c=>`<path class="${c}" d="M-46 0L-36 -18L36 -18L46 0Z"/><path class="${c}" d="M-24 -18L-20 -70L20 -70L24 -18Z"/><rect class="${c}" x="-26" y="-76" width="52" height="8"/><path class="${c}" d="M-11 -76L-8 -140Q0 -148 8 -140L11 -76Z"/><circle class="${c}" cx="0" cy="-150" r="7"/><path class="${c}" d="M-9 -154L-14 -164L-6 -157L-4 -168L0 -158L4 -168L6 -157L14 -164L9 -154Z"/><path class="${c}" d="M4 -138L14 -186L19 -185L11 -136Z"/><path class="${c}" d="M11 -190L23 -190L21 -184L13 -184Z"/><path class="ill-win" d="M17 -203Q24 -194 17 -190Q10 -194 17 -203Z"/><path class="${c}" d="M-8 -118L-21 -112L-19 -105L-6 -111Z"/>`,
+  uk:c=>{let o=`<rect class="${c}" x="-160" y="-52" width="140" height="52"/>`;[-152,-122,-92,-62,-34].forEach(x=>o+=`<rect class="${c}" x="${x}" y="-66" width="7" height="14"/><path class="${c}" d="M${x} -66L${x+3.5} -78L${x+7} -66Z"/>`);
+    o+=`<rect class="${c}" x="-15" y="-150" width="30" height="150"/><rect class="${c}" x="-19" y="-130" width="38" height="38"/><circle class="ill-win" cx="0" cy="-111" r="12"/><path d="M0 -111L0 -119M0 -111L6 -108" stroke="var(--ill-lm)" stroke-width="2"/><path class="${c}" d="M-17 -150L0 -194L17 -150Z"/><rect class="${c}" x="-1.5" y="-208" width="3" height="16"/>`;
+    o+=`<g transform="translate(150 0)"><circle cx="0" cy="-84" r="72" fill="none" stroke="var(--ill-lm)" stroke-width="4"/>`;for(let i=0;i<12;i++){const a=i*Math.PI/6;o+=`<line x1="0" y1="-84" x2="${(72*Math.cos(a)).toFixed(1)}" y2="${(-84+72*Math.sin(a)).toFixed(1)}" stroke="var(--ill-lm)" stroke-width="1.2"/><circle class="${c}" cx="${(72*Math.cos(a)).toFixed(1)}" cy="${(-84+72*Math.sin(a)).toFixed(1)}" r="4"/>`;}
+    return o+`<path d="M-34 0L0 -84L34 0" fill="none" stroke="var(--ill-lm)" stroke-width="4"/></g>`;},
+  germany:c=>{let o=`<rect class="${c}" x="-94" y="-6" width="188" height="6"/>`;for(let i=0;i<6;i++)o+=`<rect class="${c}" x="${-80+i*30}" y="-76" width="10" height="70"/>`;
+    return o+`<rect class="${c}" x="-92" y="-98" width="184" height="22"/><path class="${c}" d="M-50 -98L-44 -114L44 -114L50 -98Z"/><path class="${c}" d="M-20 -114L-18 -128L-10 -133L-6 -124L-2 -135L4 -126L10 -133L18 -128L20 -114Z"/><g transform="translate(200 0)"><path class="${c}" d="M-5 0L-3 -190L3 -190L5 0Z"/><circle class="${c}" cx="0" cy="-152" r="16"/><rect class="${c}" x="-1.2" y="-232" width="2.4" height="44"/></g>`;},
+  canada:c=>`<path class="${c}" d="M-12 0L-4 -190L4 -190L12 0Z"/><ellipse class="${c}" cx="0" cy="-150" rx="19" ry="9"/><ellipse class="${c}" cx="0" cy="-174" rx="7" ry="4"/><rect class="${c}" x="-1.2" y="-246" width="2.4" height="60"/>`,
+  australia:c=>`<path class="${c}" d="M-140 0L-140 -12L140 -12L140 0Z"/><path class="${c}" d="M-112 -12Q-90 -82 -46 -98Q-62 -50 -56 -12Z"/><path class="${c}" d="M-60 -12Q-34 -100 14 -116Q-6 -62 0 -12Z"/><path class="${c}" d="M4 -12Q32 -84 74 -92Q58 -46 58 -12Z"/><path class="${c}" d="M62 -12Q80 -58 112 -64Q100 -36 104 -12Z"/><g transform="translate(-330 0)"><path d="M-110 -14Q0 -128 110 -14" fill="none" stroke="var(--ill-lm)" stroke-width="7"/><path d="M-110 -14Q0 -100 110 -14" fill="none" stroke="var(--ill-lm)" stroke-width="2"/><rect class="${c}" x="-130" y="-38" width="260" height="6"/><rect class="${c}" x="-128" y="-62" width="14" height="62"/><rect class="${c}" x="114" y="-62" width="14" height="62"/></g>`,
+  ireland:c=>`<rect class="${c}" x="-11" y="-124" width="22" height="124"/><path class="${c}" d="M-13 -124L0 -158L13 -124Z"/><rect class="ill-win" x="-3" y="-104" width="5" height="9"/><g transform="translate(190 0)"><path d="M-100 -12Q0 -70 100 -12" fill="none" stroke="var(--ill-lm)" stroke-width="6"/><path d="M-100 -30Q0 -76 100 -30" fill="none" stroke="var(--ill-lm)" stroke-width="2"/>${[...Array(9)].map((_,i)=>`<line x1="${-80+i*20}" y1="${(-12-46*(1-Math.pow((-80+i*20)/100,2))).toFixed(1)}" x2="${-80+i*20}" y2="${(-30-38*(1-Math.pow((-80+i*20)/100,2))).toFixed(1)}" stroke="var(--ill-lm)" stroke-width="1.5"/>`).join('')}</g><g transform="translate(-170 0)"><rect class="${c}" x="-30" y="-30" width="60" height="30"/><path class="${c}" d="M-36 -30L0 -54L36 -30Z"/><rect class="ill-win" x="-18" y="-22" width="8" height="8"/><rect class="ill-win" x="10" y="-22" width="8" height="8"/></g>`,
+  nz:c=>`<path class="ill-mid" d="M-420 0L-300 -150L-200 -40L-110 -170L20 0Z"/><path class="ill-snow" d="M-300 -150L-322 -122L-308 -128L-296 -116L-286 -132Z"/><path class="ill-snow" d="M-110 -170L-136 -136L-120 -142L-106 -128L-92 -146Z"/><path class="${c}" d="M-7 0L-3 -168L3 -168L7 0Z"/><ellipse class="${c}" cx="0" cy="-134" rx="15" ry="8"/><rect class="${c}" x="-1.2" y="-222" width="2.4" height="56"/>`,
+  france:c=>`<path class="${c}" fill-rule="evenodd" d="M-52 0L-34 0Q-20 -46 -11 -80L11 -80Q20 -46 34 0L52 0Q27 -56 14 -106L7 -156L2 -196L0 -214L-2 -196L-7 -156L-14 -106Q-27 -56 -52 0Z M-24 0Q0 -48 24 0Z"/><rect class="${c}" x="-20" y="-84" width="40" height="7"/><rect class="${c}" x="-12" y="-132" width="24" height="5"/>`,
+  scotland:c=>`<path class="ill-mid" d="M-150 0L-130 -46L-80 -70L-20 -78L40 -66L90 -40L120 0Z"/><rect class="${c}" x="-100" y="-118" width="150" height="44"/>${[...Array(8)].map((_,i)=>`<rect class="${c}" x="${-100+i*19}" y="-126" width="10" height="9"/>`).join('')}<rect class="${c}" x="-120" y="-150" width="30" height="80"/>${[0,1,2].map(i=>`<rect class="${c}" x="${-120+i*11}" y="-158" width="8" height="9"/>`).join('')}<rect class="${c}" x="30" y="-140" width="26" height="66"/><path class="${c}" d="M28 -140L43 -162L58 -140Z"/><rect class="ill-win" x="-60" y="-104" width="5" height="8"/><rect class="ill-win" x="-30" y="-104" width="5" height="8"/><rect class="ill-win" x="0" y="-104" width="5" height="8"/><g transform="translate(200 0)"><path class="${c}" d="M-20 0L-20 -40L-12 -40L-8 -110L-4 -150L0 -196L4 -150L8 -110L12 -40L20 -40L20 0Z"/><path class="${c}" d="M-26 -40L26 -40L22 -52L-22 -52Z"/></g>`,
+ switzerland:c=>`<path class="ill-mid" d="M-420 0L-330 -90L-280 -60L-200 -120L-130 -40L-60 0Z"/><path class="${c}" d="M-210 0L-120 -118L-96 -150L-74 -210L-58 -170L-30 -150L40 -40L80 0Z"/><path class="ill-snow" d="M-74 -210L-96 -150L-86 -156L-80 -140L-68 -160L-58 -170Z"/><path class="ill-snow" d="M-200 -120L-216 -100L-204 -104L-194 -94L-186 -108Z"/><g transform="translate(150 0)"><rect class="${c}" x="-40" y="-60" width="80" height="60"/><rect class="${c}" x="-36" y="-118" width="22" height="58"/><rect class="${c}" x="14" y="-118" width="22" height="58"/><path class="${c}" d="M-38 -118L-25 -146L-12 -118Z"/><path class="${c}" d="M12 -118L25 -146L38 -118Z"/><circle class="ill-win" cx="-25" cy="-96" r="5"/><circle class="ill-win" cx="25" cy="-96" r="5"/><path class="ill-win" d="M-10 0L-10 -26A10 10 0 0 1 10 -26L10 0Z"/></g>`,
+ nl:c=>{const mill=(x,s)=>`<g transform="translate(${x} 0) scale(${s})"><path class="${c}" d="M-18 0L-10 -92L10 -92L18 0Z"/><path class="${c}" d="M-13 -92L0 -108L13 -92Z"/><rect class="ill-win" x="-3" y="-30" width="6" height="12"/><g transform="translate(0 -96)"><g class="blades"><rect class="${c}" x="-2.5" y="-74" width="5" height="148"/><rect class="${c}" x="-74" y="-2.5" width="148" height="5"/><rect class="${c}" x="2" y="-70" width="10" height="44"/><rect class="${c}" x="-12" y="26" width="10" height="44"/><rect class="${c}" x="26" y="2" width="44" height="10"/><rect class="${c}" x="-70" y="-12" width="44" height="10"/></g></g></g>`;
+    const house=(x,w,h)=>`<path class="${c}" d="M${x} 0L${x} ${-h}L${x+w*.2} ${-h}L${x+w*.2} ${-h-8}L${x+w*.4} ${-h-8}L${x+w*.4} ${-h-16}L${x+w*.6} ${-h-16}L${x+w*.6} ${-h-8}L${x+w*.8} ${-h-8}L${x+w*.8} ${-h}L${x+w} ${-h}L${x+w} 0Z"/>`+[...Array(Math.floor(h/18))].map((_,j)=>`<rect class="ill-win" x="${x+w*.25}" y="${-h+8+j*18}" width="4" height="7"/><rect class="ill-win" x="${x+w*.62}" y="${-h+8+j*18}" width="4" height="7"/>`).join('');
+    return house(-290,34,70)+house(-254,30,86)+house(-222,36,64)+house(-184,30,92)+house(-152,34,72)+mill(0,1)+mill(170,.75);}
+ };
+ const CODES={usa:'JFK',uk:'LHR',germany:'FRA',canada:'YYZ',australia:'SYD',ireland:'DUB',nz:'AKL',france:'CDG',nl:'AMS',scotland:'EDI',switzerland:'ZRH'};
+ const CITY={usa:'New York',uk:'London',germany:'Berlin',canada:'Toronto',australia:'Sydney',ireland:'Dublin',nz:'Auckland',france:'Paris',nl:'Amsterdam',scotland:'Edinburgh',switzerland:'Zurich'};
+
+ function graduate(){return `<path class="ill-near" d="M-16 0L-12 -48Q0 -56 12 -48L16 0Z"/><circle class="ill-near" cx="0" cy="-62" r="9"/><path class="ill-near" d="M-17 -70L0 -78L17 -70L0 -63Z"/><path class="ill-near" d="M8 -46L24 -84L29 -82L14 -43Z"/><rect class="ill-near" x="19" y="-98" width="16" height="6" rx="2.5" transform="rotate(-25 27 -95)"/><path d="M15 -71L15 -60" stroke="var(--ill-sun)" stroke-width="1.5"/>`;}
+
+ /* 1. hero: student portrait with destination stamps */
+ function hero(){const W=560,H=320,r=rng(7);
+  const badge=(x,y,id,code,s,dy)=>`<g transform="translate(${x} ${y})"><circle r="44" class="ill-badge"/><circle r="38" class="ill-badge-in"/><g clip-path="url(#bclip)"><g transform="translate(0 ${dy}) scale(${s})">${L[id]('ill-stampfill')}</g></g><text class="ill-code" y="60" text-anchor="middle">${code}</text></g>`;
+  return `<svg viewBox="0 0 ${W} ${H}" role="presentation"><defs><clipPath id="bclip"><circle r="36"/></clipPath></defs>${sky('hsky',W,H)}${stars(r,W,180,28)}
+  <circle class="ill-glowc" cx="300" cy="170" r="150"/><circle class="ill-sun" cx="300" cy="170" r="104"/>
+  ${flight('M86 120 C 170 20, 430 10, 492 104','translate(380 36) rotate(8)',.5)}
+  ${badge(84,104,'uk','LHR',.3,26)}${badge(76,236,'usa','JFK',.3,30)}${badge(490,92,'australia','SYD',.25,10)}${badge(484,226,'germany','FRA',.27,14)}
+  <g>
+   <path fill="#14304A" d="M212 320L222 244Q226 222 244 214L246 320Z"/><path fill="#14304A" d="M388 320L378 244Q374 222 356 214L354 320Z"/>
+   <path fill="#2F8F7A" d="M206 320L218 246Q228 212 268 204L332 204Q372 212 382 246L394 320Z"/>
+   <path fill="#1F6E5E" d="M266 204Q300 232 334 204Q326 222 300 226Q274 222 266 204Z"/>
+   <path fill="#1A3A55" d="M236 222L250 216L262 320L246 320Z"/><path fill="#1A3A55" d="M364 222L350 216L338 320L354 320Z"/>
+   <path fill="#A9693F" d="M287 176L313 176L314 206Q300 214 286 206Z"/>
+   <ellipse fill="#C98A5E" cx="266" cy="152" rx="6" ry="9"/><ellipse fill="#C98A5E" cx="334" cy="152" rx="6" ry="9"/>
+   <ellipse fill="#C98A5E" cx="300" cy="148" rx="34" ry="40"/>
+   <path fill="#1E1A1F" d="M265 150Q258 104 298 102Q340 100 338 146Q334 126 316 122Q296 116 282 126Q268 134 267 152Z"/>
+   <path fill="#1E1A1F" d="M282 124Q300 108 326 120Q312 112 296 116Z"/>
+   <path d="M280 138Q287 134 294 137M306 137Q313 134 320 138" stroke="#1E1A1F" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+   <ellipse fill="#1E1A1F" cx="287" cy="149" rx="3" ry="3.6"/><ellipse fill="#1E1A1F" cx="313" cy="149" rx="3" ry="3.6"/>
+   <circle fill="#FFFFFF" cx="288" cy="148" r="1"/><circle fill="#FFFFFF" cx="314" cy="148" r="1"/>
+   <path d="M300 152Q296 163 302 165" stroke="#9A5F3C" stroke-width="2" fill="none" stroke-linecap="round"/>
+   <path fill="#FFFFFF" d="M287 172Q300 182 313 172Q300 176 287 172Z"/><path d="M286 171Q300 186 314 171" stroke="#7A3A2C" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+   <circle fill="#E07A5F" opacity=".22" cx="279" cy="164" r="7"/><circle fill="#E07A5F" opacity=".22" cx="321" cy="164" r="7"/>
+   <g transform="rotate(-10 256 266)"><rect x="232" y="236" width="44" height="60" rx="5" fill="#1F2E55"/><circle cx="254" cy="260" r="10" fill="none" stroke="#E9C46A" stroke-width="2"/><circle cx="254" cy="260" r="3" fill="#E9C46A"/><rect x="242" y="278" width="24" height="3" rx="1.5" fill="#E9C46A"/></g>
+   <path fill="#2F8F7A" d="M218 270Q222 246 240 250L262 276Q256 292 238 290Z"/><ellipse fill="#C98A5E" cx="262" cy="282" rx="12" ry="9"/>
+   <g transform="rotate(12 356 270)"><rect x="330" y="248" width="70" height="36" rx="4" fill="#F4F1EA"/><line x1="380" y1="250" x2="380" y2="282" stroke="#B9B2A0" stroke-dasharray="3 3"/><rect x="336" y="256" width="30" height="4" rx="2" fill="#2F8F7A"/><rect x="336" y="264" width="22" height="3" rx="1.5" fill="#9AA6BA"/><rect x="336" y="271" width="26" height="3" rx="1.5" fill="#9AA6BA"/>${[0,1,2,3,4,5].map(i=>`<rect x="${385+i*2.4}" y="256" width="${i%2?1:1.6}" height="20" fill="#1E1A1F"/>`).join('')}</g>
+   <path fill="#2F8F7A" d="M382 270Q378 246 360 250L340 278Q346 292 362 290Z"/><ellipse fill="#C98A5E" cx="342" cy="282" rx="12" ry="9"/>
+  </g>
+  <text class="ill-txt hi" x="20" y="26">HYD → THE WORLD</text></svg>`;}
+
+ /* 2. country banner: graduate looking at the destination */
+ function country(id){const W=1200,H=230,G=200,r=rng(id.length*97+13);const code=CODES[id];const urban=!['ireland','nz','switzerland'].includes(id);
+  return `<svg viewBox="0 0 ${W} ${H}" role="presentation">${sky('csky'+id,W,H)}${stars(r,W,120,34)}
+  <circle class="ill-glowc" cx="860" cy="${G}" r="150"/><circle class="ill-sun" cx="860" cy="${G}" r="74"/>
+  ${skyline(r,420,1200,G,20,urban?80:30,'ill-far',false)}
+  ${urban?skyline(r,960,1200,G,40,140,'ill-mid',true):''}
+  ${flight(`M90 170 C 330 30, 640 20, 830 70`,'translate(620 34) rotate(8)',.5)}
+  <g transform="translate(830 ${G}) scale(.92)">${L[id]('ill-lm')}</g>
+  <path class="ill-lm" d="M0 ${G}Q240 ${G-10} 520 ${G+4}L1200 ${G-2}L1200 ${H}L0 ${H}Z"/>
+  <path class="ill-near" d="M0 ${G+6}Q130 ${G-30} 280 ${G-20}Q380 ${G-12} 440 ${H}L0 ${H}Z"/>
+  <g transform="translate(250 ${G-18}) scale(1.25)">${graduate()}</g>
+  <text class="ill-txt hi" x="24" y="30">HYD → ${code}</text><text class="ill-txt" x="24" y="50">${CITY[id].toUpperCase()} · INTAKE 2027 · CLASS OF 2029</text></svg>`;}
+
+ /* isometric helpers for process + jobs */
+ const ISO=(ox,oy)=>(X,Y,Z)=>[(ox+(X-Y)*0.866).toFixed(1),(oy+(X+Y)*0.5-Z).toFixed(1)];
+ function box(p,X,Y,Z,w,d,h,t){const P=(a,b,c)=>p(a,b,c).join(' ');
+  return `<path class="iso-r${t}" d="M${P(X+w,Y,Z)}L${P(X+w,Y+d,Z)}L${P(X+w,Y+d,Z+h)}L${P(X+w,Y,Z+h)}Z"/><path class="iso-l${t}" d="M${P(X,Y+d,Z)}L${P(X+w,Y+d,Z)}L${P(X+w,Y+d,Z+h)}L${P(X,Y+d,Z+h)}Z"/><path class="iso-t${t}" d="M${P(X,Y,Z+h)}L${P(X+w,Y,Z+h)}L${P(X+w,Y+d,Z+h)}L${P(X,Y+d,Z+h)}Z"/>`;}
+
+ /* 3. process: isometric milestones */
+ function proc(){const W=1200,H=230;const xs=[150,450,750,1050],y=118;
+  const icons=[
+   ()=>{const p=ISO(0,0);return box(p,-30,-20,0,60,40,12,'')+box(p,-26,-18,12,54,36,10,'2')+box(p,-30,-20,22,60,40,12,'')+`<path class="iso-line" d="M${p(-30,-20,34).join(' ')}L${p(30,-20,34).join(' ')}"/>`;},
+   ()=>{const p=ISO(0,0);return box(p,-34,-24,0,52,40,6,'2')+box(p,-30,-20,6,52,40,6,'2')+box(p,-10,-4,12,30,22,8,'')+`<path class="iso-line" d="M${p(-26,-16,12.5).join(' ')}L${p(10,-16,12.5).join(' ')}M${p(-26,-8,12.5).join(' ')}L${p(4,-8,12.5).join(' ')}"/><circle class="iso-gold" cx="${p(5,7,20)[0]}" cy="${p(5,7,20)[1]}" r="4"/>`;},
+   ()=>{const p=ISO(0,0);return box(p,-44,-14,0,88,28,6,'2')+`<path class="iso-line w" d="M${p(-36,0,6.5).join(' ')}L${p(36,0,6.5).join(' ')}"/><g transform="translate(6 -40) rotate(-26) scale(.62)">${planeShape('iso-plane')}</g>`;},
+   ()=>{const p=ISO(0,0);return box(p,-16,-16,0,32,32,24,'')+box(p,-34,-34,24,68,68,6,'2')+`<path class="iso-tassel" d="M${p(0,0,30).join(' ')}L${p(30,-30,30).join(' ')}L${p(30,-30,12).join(' ')}"/><circle class="iso-gold" cx="${p(30,-30,10)[0]}" cy="${p(30,-30,10)[1]}" r="3.5"/>`;}
+  ];
+  const lbl=[['Prepare & apply','MONTHS 1–6'],['Offer + visa','MONTHS 5–10'],['Fly','FINAL MONTH'],['Graduate & work','1–2 YEARS LATER']];
+  return `<svg viewBox="0 0 ${W} ${H}" role="presentation"><path class="pr-road" d="M40 ${y+30} C 200 ${y-10}, 300 ${y+60}, 450 ${y+30} S 640 ${y-10}, 750 ${y+30} S 950 ${y+60}, 1160 ${y+20}"/>`+
+   xs.map((x,i)=>`<ellipse class="iso-shadow" cx="${x}" cy="${y+38}" rx="62" ry="16"/><g transform="translate(${x} ${y+14})">${icons[i]()}</g><text class="pr-lbl" x="${x}" y="${y+82}" text-anchor="middle">${lbl[i][0]}</text><text class="pr-sub" x="${x}" y="${y+100}" text-anchor="middle">${lbl[i][1]}</text>`).join('')+`</svg>`;}
+
+ /* 4. jobs: walking toward an isometric business district */
+ function jobs(){const W=1200,H=210;const p=ISO(930,150);let city='';
+  [[-60,-40,0,40,40,90,''],[0,-60,0,44,44,105,'2'],[-20,20,0,40,40,70,''],[50,0,0,36,36,85,'']].forEach(b=>{city+=box(p,...b);const [X,Y,,w,,h]=b;for(let z=14;z<h-8;z+=16)for(let k=6;k<w-4;k+=12)city+=`<path class="iso-win" d="M${p(X+k,Y+b[4],z).join(' ')}L${p(X+k+6,Y+b[4],z).join(' ')}L${p(X+k+6,Y+b[4],z+8).join(' ')}L${p(X+k,Y+b[4],z+8).join(' ')}Z"/>`;});
+  return `<svg viewBox="0 0 ${W} ${H}" role="presentation"><path class="pr-road" d="M40 186 L1180 186"/>
+   <g transform="translate(130 186)"><rect class="jb-ink" x="-2" y="-90" width="4" height="90"/><rect class="jb-sign" x="-112" y="-120" width="224" height="40" rx="8"/><circle class="jb-bad" cx="-88" cy="-100" r="10"/><path d="M-93 -105L-83 -95M-83 -105L-93 -95" stroke="var(--surface)" stroke-width="2.4"/><text class="jb-txt" x="-70" y="-96">"Job on a tourist visa"</text></g>
+   <g transform="translate(470 186)"><rect class="jb-ink" x="-2" y="-90" width="4" height="90"/><rect class="jb-sign" x="-120" y="-120" width="240" height="40" rx="8"/><circle class="jb-ok" cx="-96" cy="-100" r="10"/><path d="M-101 -100L-97 -96L-90 -104" stroke="var(--surface)" stroke-width="2.4" fill="none"/><text class="jb-txt" x="-78" y="-96">Licensed on eMigrate</text></g>
+   <g transform="translate(680 186) scale(1.25)"><rect class="jb-ink" x="-8" y="-30" width="5" height="30" transform="rotate(10 -6 -30)"/><rect class="jb-ink" x="2" y="-30" width="5" height="30" transform="rotate(-12 4 -30)"/><path class="jb-ink" d="M-10 -30L-8 -62Q0 -69 9 -62L10 -30Z"/><circle class="jb-ink" cx="2" cy="-74" r="8.5"/><path class="jb-ink" d="M6 -58L16 -36L19 -38L10 -60Z"/><rect class="jb-case" x="10" y="-36" width="20" height="15" rx="2"/></g>
+   <ellipse class="iso-shadow" cx="930" cy="190" rx="130" ry="24"/>${city}
+   <text class="jb-mut" x="1180" y="22" text-anchor="end">EMPLOYER-SPONSORED VISA</text></svg>`;}
+ return {hero,country,proc,jobs};
+})();
+function animatePlanes(root){
+  const reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce)return;
+  (root||document).querySelectorAll('[data-plane]').forEach(g=>{
+    if(g.dataset.anim)return;g.dataset.anim='1';
+    const path=g.previousElementSibling; if(!path||!path.getTotalLength)return;
+    const L=path.getTotalLength(); let t0=null; const dur=14000+Math.random()*4000;
+    function step(ts){if(!g.isConnected)return;if(t0===null)t0=ts;const f=((ts-t0)%dur)/dur;const u=0.06+f*0.88;const a=path.getPointAtLength(u*L),b=path.getPointAtLength(Math.min(L,u*L+2));
+      const ang=Math.atan2(b.y-a.y,b.x-a.x)*180/Math.PI;g.setAttribute('transform',`translate(${a.x.toFixed(1)} ${a.y.toFixed(1)}) rotate(${ang.toFixed(1)})`);requestAnimationFrame(step);}
+    requestAnimationFrame(step);
+  });
+}
+function paintArt(){
+  STORY.mount($('#heroArt'));$('#procArt').innerHTML=ART.proc();$('#jobsArt').innerHTML=ART.jobs();
+  animatePlanes();
+}
+
+/* ---------- story slideshow (original SVG scenes) ---------- */
+const STORY=(function(){
+ const SK='#C98A5E',SKD='#A9693F',HAIR='#1E1A1F';
+ const P={down:[[30,-118],[34,-90]],up:[[38,-188],[46,-234]],wave:[[42,-126],[50,-180]],hold:[[30,-118],[10,-112]],high:[[36,-132],[30,-176]],hip:[[40,-118],[24,-100]],bag:[[32,-118],[38,-92]]};
+ function person(o){
+  o=Object.assign({skin:SK,shade:SKD,hair:HAIR,hairStyle:'short',top:'#2F8F7A',pants:'#26324A',shoes:'#1A1D26',armL:'down',armR:'down',outfit:'casual',cap:null,stole:null,lanyard:false,backpack:false,sleeve:null},o);
+  const sl=o.sleeve||o.top;let s='';
+  const arm=(side,pose)=>{const q=P[pose];const e=[q[0][0]*side,q[0][1]],h=[q[1][0]*side,q[1][1]];return `<polyline points="${24*side},-148 ${e[0]},${e[1]} ${h[0]},${h[1]}" fill="none" stroke="${sl}" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/><circle cx="${h[0]}" cy="${h[1]}" r="6.5" fill="${o.skin}"/>`;};
+  if(o.backpack)s+=`<rect x="-31" y="-152" width="62" height="64" rx="12" fill="#B7792B"/>`;
+  s+=`<rect x="-15" y="-86" width="12" height="82" rx="5" fill="${o.pants}"/><rect x="3" y="-86" width="12" height="82" rx="5" fill="${o.pants}"/><ellipse cx="-10" cy="-3" rx="10" ry="5" fill="${o.shoes}"/><ellipse cx="10" cy="-3" rx="10" ry="5" fill="${o.shoes}"/>`;
+  if(o.outfit==='gown')s+=`<path d="M-35 -18L-28 -150Q0 -170 28 -150L35 -18Z" fill="${o.top}"/>`+(o.stole?`<path d="M-15 -162L-11 -64L-3 -64L-5 -160Z M15 -162L11 -64L3 -64L5 -160Z" fill="${o.stole}"/>`:'');
+  else if(o.outfit==='saree')s+=`<path d="M-33 -4L-25 -150Q0 -168 25 -150L33 -4Z" fill="${o.top}"/><path d="M-25 -150L22 -104L30 -60L-4 -152Z" fill="${o.drape}"/><path d="M-33 -4L33 -4L32 -14L-32 -14Z" fill="${o.drape}"/>`;
+  else s+=`<path d="M-30 -82L-26 -150Q-20 -164 0 -166Q20 -164 26 -150L30 -82Z" fill="${o.top}"/>`;
+  if(o.outfit==='blazer')s+=`<path d="M-11 -165L0 -118L11 -165Z" fill="#F4F1EA"/><path d="M-3 -150L0 -122L3 -150L0 -156Z" fill="#B23A48"/>`;
+  if(o.outfit==='casual'&&o.top==='#2F8F7A')s+=`<path d="M-14 -164Q0 -150 14 -164Q8 -154 0 -152Q-8 -154 -14 -164Z" fill="#1F6E5E"/>`;
+  if(o.lanyard)s+=`<path d="M-9 -163L0 -128L9 -163" stroke="#3CC59A" stroke-width="2.4" fill="none"/><rect x="-8" y="-130" width="16" height="20" rx="2" fill="#F4F1EA" stroke="#3CC59A" stroke-width="1.5"/><rect x="-5" y="-126" width="10" height="3" fill="#3CC59A"/>`;
+  s+=`<rect x="-7" y="-182" width="14" height="20" fill="${o.shade}"/><ellipse cx="-21" cy="-194" rx="4" ry="6" fill="${o.skin}"/><ellipse cx="21" cy="-194" rx="4" ry="6" fill="${o.skin}"/><ellipse cx="0" cy="-196" rx="22" ry="26" fill="${o.skin}"/>`;
+  const hs={short:`<path d="M-22 -192Q-26 -226 -2 -228Q24 -230 23 -196Q20 -212 8 -214Q-6 -216 -14 -208Q-20 -202 -21 -190Z" fill="${o.hair}"/>`,
+   long:`<path d="M-22 -192Q-26 -226 -2 -228Q24 -230 23 -196Q20 -212 8 -214Q-6 -216 -14 -208Q-20 -202 -21 -190Z" fill="${o.hair}"/><path d="M-23 -200Q-30 -168 -17 -154L-15 -198Z M23 -200Q30 -168 17 -154L15 -198Z" fill="${o.hair}"/>`,
+   bun:`<circle cx="0" cy="-226" r="10" fill="${o.hair}"/><path d="M-22 -192Q-24 -222 0 -224Q24 -222 22 -192Q18 -210 0 -212Q-18 -210 -22 -192Z" fill="${o.hair}"/>`,
+   bald:`<path d="M-22 -196Q-22 -210 -16 -214L-20 -192Z M22 -196Q22 -210 16 -214L20 -192Z" fill="${o.hair}"/>`};
+  s+=hs[o.hairStyle];
+  s+=`<path d="M-12 -205Q-8 -208 -4 -206M4 -206Q8 -208 12 -205" stroke="${HAIR}" stroke-width="1.8" fill="none" stroke-linecap="round"/><ellipse cx="-8" cy="-197" rx="2.2" ry="2.7" fill="${HAIR}"/><ellipse cx="8" cy="-197" rx="2.2" ry="2.7" fill="${HAIR}"/><path d="M-8 -184Q0 -176 8 -184" stroke="#7A3A2C" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="-13" cy="-187" r="4" fill="#E07A5F" opacity=".22"/><circle cx="13" cy="-187" r="4" fill="#E07A5F" opacity=".22"/>`;
+  if(o.mustache)s+=`<path d="M-7 -186Q0 -190 7 -186Q0 -184 -7 -186Z" fill="${HAIR}"/>`;
+  if(o.bindi)s+=`<circle cx="0" cy="-208" r="1.8" fill="#B23A48"/>`;
+  if(o.cap)s+=`<rect x="-15" y="-224" width="30" height="9" fill="${o.cap}"/><path d="M-28 -222L0 -233L28 -222L0 -211Z" fill="${o.cap}"/><path d="M19 -220L21 -203" stroke="#E9C46A" stroke-width="2.2"/>`;
+  s+=arm(-1,o.armL)+arm(1,o.armR);
+  return s;
+ }
+ const at=(x,y,sc,body)=>`<g transform="translate(${x} ${y}) scale(${sc})">${body}</g>`;
+ const plane=(fill,tail)=>`<path fill="${fill}" d="M-40 0Q-40 -5 -30 -5L30 -5Q45 -4 50 0Q45 4 30 5L-30 5Q-40 5 -40 0Z"/><path fill="${fill}" d="M-5 -4L-22 -30L-13 -30L13 -4Z"/><path fill="${fill}" d="M-5 4L-22 30L-13 30L13 4Z"/><path fill="${tail||fill}" d="M-34 -4L-44 -19L-37 -19L-26 -4Z"/>`;
+ const grad=(id,a,b)=>`<linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient>`;
+ const confetti=(n,seed,y0,y1)=>{let s=seed,o='';const r=()=>((s=(s*16807)%2147483647)/2147483647);const cs=['#E9C46A','#E07A5F','#3CC59A','#7FB3F5','#F4F1EA'];for(let i=0;i<n;i++){const x=(r()*640).toFixed(0),y=(y0+r()*(y1-y0)).toFixed(0);o+=`<rect transform="rotate(${(r()*180).toFixed(0)} ${x} ${y})" x="${x}" y="${y}" width="${(4+r()*5).toFixed(0)}" height="${(3+r()*3).toFixed(0)}" fill="${cs[i%5]}"/>`;}return o;};
+
+ const scenes=[
+ /* 1. Bachelor's convocation, Hyderabad */
+ ()=>`<svg viewBox="0 0 640 400" preserveAspectRatio="xMidYMid slice"><defs>${grad('s1sky','#F9D9A8','#F3B57A')}</defs><rect width="640" height="400" fill="url(#s1sky)"/>
+  <circle cx="540" cy="80" r="34" fill="#FCEBC7"/>
+  <rect x="110" y="120" width="420" height="230" fill="#D9A066"/><path d="M270 120A50 50 0 0 1 370 120Z" fill="#C98B52"/><rect x="316" y="52" width="8" height="20" fill="#B9773F"/><circle cx="320" cy="50" r="5" fill="#B9773F"/>
+  ${[110,522].map(x=>`<rect x="${x-4}" y="74" width="16" height="276" fill="#C98B52"/><circle cx="${x+4}" cy="72" r="11" fill="#B9773F"/><rect x="${x+2}" y="50" width="4" height="14" fill="#B9773F"/>`).join('')}
+  ${[150,215,280,345,410,470].map(x=>`<path d="M${x} 340L${x} 228A18 18 0 0 1 ${x+36} 228L${x+36} 340Z" fill="#8C4F2A"/>`).join('')}
+  <rect x="110" y="196" width="420" height="10" fill="#B9773F"/>
+  <rect x="215" y="140" width="210" height="30" rx="3" fill="#7A1F3D"/><text x="320" y="161" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="14" fill="#FCEBC7" letter-spacing="2">CONVOCATION 2027</text>
+  <path d="M0 340L640 340L640 400L0 400Z" fill="#7FB26B"/><path d="M250 400L290 340L350 340L390 400Z" fill="#E8D3A8"/>
+  ${at(170,380,.78,person({outfit:'saree',top:'#D9487A',drape:'#E9C46A',hairStyle:'bun',bindi:true,armL:'hold',armR:'hold',skin:'#B97C52',shade:'#9A6440'}))}
+  ${at(470,380,.82,person({outfit:'casual',top:'#5B7DB8',pants:'#3A3A4A',hairStyle:'short',mustache:true,armL:'hold',armR:'hold',skin:'#B47650',shade:'#94603E',hair:'#2B2A2E'}))}
+  ${at(320,392,.95,person({outfit:'gown',top:'#7A1F3D',stole:'#E9C46A',cap:'#5E1730',armL:'down',armR:'high'}))}
+  <g transform="translate(348 223) rotate(-20)"><rect x="-14" y="-5" width="28" height="10" rx="5" fill="#FBF5E6"/><rect x="-2" y="-5" width="4" height="10" fill="#B23A48"/></g>
+ </svg>`,
+ /* 2. Admit + visa, night desk */
+ ()=>`<svg viewBox="0 0 640 400" preserveAspectRatio="xMidYMid slice"><rect width="640" height="400" fill="#22304D"/>
+  <rect x="400" y="40" width="200" height="170" rx="6" fill="#0F1A30"/><circle cx="560" cy="80" r="14" fill="#F6E7C1"/>
+  ${[[410,150,30,60],[444,130,24,80],[520,140,28,70],[552,120,40,90]].map(b=>`<rect x="${b[0]}" y="${b[1]}" width="${b[2]}" height="${b[3]}" fill="#1E2A44"/>`).join('')}
+  <g fill="#2B3A5E"><path d="M470 210L470 168L506 168L506 210Z"/><rect x="466" y="160" width="44" height="8"/><rect x="464" y="132" width="5" height="78"/><rect x="507" y="132" width="5" height="78"/><circle cx="466" cy="130" r="4"/><circle cx="510" cy="130" r="4"/></g>
+  ${[...Array(14)].map((_,i)=>`<rect x="${414+((i*37)%180)}" y="${150+((i*23)%50)}" width="3" height="4" fill="#F6C47A"/>`).join('')}
+  <rect x="400" y="122" width="200" height="4" fill="#33415C"/><rect x="498" y="40" width="4" height="170" fill="#33415C"/>
+  <path d="M120 60L170 60L230 270L60 270Z" fill="#F6C47A" opacity=".18"/><rect x="138" y="44" width="16" height="22" rx="3" fill="#E6A84E"/><path d="M146 66L146 270" stroke="#4A5878" stroke-width="3"/>
+  ${at(330,388,.92,person({armL:'up',armR:'up'}))}
+  <rect x="40" y="268" width="560" height="18" rx="3" fill="#8C5A3C"/><rect x="40" y="286" width="560" height="120" fill="#6E452E"/>
+  <g transform="translate(110 268)"><path d="M-60 0L60 0L52 -8L-52 -8Z" fill="#9AA6BA"/><rect x="-52" y="-86" width="104" height="78" rx="4" fill="#C9D2E0"/><rect x="-46" y="-80" width="92" height="66" rx="2" fill="#F4F7FB"/><circle cx="0" cy="-58" r="12" fill="#2F8F7A"/><path d="M-6 -58L-2 -54L6 -63" stroke="#fff" stroke-width="2.6" fill="none"/><text x="0" y="-32" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="9" font-weight="600" fill="#121A2B">OFFER OF ADMISSION</text><rect x="-30" y="-25" width="60" height="4" rx="2" fill="#C9D2E0"/></g>
+  <g transform="translate(440 258) rotate(-8)"><rect x="-20" y="-14" width="40" height="28" rx="3" fill="#1F2E55"/><circle cx="0" cy="0" r="7" fill="none" stroke="#E9C46A" stroke-width="1.6"/></g>
+  <g transform="translate(520 256) rotate(6)"><rect x="-26" y="-16" width="52" height="32" rx="2" fill="#FBF5E6"/><circle cx="2" cy="0" r="11" fill="none" stroke="#2F8F7A" stroke-width="2"/><text x="2" y="3" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="7" fill="#2F8F7A">VISA</text></g>
+  <g transform="translate(230 266)"><rect x="-30" y="-10" width="60" height="10" fill="#E07A5F"/><rect x="-26" y="-20" width="54" height="10" fill="#3C6EB4"/><text x="0" y="-12" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="7" fill="#fff">IELTS 7.5</text></g>
+ </svg>`,
+ /* 3. Airport departure */
+ ()=>`<svg viewBox="0 0 640 400" preserveAspectRatio="xMidYMid slice"><defs>${grad('s3sky','#8FC3EC','#DDEFFB')}</defs><rect width="640" height="400" fill="#EEF2F7"/>
+  <rect x="30" y="30" width="580" height="230" fill="url(#s3sky)"/>
+  <path d="M30 228L610 212L610 260L30 260Z" fill="#9AA6BA"/><path d="M60 236L600 222" stroke="#F4F7FB" stroke-width="2" stroke-dasharray="14 10"/>
+  <g transform="translate(400 120) rotate(-14) scale(1.6)">${plane('#FFFFFF','#2F8F7A')}</g>
+  <path d="M260 160Q330 140 360 132" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="2 8" fill="none" opacity=".8"/>
+  ${[30,175,320,465,610].map(x=>`<rect x="${x-3}" y="30" width="6" height="230" fill="#C9D2E0"/>`).join('')}<rect x="30" y="26" width="580" height="8" fill="#C9D2E0"/>
+  <rect x="40" y="44" width="200" height="54" rx="4" fill="#121A2B"/><text x="52" y="66" font-family="IBM Plex Mono, monospace" font-size="11" fill="#F6C47A">DEPARTURES</text><text x="52" y="86" font-family="IBM Plex Mono, monospace" font-size="11" fill="#7FE3C3">HYD → INTL  BOARDING</text>
+  <path d="M0 260L640 260L640 400L0 400Z" fill="#D7DCE4"/><path d="M0 330L640 330" stroke="#C9D2E0" stroke-width="2"/>
+  ${at(110,350,.62,person({outfit:'saree',top:'#D9487A',drape:'#E9C46A',hairStyle:'bun',bindi:true,armL:'down',armR:'wave',skin:'#B97C52',shade:'#9A6440'}))}
+  ${at(170,350,.65,person({top:'#5B7DB8',pants:'#3A3A4A',mustache:true,armL:'wave',armR:'down',skin:'#B47650',shade:'#94603E',hair:'#2B2A2E'}))}
+  ${at(400,392,.92,person({backpack:true,armL:'wave',armR:'bag'}))}
+  <g transform="translate(435 300)"><rect x="-2" y="-34" width="4" height="30" fill="#4A5878"/><rect x="-18" y="-6" width="36" height="58" rx="6" fill="#E07A5F"/><rect x="-18" y="12" width="36" height="4" fill="#B85A42"/><circle cx="-10" cy="54" r="4" fill="#1A1D26"/><circle cx="10" cy="54" r="4" fill="#1A1D26"/></g>
+ </svg>`,
+ /* 4. Master's on campus abroad */
+ ()=>`<svg viewBox="0 0 640 400" preserveAspectRatio="xMidYMid slice"><defs>${grad('s4sky','#AFD4F0','#E4F1FA')}</defs><rect width="640" height="400" fill="url(#s4sky)"/>
+  <rect x="180" y="110" width="300" height="200" fill="#C7B8A3"/><rect x="290" y="40" width="80" height="270" fill="#B9A88F"/><path d="M284 40L330 0L376 40Z" fill="#8C7A62"/><circle cx="330" cy="80" r="18" fill="#F4F1EA"/><path d="M330 80L330 68M330 80L338 84" stroke="#33415C" stroke-width="2"/>
+  ${[200,240,400,440].map(x=>`<path d="M${x} 290L${x} 170L${x+12} 152L${x+24} 170L${x+24} 290Z" fill="#5E5446"/>`).join('')}
+  <path d="M310 310L310 230A20 20 0 0 1 350 230L350 310Z" fill="#5E5446"/>
+  ${[[70,250,52,'#E08A3C'],[120,270,40,'#C9622F'],[560,250,56,'#E0A23C'],[610,280,40,'#C9622F']].map(t=>`<rect x="${t[0]-5}" y="${t[1]}" width="10" height="80" fill="#6E452E"/><circle cx="${t[0]}" cy="${t[1]-10}" r="${t[2]}" fill="${t[3]}"/>`).join('')}
+  <path d="M0 310L640 310L640 400L0 400Z" fill="#8DBA6A"/><path d="M280 400L310 310L350 310L380 400Z" fill="#D8CDB8"/>
+  ${[[90,330],[150,350],[520,340],[590,360],[220,300]].map(l=>`<ellipse cx="${l[0]}" cy="${l[1]}" rx="5" ry="3" fill="#E08A3C" transform="rotate(30 ${l[0]} ${l[1]})"/>`).join('')}
+  ${at(200,392,.82,person({skin:'#7A4E35',shade:'#5E3A27',hairStyle:'long',top:'#E07A5F',pants:'#33415C',armL:'down',armR:'wave'}))}
+  ${at(440,392,.84,person({skin:'#F1C7A8',shade:'#D9A98A',hair:'#C89B4F',top:'#4C6FAF',pants:'#3A3A4A',armL:'hold',armR:'down'}))}
+  ${at(320,396,.92,person({backpack:true,armL:'hold',armR:'down'}))}
+  <g transform="translate(311 290)"><rect x="-12" y="-14" width="24" height="8" fill="#3C6EB4"/><rect x="-12" y="-6" width="24" height="8" fill="#E9C46A"/></g>
+ </svg>`,
+ /* 5. Master's graduation abroad */
+ ()=>`<svg viewBox="0 0 640 400" preserveAspectRatio="xMidYMid slice"><defs>${grad('s5sky','#7FB3F5','#CFE4FB')}</defs><rect width="640" height="400" fill="url(#s5sky)"/>
+  <path d="M120 120L320 50L520 120Z" fill="#E8E2D6"/><rect x="120" y="120" width="400" height="16" fill="#D7CFBF"/>
+  ${[140,200,260,350,410,470].map(x=>`<rect x="${x}" y="136" width="30" height="180" fill="#EFEAE0"/><rect x="${x-4}" y="136" width="38" height="8" fill="#D7CFBF"/>`).join('')}
+  <rect x="110" y="300" width="420" height="16" fill="#D7CFBF"/>
+  <rect x="230" y="70" width="180" height="26" rx="3" fill="#1F3A6B"/><text x="320" y="88" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" fill="#F4F1EA" letter-spacing="2">CLASS OF 2029</text>
+  ${confetti(60,9,20,260)}
+  ${[[200,60,-20],[300,30,15],[450,50,-35]].map(c=>`<g transform="translate(${c[0]} ${c[1]}) rotate(${c[2]})"><path d="M-22 0L0 -8L22 0L0 8Z" fill="#14294F"/><rect x="-11" y="0" width="22" height="7" fill="#14294F"/><path d="M14 0L16 14" stroke="#E9C46A" stroke-width="2"/></g>`).join('')}
+  <path d="M0 316L640 316L640 400L0 400Z" fill="#8DBA6A"/>
+  ${at(190,396,.84,person({outfit:'gown',top:'#1F3A6B',skin:'#7A4E35',shade:'#5E3A27',hairStyle:'long',armL:'up',armR:'up'}))}
+  ${at(450,396,.86,person({outfit:'gown',top:'#1F3A6B',skin:'#F1C7A8',shade:'#D9A98A',hair:'#C89B4F',armL:'up',armR:'wave'}))}
+  ${at(320,400,.96,person({outfit:'gown',top:'#1F3A6B',stole:'#3CC59A',armL:'up',armR:'up'}))}
+ </svg>`,
+ /* 6. First job */
+ ()=>`<svg viewBox="0 0 640 400" preserveAspectRatio="xMidYMid slice"><defs>${grad('s6sky','#9CC9EE','#E2F0FB')}</defs><rect width="640" height="400" fill="#F1EEE8"/>
+  <rect x="40" y="36" width="560" height="220" fill="url(#s6sky)"/>
+  ${[[50,150,40,106],[96,110,34,146],[136,170,50,86],[192,90,40,166],[238,140,36,116],[420,120,44,136],[470,80,36,176],[512,150,40,106],[556,110,40,146]].map(b=>`<rect x="${b[0]}" y="${b[1]}" width="${b[2]}" height="${b[3]}" fill="#9FB3CC"/>`+[...Array(Math.floor(b[3]/18))].map((_,j)=>`<rect x="${b[0]+6}" y="${b[1]+8+j*18}" width="${b[2]-12}" height="6" fill="#C9D8EA"/>`).join('')).join('')}
+  ${[40,226,412,600].map(x=>`<rect x="${x-3}" y="36" width="6" height="220" fill="#D9D3C7"/>`).join('')}<rect x="40" y="32" width="560" height="8" fill="#D9D3C7"/>
+  <path d="M0 256L640 256L640 400L0 400Z" fill="#E4DED3"/>
+  <rect x="330" y="286" width="270" height="14" rx="3" fill="#8C5A3C"/><rect x="345" y="300" width="10" height="100" fill="#6E452E"/><rect x="575" y="300" width="10" height="100" fill="#6E452E"/>
+  <g transform="translate(470 286)"><rect x="-4" y="-22" width="8" height="22" fill="#4A5878"/><rect x="-26" y="-4" width="52" height="4" fill="#4A5878"/><rect x="-70" y="-110" width="140" height="90" rx="5" fill="#1B2537"/><rect x="-64" y="-104" width="128" height="78" rx="2" fill="#F4F7FB"/><rect x="-50" y="-92" width="16" height="16" rx="3" fill="#2F8F7A"/><text x="-28" y="-80" font-family="IBM Plex Sans, sans-serif" font-size="10" font-weight="600" fill="#121A2B">Welcome aboard!</text><rect x="-50" y="-66" width="100" height="4" rx="2" fill="#C9D2E0"/><rect x="-50" y="-56" width="80" height="4" rx="2" fill="#C9D2E0"/><rect x="-50" y="-44" width="44" height="10" rx="3" fill="#2F8F7A"/></g>
+  <g transform="translate(560 286)"><path d="M-10 0L-12 -18L12 -18L10 0Z" fill="#F4F1EA"/><path d="M12 -14Q20 -12 12 -6" stroke="#F4F1EA" stroke-width="3" fill="none"/></g>
+  <g transform="translate(80 400)"><path d="M-22 0L-18 -40L18 -40L22 0Z" fill="#E07A5F"/><ellipse cx="-10" cy="-62" rx="10" ry="24" fill="#4E9A5E" transform="rotate(-20 -10 -62)"/><ellipse cx="10" cy="-64" rx="10" ry="26" fill="#3F8A50" transform="rotate(18 10 -64)"/><ellipse cx="0" cy="-74" rx="9" ry="26" fill="#5BAA6A"/></g>
+  ${at(240,396,.96,person({outfit:'blazer',top:'#33415C',pants:'#26324A',lanyard:true,armL:'hip',armR:'wave'}))}
+ </svg>`
+ ];
+ const caps=[
+  ['May 2027 · Hyderabad','Bachelor\'s done','Convocation day. The family is proud, and the plan for a master\'s abroad is already moving.'],
+  ['Jan–Jul 2027','Admit and visa in hand','IELTS cleared, applications sent, offer accepted, funds shown, visa stamped.'],
+  ['Aug 2027 · Hyderabad airport','Flying out','One last wave to the family before the international departure.'],
+  ['Sep 2027 – 2029','Master\'s abroad','Classes, part-time work within visa limits, and friends from around the world.'],
+  ['Summer 2029','Master\'s graduation','Degree complete. Post-study work rights begin.'],
+  ['Late 2029','First job abroad','An offer from an employer who sponsors the work visa.']
+ ];
+ function mount(el){
+  const DUR=3000, n=scenes.length, LOOPS=2;
+  el.innerHTML=`<div class="story-stage">${scenes.map((f,i)=>`<figure class="slide${i?'':' on'}" aria-hidden="${i?'true':'false'}">${f()}</figure>`).join('')}<div class="story-prog"><i></i></div></div>
+   <div class="story-foot"><div class="story-cap" aria-live="polite"><span class="story-when"></span><b class="story-title"></b><span class="story-text"></span></div>
+   <div class="story-ctl"><button class="story-btn" data-a="prev" aria-label="Previous chapter">‹</button><div class="story-dots">${scenes.map((_,i)=>`<button class="story-dot" data-i="${i}" aria-label="Chapter ${i+1}: ${caps[i][1]}"></button>`).join('')}</div><button class="story-btn" data-a="next" aria-label="Next chapter">›</button><button class="story-btn wide" data-a="pause" aria-label="Pause slideshow">Pause</button></div></div>`;
+  const slides=[...el.querySelectorAll('.slide')],dots=[...el.querySelectorAll('.story-dot')],bar=el.querySelector('.story-prog i'),pbtn=el.querySelector('[data-a="pause"]');
+  const reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let i=0,elapsed=0,last=null,userPaused=reduce,hover=false,steps=0;
+  function show(k){i=(k+n)%n;elapsed=0;slides.forEach((s,j)=>{s.classList.toggle('on',j===i);s.setAttribute('aria-hidden',j===i?'false':'true');});dots.forEach((d,j)=>d.setAttribute('aria-current',j===i?'true':'false'));
+   const c=caps[i];el.querySelector('.story-when').textContent=`Chapter ${i+1} of ${n} · ${c[0]}`;el.querySelector('.story-title').textContent=c[1];el.querySelector('.story-text').textContent=c[2];bar.style.width='0%';}
+  function setPaused(p){userPaused=p;pbtn.textContent=p?'Play':'Pause';pbtn.setAttribute('aria-label',p?'Play slideshow':'Pause slideshow');}
+  function tick(ts){if(!el.isConnected)return;if(last===null)last=ts;const dt=ts-last;last=ts;if(!userPaused&&!hover&&!document.hidden){elapsed+=dt;if(elapsed>=DUR){steps++;show(i+1);if(steps>=LOOPS*n-1){setPaused(true);bar.style.width='100%';}}bar.style.width=Math.min(100,elapsed/DUR*100)+'%';}requestAnimationFrame(tick);}
+  el.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.i!=null)show(+b.dataset.i);else if(b.dataset.a==='prev')show(i-1);else if(b.dataset.a==='next')show(i+1);else if(b.dataset.a==='pause'){if(userPaused)steps=0;setPaused(!userPaused);}});
+  el.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){show(i+1);e.preventDefault();}if(e.key==='ArrowLeft'){show(i-1);e.preventDefault();}});
+  const stage=el.querySelector('.story-stage');stage.addEventListener('mouseenter',()=>hover=true);stage.addEventListener('mouseleave',()=>hover=false);
+  setPaused(userPaused);show(0);requestAnimationFrame(tick);
+ }
+ return {mount};
+})();
+
+/* ---------- consultancies ---------- */
+const cities=['All',...new Set(CONSULT.map(r=>r[0]))];let city='Hyderabad';
+function renderConsult(){
+  $('#cityChips').innerHTML=cities.map(c=>`<button class="chip small" aria-pressed="${c===city}" data-c="${esc(c)}">${esc(c)} <span class="cc">${c==='All'?CONSULT.length:CONSULT.filter(r=>r[0]===c).length}</span></button>`).join('');
+  $('#cityChips').querySelectorAll('.chip').forEach(b=>b.addEventListener('click',()=>{city=b.dataset.c;renderConsult();}));
+  const q=$('#consultSearch').value.toLowerCase();
+  const rows=CONSULT.filter(r=>(city==='All'||r[0]===city)&&(r[1]+' '+r[3]+' '+r[4]).toLowerCase().includes(q));
+  $('#consultTable').innerHTML=`<thead><tr><th>City</th><th>Consultancy</th><th>Area / branch</th><th>Strong for</th><th>Note</th><th>Data</th></tr></thead><tbody>`+(rows.map(r=>`<tr><td>${esc(r[0])}</td><td><b>${esc(r[1])}</b></td><td>${esc(r[2])}</td><td>${esc(r[3])}</td><td style="color:var(--muted)">${esc(r[4])}</td><td><span class="src ${r[5]?'s':''}">${r[5]?'sourced':'general'}</span></td></tr>`).join('')||`<tr><td colspan="6" style="color:var(--muted)">No consultancies match. Try another city or clear the search.</td></tr>`)+`</tbody>`;
+}
+$('#consultSearch').addEventListener('input',renderConsult);
+
+/* ---------- rates ---------- */
+function renderRates(){
+  $('#rates').innerHTML='<span>Exchange rates (₹ per unit, as of 7 Oct 2026; edit to update every figure):</span>'+Object.keys(RATES).map(k=>`<label for="rate-${k}">${k}<input id="rate-${k}" type="number" step="0.1" min="1" value="${RATES[k]}"></label>`).join('')+'<button class="btn" id="rateReset" style="padding:3px 10px">Reset</button><span style="flex-basis:100%">Sources: <a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html" target="_blank" rel="noopener">ECB reference rates</a> via <a href="https://frankfurter.dev" target="_blank" rel="noopener">Frankfurter</a> (6 Oct 2026) and <a href="https://www.exchangerate-api.com" target="_blank" rel="noopener">ExchangeRate-API</a> (7 Oct 2026), averaged; USD set to the 96.3 market quote. CHF added 7 Oct 2026 from the same two sources (116.1). Banks and forex cards charge 1–3% more.</span>';
+  $('#rateReset').addEventListener('click',()=>{RATES=Object.assign({},RATE_DEFAULTS);store.set('atlas-rates-v3',RATES);renderRates();renderCountry();if(!$('#view-compare').hidden)renderCompare();});
+  $('#rates').querySelectorAll('input').forEach(i=>i.addEventListener('change',()=>{const k=i.id.slice(5);const v=parseFloat(i.value);if(v>0){RATES[k]=v;store.set('atlas-rates-v3',RATES);renderCountry();if(!$('#view-compare').hidden)renderCompare();}}));
+}
+
+function renderMode(){
+  document.querySelectorAll('.seg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.m===MODE));
+  $('#modeHint').textContent=MODE==='2027'?'Figures use rules known for a 2027 start, including announced increases.':'Figures use rules in force today (Oct 2026).';
+}
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{MODE=b.dataset.m;store.set('atlas-mode',MODE);const id=cur.id;applyMode();cur=C.find(c=>c.id===id);renderMode();renderCountry();if(!$('#view-compare').hidden)renderCompare();}));
+renderMode();renderRates();renderCountry();renderConsult();paintArt();
+document.querySelectorAll('[data-v]').forEach(s=>{if(s.dataset.v!=='country')s.hidden=true});
+})();
+</script>
+
+</body>
+</html>
