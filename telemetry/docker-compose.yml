@@ -1,6 +1,5 @@
 # Local or single-server setup: the collector plus its own Postgres.
-#   ADMIN_TOKEN=change-me docker compose up -d --build
-#   docker compose exec db psql -U atlas -d atlas -f /bi/views.sql     # BI views, once tables exist
+#   ADMIN_TOKEN=change-me docker compose up -d --build   # tables and BI views are created on startup
 services:
   db:
     image: postgres:16

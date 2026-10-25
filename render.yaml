@@ -1,0 +1,19 @@
+# Render Blueprint for the telemetry collector (telemetry/). Render > New > Blueprint > pick this repo.
+# It asks for DATABASE_URL once: paste the Neon connection string as Neon shows it.
+services:
+  - type: web
+    name: atlas-telemetry
+    runtime: docker
+    rootDir: telemetry          # Dockerfile, build context and auto-deploys all scoped to this folder
+    plan: free
+    region: singapore           # closest Render region to India; pick Neon's AWS Singapore region to match
+    healthCheckPath: /healthz
+    envVars:
+      - key: DATABASE_URL
+        sync: false             # prompted during Blueprint creation
+      - key: ALLOWED_ORIGINS
+        value: https://rajamnr175.github.io
+      - key: ADMIN_TOKEN
+        generateValue: true     # random; read it in the service's Environment tab for /v1/stats
+      - key: TRUST_PROXY
+        value: "true"           # Render's load balancer sets X-Forwarded-For

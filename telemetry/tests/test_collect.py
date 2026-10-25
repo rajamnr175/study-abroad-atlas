@@ -7,7 +7,7 @@ from fastapi.testclient import TestClient
 from sqlalchemy import select
 
 from app.config import Settings
-from app.db import events, metadata, sessions
+from app.db import events, metadata, normalize_url, sessions
 from app.main import create_app, parse_ua
 
 ORIGIN = "https://rajamnr175.github.io"
@@ -23,7 +23,11 @@ def client(tmp_path):
     with TestClient(app) as c:
         c.engine = app.state.engine
         yield c
-    metadata.drop_all(app.state.engine)
+    if app.state.engine.dialect.name == "postgresql":  # the bi_* views depend on the tables
+        with app.state.engine.begin() as conn:
+            conn.exec_driver_sql("DROP TABLE IF EXISTS events, sessions CASCADE")
+    else:
+        metadata.drop_all(app.state.engine)
     app.state.engine.dispose()
 
 
@@ -136,3 +140,24 @@ def test_health(client):
 def test_parse_ua(ua, device, os_, browser):
     p = parse_ua(ua)
     assert (p["device"], p["os"], p["browser"], p["is_bot"]) == (device, os_, browser, False)
+
+
+@pytest.mark.parametrize("given,expected", [
+    ("postgres://u:p@ep-x.aws.neon.tech/neondb?sslmode=require",
+     "postgresql+psycopg://u:p@ep-x.aws.neon.tech/neondb?sslmode=require"),
+    ("postgresql://u:p@h/db?sslmode=require&channel_binding=require",
+     "postgresql+psycopg://u:p@h/db?sslmode=require&channel_binding=require"),
+    ("postgresql+psycopg://u:p@h/db", "postgresql+psycopg://u:p@h/db"),
+    ("sqlite:///./telemetry.db", "sqlite:///./telemetry.db"),
+])
+def test_normalize_url(given, expected):
+    assert normalize_url(given) == expected
+
+
+def test_bi_views_load_on_startup(client):
+    if client.engine.dialect.name != "postgresql":
+        pytest.skip("views are Postgres-only")
+    post(client, batch(ev("route_enter", view="guide", country="uk"), ev("route_leave", view="guide", dur=5_000)))
+    with client.engine.connect() as conn:
+        assert conn.exec_driver_sql("select view, visits, seconds from bi_view_daily").one() == ("guide", 1, 5)
+        assert conn.exec_driver_sql("select opened_guide from bi_funnel").scalar() is True

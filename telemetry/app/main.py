@@ -19,7 +19,7 @@ from pydantic import ValidationError
 from sqlalchemy import case, desc, func, select, text
 
 from .config import Settings, get_settings
-from .db import events, make_engine, save_batch, sessions, utcnow
+from .db import events, load_bi_views, make_engine, save_batch, sessions, utcnow
 from .schemas import Batch
 
 BOT_RE = re.compile(r"bot|crawl|spider|slurp|headless|lighthouse|preview|facebookexternalhit|curl|wget|python-requests", re.I)
@@ -73,6 +73,8 @@ def to_dt(ms):
 def create_app(settings: Settings | None = None) -> FastAPI:
     s = settings or get_settings()
     engine = make_engine(s.database_url)
+    if s.load_bi_views:
+        load_bi_views(engine)
     limiter = RateLimiter(s.rate_limit_per_min)
     allowed = set(s.allowed_origins)
 
