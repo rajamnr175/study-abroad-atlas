@@ -6,6 +6,8 @@
 <meta name="description" content="Study abroad guide for Indian students: find the countries that fit your budget, admission steps, visa documents, universities, first-year costs, consultancies and safe work-abroad routes.">
 <style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
 <title>Study Abroad Atlas</title>
+<!-- Telemetry collector, e.g. https://atlas-telemetry.example.com/v1/collect. Empty = no tracking. See telemetry/README.md -->
+<meta name="atlas-telemetry" content="">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2070,6 +2072,146 @@ function ask(text){
 
 paintArt();renderContact();buildChat();renderMode();renderRates();renderGuide();renderConsult();setView(S.view);
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(moveInd);
+})();
+</script>
+<script>
+/* ---------- TELEMETRY: anonymous interaction tracking ----------
+   Batches events to the collector in <meta name="atlas-telemetry"> (see telemetry/README.md).
+   Off when that is empty, when the visitor has Do Not Track or Global Privacy Control on,
+   or after they click "Stop counting my visits". Random ids only; typed text has emails and
+   phone numbers stripped before it leaves the page. */
+(function(){
+const END=((document.querySelector('meta[name="atlas-telemetry"]')||{}).content||'').trim();
+if(!END)return;
+const lsGet=k=>{try{return localStorage.getItem(k)}catch(e){return null}};
+const lsSet=(k,v)=>{try{v==null?localStorage.removeItem(k):localStorage.setItem(k,v)}catch(e){}};
+const ssGet=k=>{try{return sessionStorage.getItem(k)}catch(e){return null}};
+const ssSet=(k,v)=>{try{sessionStorage.setItem(k,v)}catch(e){}};
+const optedOut=lsGet('atlas-notrack')==='1';
+const blocked=navigator.doNotTrack==='1'||window.doNotTrack==='1'||navigator.globalPrivacyControl===true;
+
+/* the notice and the switch sit in the footer */
+const note=document.createElement('p');note.id='trackNote';
+note.innerHTML=blocked?'Visit counting is off because your browser asks sites not to track you.'
+  :optedOut?'You turned off visit counting. <button type="button" class="linkbtn" data-track="on">Turn it back on</button>'
+  :'We count anonymous interactions (which tabs, countries and sections are used) to improve this guide. No names, emails or phone numbers are collected. <button type="button" class="linkbtn" data-track="off">Stop counting my visits</button>';
+const foot=document.getElementById('rates-box');if(foot)foot.appendChild(note);
+note.addEventListener('click',e=>{const b=e.target.closest('[data-track]');if(!b)return;lsSet('atlas-notrack',b.dataset.track==='off'?'1':null);location.reload();});
+if(blocked||optedOut)return;
+
+const rid=()=>(window.crypto&&crypto.randomUUID?crypto.randomUUID():Date.now().toString(36)+Math.random().toString(36).slice(2)+Math.random().toString(36).slice(2)).replace(/-/g,'');
+const scrub=s=>String(s==null?'':s).replace(/[\w.+-]+@[\w-]+(\.[\w-]+)+/g,'[email]').replace(/\+?\d[\d\s().-]{7,}\d/g,'[number]').replace(/\s+/g,' ').trim().slice(0,300);
+const VIEWS=['fit','guide','compare','process','jobs'];
+const SECTIONS=['story','fitForm','fitSum','fitList','gHead','g-plan','g-steps','g-docs','g-unis','g-cost','g-rules','g-src',
+  'visionArt','compareChart','compareTable','procArt','pipe','consultTable','jobsArt','routes','agentSteps','contact','rates-box','cbPanel'];
+const SEC_SEL=SECTIONS.map(s=>'#'+s).join(',');
+
+/* ids: visitor in localStorage, session per tab, renewed after 30 minutes idle */
+let vid=lsGet('atlas-vid');const returning=!!vid;if(!vid){vid=rid();lsSet('atlas-vid',vid);}
+let sid=ssGet('atlas-sid');const fresh=!sid||Date.now()-(+ssGet('atlas-sact')||0)>30*60e3;
+if(fresh){sid=rid();ssSet('atlas-sid',sid);ssSet('atlas-seq','0');}
+let seq=+ssGet('atlas-seq')||0;
+
+const qs=new URLSearchParams(location.search);
+const routeOf=()=>{const h=location.hash.slice(1);return VIEWS.includes(h)?{route:h,view:h,country:null}:h?{route:h,view:'guide',country:h}:{route:'fit',view:'fit',country:null};};
+let R=routeOf();
+const ctx={landing:R.route,referrer:document.referrer?scrub(document.referrer.split('?')[0]):null,
+  utm_source:qs.get('utm_source'),utm_medium:qs.get('utm_medium'),utm_campaign:qs.get('utm_campaign'),utm_content:qs.get('utm_content'),utm_term:qs.get('utm_term'),
+  lang:navigator.language,tz:(Intl.DateTimeFormat().resolvedOptions()||{}).timeZone,vw:innerWidth,vh:innerHeight,sw:screen.width,sh:screen.height,
+  scheme:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light',returning};
+
+/* a clock that only runs while the tab is visible, so dwell times are real reading time */
+let vClock=0,vMark=document.hidden?null:performance.now();
+const vnow=()=>vClock+(vMark==null?0:performance.now()-vMark);
+
+/* queue + send: fetch while open, sendBeacon when the page is going away */
+let q=[];
+function track(t,f){
+  ssSet('atlas-sact',String(Date.now()));ssSet('atlas-seq',String(++seq));
+  q.push(Object.assign({id:rid(),t,ts:Date.now(),seq,route:R.route,view:R.view,country:R.country},f||{}));
+  if(q.length>500)q=q.slice(-500);
+  if(q.length>=20)flush(false);
+}
+function flush(leaving){
+  while(q.length){
+    const batch=q.splice(0,50),body=JSON.stringify({v:1,vid,sid,ctx,events:batch});
+    if(leaving&&navigator.sendBeacon&&navigator.sendBeacon(END,new Blob([body],{type:'text/plain'})))continue;
+    fetch(END,{method:'POST',body,headers:{'Content-Type':'text/plain'},keepalive:body.length<60000,credentials:'omit',mode:'cors'})
+      .then(r=>{if(r.status>=500)q.unshift(...batch);}).catch(()=>{q.unshift(...batch);});
+    if(!leaving)break;
+  }
+}
+setInterval(()=>flush(false),5000);
+
+/* routes (tab + country): the page writes them to the URL hash */
+/* time records: the first for a visit has no value; later ones (sent when the tab was hidden and
+   came back) say 'cont', so BI can add up time without counting extra visits */
+let rStart=vnow(),rSent=false,maxScroll=0;
+function routeLeave(){track('route_leave',{dur:Math.round(vnow()-rStart),value:rSent?'cont':null,props:{scroll:maxScroll}});rStart=vnow();rSent=true;}
+function onRoute(){const r=routeOf();if(r.route===R.route)return;routeLeave();R=r;rSent=false;maxScroll=0;scrollDepth();track('route_enter');}
+['replaceState','pushState'].forEach(k=>{const o=history[k];history[k]=function(){const x=o.apply(this,arguments);try{onRoute();}catch(e){}return x;};});
+window.addEventListener('hashchange',onRoute);
+function scrollDepth(){const h=document.documentElement.scrollHeight;if(h>0)maxScroll=Math.max(maxScroll,Math.min(100,Math.round((scrollY+innerHeight)/h*100)));}
+let sTick=0;window.addEventListener('scroll',()=>{if(!sTick){sTick=1;requestAnimationFrame(()=>{sTick=0;scrollDepth();});}},{passive:true});
+
+/* sections: counted when at least half of it (or half the screen) is in view for a second or more */
+const open=new Map();
+function secEnd(el,pause){const s=open.get(el);if(!s)return;const dur=Math.round(vnow()-s.t);
+  if(dur>=1000){track('section_view',{route:s.r.route,view:s.r.view,country:s.r.country,section:el.id,dur,value:s.sent?'cont':null});s.sent=true;}
+  if(pause)s.t=vnow();else open.delete(el);}
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>{for(const e of es){
+    const on=e.isIntersecting&&e.intersectionRect.height>=Math.min(e.boundingClientRect.height,innerHeight)*0.5;
+    if(on&&!open.has(e.target))open.set(e.target,{t:vnow(),r:R,sent:false});else if(!on&&open.has(e.target))secEnd(e.target,false);
+  }},{threshold:[0,.25,.5,.75,1]});
+  const watch=()=>SECTIONS.forEach(id=>{const el=document.getElementById(id);if(el&&!el.dataset.tw){el.dataset.tw=1;io.observe(el);}});
+  watch();setTimeout(watch,1500);document.getElementById('fabChat')&&document.getElementById('fabChat').addEventListener('click',()=>setTimeout(watch,50));
+}
+
+/* what was clicked, named by id or data attribute, inside which container */
+const KEYS=['view','go','id','p','l','m','f','c','s','to','q','go2','track'];
+function describe(el){
+  if(el.id)return '#'+el.id;
+  const k=KEYS.find(k=>el.dataset[k]!=null);
+  const box=el.parentElement&&el.parentElement.closest('[id]');
+  const self=k?`[data-${k.replace(/[A-Z]/g,m=>'-'+m.toLowerCase())}=${el.dataset[k]}]`:el.tagName.toLowerCase()+(el.classList[0]?'.'+el.classList[0]:'');
+  return (box?'#'+box.id+' ':'')+self;
+}
+const where=el=>{const s=el.closest(SEC_SEL);return s?s.id:null;};
+document.addEventListener('click',e=>{
+  const el=e.target.closest('a,button,[role=tab],summary,[data-go]');if(!el||el.closest('#trackNote'))return;
+  const f={target:describe(el),section:where(el),value:scrub(el.getAttribute('aria-label')||el.textContent).slice(0,80)||null};
+  if(el.tagName==='A'&&el.href){try{const u=new URL(el.href,location.href);f.props={href:u.origin+u.pathname,outbound:u.origin!==location.origin};}catch(x){}}
+  track('click',f);
+  if(el.classList.contains('cb-chip'))track('chat_question',{value:scrub(el.dataset.q),section:'cbPanel',props:{chip:true}});
+},true);
+document.addEventListener('submit',e=>{
+  if(e.target.id!=='cbForm')return;const i=document.getElementById('cbIn');const v=i?scrub(i.value):'';
+  if(v)track('chat_question',{value:v,section:'cbPanel'});
+},true);
+/* fields: one event per field after the visitor stops changing it */
+const timers={},lastVal={};
+function onField(e){
+  const el=e.target;if(!el.matches||!el.matches('input,select,textarea')||el.closest('#cbForm'))return;
+  if(el.type==='checkbox'||el.type==='radio'){if(e.type==='change')track('toggle',{target:describe(el),section:where(el),value:el.checked?'on':'off'});return;}
+  const key=describe(el);clearTimeout(timers[key]);
+  timers[key]=setTimeout(()=>{const v=scrub(el.value).slice(0,100);if(lastVal[key]===v)return;lastVal[key]=v;track('input',{target:key,section:where(el),value:v});},800);
+}
+document.addEventListener('input',onField,true);document.addEventListener('change',onField,true);
+
+/* errors, so broken features show up in the data */
+let errs=0;window.addEventListener('error',e=>{if(errs++<10)track('js_error',{value:scrub(e.message),props:{src:String(e.filename||'').split('/').pop(),line:e.lineno}});});
+
+/* leaving or hiding the tab: close open timers and send what is queued */
+function away(){if(vMark==null)return;routeLeave();open.forEach((s,el)=>secEnd(el,true));vClock=vnow();vMark=null;flush(true);}
+document.addEventListener('visibilitychange',()=>{if(document.hidden)away();else{vMark=performance.now();rStart=vnow();open.forEach(s=>{s.t=vnow();});}});
+window.addEventListener('pagehide',away);
+
+if(fresh)track('session_start',{props:{returning}});
+track('page_view',{props:{resumed:!fresh}});
+window.addEventListener('load',()=>setTimeout(()=>{const n=performance.getEntriesByType&&performance.getEntriesByType('navigation')[0];
+  if(n)track('perf',{props:{dom_ms:Math.round(n.domContentLoadedEventEnd),load_ms:Math.round(n.loadEventEnd),kb:Math.round((n.transferSize||0)/1024)}});},0));
+track('route_enter');scrollDepth();
 })();
 </script>
 

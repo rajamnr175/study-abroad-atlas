@@ -1,0 +1,31 @@
+# Local or single-server setup: the collector plus its own Postgres.
+#   ADMIN_TOKEN=change-me docker compose up -d --build
+#   docker compose exec db psql -U atlas -d atlas -f /bi/views.sql     # BI views, once tables exist
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: atlas
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-atlas}
+      POSTGRES_DB: atlas
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./bi:/bi:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U atlas -d atlas"]
+      interval: 5s
+      retries: 10
+  collector:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql+psycopg://atlas:${POSTGRES_PASSWORD:-atlas}@db:5432/atlas
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-https://rajamnr175.github.io,http://localhost:8000,http://127.0.0.1:8000}
+      ADMIN_TOKEN: ${ADMIN_TOKEN:-}
+      TRUST_PROXY: ${TRUST_PROXY:-false}
+    ports:
+      - "8080:8080"
+volumes:
+  pgdata:

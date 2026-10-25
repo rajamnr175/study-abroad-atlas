@@ -13,4 +13,8 @@ An interactive guide for Indian students planning a master's abroad. Covers the 
 
 It is a single static file (`index.html`) with no build step, so it runs on GitHub Pages as-is.
 
+## Visitor analytics
+
+`telemetry/` holds an optional backend that records how visitors use the page: tabs, country guides, sections read and for how long, clicks, budgets, searches and helper questions. It stores them in Postgres for BI. The tracker in `index.html` stays off until the `atlas-telemetry` meta tag points at a deployed collector. See [telemetry/README.md](telemetry/README.md) for what is recorded, privacy, deployment and the ready-made BI views.
+
 Figures were checked against official and cited sources in October 2026; fees and visa rules change often, so confirm on the official sites before paying anything.
