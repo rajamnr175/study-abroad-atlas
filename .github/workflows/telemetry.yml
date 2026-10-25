@@ -1,0 +1,37 @@
+name: telemetry tests
+on:
+  push:
+    paths: ["telemetry/**", ".github/workflows/telemetry.yml"]
+  pull_request:
+    paths: ["telemetry/**", ".github/workflows/telemetry.yml"]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: atlas
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U postgres" --health-interval 5s --health-retries 10
+    defaults:
+      run:
+        working-directory: telemetry
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install -r requirements-dev.txt
+      - name: SQLite
+        run: python -m pytest -q
+      - name: Postgres
+        run: python -m pytest -q
+        env:
+          TEST_DATABASE_URL: postgresql+psycopg://postgres:postgres@localhost:5432/atlas
+      - name: BI views load
+        run: |
+          python -c "from app.db import make_engine; make_engine('postgresql+psycopg://postgres:postgres@localhost:5432/atlas')"
+          PGPASSWORD=postgres psql -h localhost -U postgres -d atlas -v ON_ERROR_STOP=1 -f bi/views.sql
