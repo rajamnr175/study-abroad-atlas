@@ -462,6 +462,52 @@ button,select,label.doc,.chip,.btn,[data-go],.linkbtn,input[type=range],input[ty
 .contact h2{font-size:24px}
 .contact .btn{min-height:44px;padding:10px 18px;font-size:15px;text-decoration:none}
 @media (max-width:620px){.contact .panel{grid-template-columns:1fr}.contact .btn{justify-self:start}}
+/* contact form dialog */
+.ct{border:0;padding:0;width:min(680px,calc(100vw - 32px));max-width:none;max-height:min(92vh,900px);border-radius:16px;background:var(--surface);color:var(--ink);box-shadow:0 24px 64px rgba(12,20,30,.35);overflow:hidden}
+.ct::backdrop{background:rgba(12,20,30,.55)}
+.ct form,.ct .ct-done{display:grid;grid-template-rows:auto minmax(0,1fr) auto;max-height:min(92vh,900px)}
+.ct-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:16px 18px;background:var(--band);color:var(--band-ink)}
+.ct-head h2{font-size:22px}.ct-head p{color:var(--band-muted);font-size:14px;margin-top:2px}
+.ct-x{width:40px;height:40px;border-radius:50%;border:0;background:var(--band-soft);color:var(--band-ink);display:grid;place-items:center;flex:none}
+.ct-body{overflow-y:auto;padding:6px 18px 18px;display:grid;gap:6px}
+.ct fieldset{border:0;margin:0;padding:14px 0 4px;display:grid;gap:12px;min-width:0;border-top:1px solid var(--line)}
+.ct fieldset:first-child{border-top:0}
+.ct legend{font-family:var(--f-display);font-weight:700;font-size:17px;padding:0;float:left;width:100%;margin-bottom:2px}
+.ct legend+*{clear:both}
+.ct-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 14px}
+.ct-f{display:grid;gap:5px;min-width:0}
+.ct-f>span,.ct-q{font-weight:600;font-size:14px}
+.ct-f small,.ct-q small{font-weight:400;color:var(--muted);font-size:13px}
+.ct input[type=text],.ct input[type=tel],.ct input[type=email],.ct select,.ct textarea{width:100%;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:9px 11px;font:inherit;font-size:15px;min-height:44px}
+.ct textarea{min-height:84px;resize:vertical}
+.ct input:focus-visible,.ct select:focus-visible,.ct textarea:focus-visible{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+.ct [aria-invalid="true"]{border-color:var(--crit)}
+.ct-err{color:var(--crit);font-size:13px;min-height:0}
+.ct-err:empty{display:none}
+.ct-opts{display:flex;flex-wrap:wrap;gap:8px;border:0;margin:0;padding:0}
+.ct-ck{position:relative;display:inline-flex}
+.ct-ck input{position:absolute;opacity:0;width:1px;height:1px}
+.ct-ck span{display:inline-flex;align-items:center;min-height:40px;padding:7px 13px;border:1px solid var(--line);border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;background:var(--surface);transition:background-color var(--t-hover) ease,border-color var(--t-hover) ease}
+.ct-ck input:checked+span{background:var(--accent-soft);border-color:var(--accent);color:var(--ink)}
+.ct-ck input:checked+span::before{content:"✓";margin-right:6px;color:var(--accent);font-weight:700}
+.ct-ck input:focus-visible+span{outline:2px solid var(--accent);outline-offset:2px}
+@media (hover:hover){.ct-ck span:hover{border-color:var(--accent-line)}}
+.ct-consent{display:grid;grid-template-columns:20px minmax(0,1fr);gap:10px;align-items:start;font-size:14px;color:var(--muted)}
+.ct-consent input{width:18px;height:18px;margin:2px 0 0;accent-color:var(--accent)}
+.ct-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.ct-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding:12px 18px;border-top:1px solid var(--line);background:var(--surface)}
+.ct-foot .btn{min-height:44px;padding:10px 20px;font-size:15px}
+.ct-status{font-size:14px;color:var(--muted)}
+.ct-status.bad{color:var(--crit)}
+.ct-done .ct-body{padding:22px 18px;gap:12px;align-content:start}
+.ct-done h3{font-family:var(--f-display);font-size:24px}
+.ct-ref{font-family:var(--f-mono);font-size:15px;background:var(--surface-2);border-radius:6px;padding:2px 8px}
+@media (max-width:620px){
+  .ct{width:100vw;height:100dvh;max-height:100dvh;border-radius:0;margin:0}
+  .ct form,.ct .ct-done{max-height:100dvh;height:100dvh}
+  .ct-grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:no-preference){.ct[open]{animation:cb-in 260ms var(--ease-out)}}
 /* phones: a shorter header so the dashboard starts sooner */
 @media (max-width:620px){
   .top .lead,.top-meta small{display:none}
@@ -852,8 +898,8 @@ main.wrap{padding-bottom:96px}
 
 <section class="wrap contact" id="contact" hidden>
   <div class="panel">
-    <div class="sh" style="margin:0"><h2>Questions about studying abroad?</h2><p class="lead" id="contactNote">Send us a message with your name, email, phone number and question, and we'll get back to you.</p></div>
-    <a class="btn primary" id="contactGo" href="#" target="_blank" rel="noopener">Send a message<svg class="ic sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <div class="sh" style="margin:0"><h2>Want help with your plan?</h2><p class="lead" id="contactNote">Tell us where you are and what you're aiming for. It takes about two minutes, and a counsellor will get back to you the way you prefer.</p></div>
+    <button type="button" class="btn primary" id="contactGo">Talk to a counsellor<svg class="ic sm" aria-hidden="true"><use href="#i-arrow"/></svg></button>
   </div>
 </section>
 
@@ -2035,13 +2081,142 @@ function goTo(where,c){
   requestAnimationFrame(()=>requestAnimationFrame(()=>{if(el)el.scrollIntoView({behavior:smooth(),block:'start'});}));
 }
 
-/* ---------- contact: a Google Form, because outside visitors cannot save data inside the page ---------- */
-const CONTACT={form:'https://docs.google.com/forms/d/e/1FAIpQLScXlSg2HQiXSZxhyrvstq6ZmM4sSzro5Hzz9ln_5QXaRbx12A/viewform',note:''};
+/* ---------- contact: a form inside the page ----------
+   Answers go to the team's Google Form (works on any host, responses land in Forms / Sheets) and,
+   when the telemetry collector is deployed, to its /v1/contact endpoint as one structured row.
+   The visitor's details are never kept in the browser or sent to the analytics tracker. */
+const CONTACT={
+  form:'https://docs.google.com/forms/d/e/1FAIpQLScXlSg2HQiXSZxhyrvstq6ZmM4sSzro5Hzz9ln_5QXaRbx12A/viewform',
+  fields:{name:'entry.297099697',email:'entry.1158737181',phone:'entry.1791576792',message:'entry.332135379'},
+  note:''
+};
+const gformOn=()=>/^https:\/\/docs\.google\.com\/forms\/d\/e\/[\w-]+\/viewform$/.test(CONTACT.form);
+const leadsURL=()=>{const u=((document.querySelector('meta[name="atlas-telemetry"]')||{}).content||'').trim();return /^https?:\/\/.+\/v1\/collect$/.test(u)?u.replace(/collect$/,'contact'):'';};
+const contactOn=()=>gformOn()||!!leadsURL();
+function nextIntakes(){
+  const now=new Date(),y=now.getFullYear(),m=now.getMonth(),out=[];
+  for(let yy=y;out.length<4;yy++)for(const [mm,label] of [[0,'Jan–Feb'],[7,'Aug–Sep']]){if(out.length<4&&(yy>y||mm>m))out.push(`${label} ${yy}`);}
+  return out.concat('Not sure yet');
+}
+const CT={
+  cities:['Hyderabad','Vijayawada','Visakhapatnam','Chennai','Bengaluru','Mumbai','Pune','Delhi NCR','Other'],
+  levels:['Master\'s','MBA','Bachelor\'s','PhD','PG diploma / certificate'],
+  fields:['Computer science / IT / data','Engineering','Business / management / finance','Health / life sciences','Design / arts / humanities','Other'],
+  budgets:[['Under ₹20 lakh',0,20],['₹20–35 lakh',20,35],['₹35–50 lakh',35,50],['₹50–75 lakh',50,75],['Above ₹75 lakh',75,1e9],['Not sure yet',-1,-1]],
+  stages:['Class 12','Final-year undergraduate','Graduated, not working','Working professional'],
+  english:['Not taken yet','Test booked','Have a score'],
+  help:['Choosing a country','Shortlisting universities','Applications, SOP and LORs','Visa','Education loan','Scholarships','Accommodation','Jobs and work visas after study'],
+  via:['WhatsApp','Phone call','Email']
+};
+const ctRef=()=>'SAA-'+Date.now().toString(36).slice(-4).toUpperCase()+Math.random().toString(36).slice(2,4).toUpperCase();
+function ctHTML(){
+  const opt=(a,sel)=>a.map(x=>`<option${x===sel?' selected':''}>${esc(x)}</option>`).join('');
+  const cks=(name,a,on=[])=>`<div class="ct-opts">${a.map(([v,l])=>`<label class="ct-ck"><input type="checkbox" name="${name}" value="${esc(v)}"${on.includes(v)?' checked':''}><span>${esc(l)}</span></label>`).join('')}</div>`;
+  const radios=(name,a,sel)=>`<div class="ct-opts">${a.map(x=>`<label class="ct-ck"><input type="radio" name="${name}" value="${esc(x)}"${x===sel?' checked':''}><span>${esc(x)}</span></label>`).join('')}</div>`;
+  const bud=(CT.budgets.find(b=>S.budget>=b[1]&&S.budget<b[2])||CT.budgets[5])[0];
+  return `<form id="ctForm" novalidate>
+  <header class="ct-head"><div><h2 id="ctTitle">Talk to a counsellor</h2><p>About two minutes. Fields marked * are needed.</p></div><button type="button" class="ct-x" data-ct-close aria-label="Close"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></button></header>
+  <div class="ct-body">
+    <fieldset><legend>About you</legend>
+      <div class="ct-grid">
+        <label class="ct-f"><span>Full name *</span><input type="text" name="name" autocomplete="name" maxlength="100" required aria-describedby="ctErr-name"><span class="ct-err" id="ctErr-name"></span></label>
+        <label class="ct-f"><span>WhatsApp / phone *</span><input type="tel" name="phone" autocomplete="tel" inputmode="tel" maxlength="20" placeholder="+91 98xxx xxxxx" required aria-describedby="ctErr-phone"><span class="ct-err" id="ctErr-phone"></span></label>
+        <label class="ct-f"><span>Email <small>(optional)</small></span><input type="email" name="email" autocomplete="email" maxlength="120" aria-describedby="ctErr-email"><span class="ct-err" id="ctErr-email"></span></label>
+        <label class="ct-f"><span>City</span><select name="city"><option value="">Choose…</option>${opt(CT.cities)}</select></label>
+      </div>
+      <div><span class="ct-q">I am</span>${radios('role',['A student','A parent or guardian'],'A student')}</div>
+    </fieldset>
+    <fieldset><legend>Your plans</legend>
+      <div><span class="ct-q">Countries you're considering <small>(pick any)</small></span>${cks('countries',C.map(c=>[c.name,c.name]),S.view==='guide'?[cur.name]:[])}</div>
+      <div class="ct-grid">
+        <label class="ct-f"><span>Course level</span><select name="level">${opt(CT.levels,'Master\'s')}</select></label>
+        <label class="ct-f"><span>Field</span><select name="field"><option value="">Choose…</option>${opt(CT.fields)}</select></label>
+        <label class="ct-f"><span>When do you want to start?</span><select name="intake"><option value="">Choose…</option>${opt(nextIntakes())}</select></label>
+        <label class="ct-f"><span>Year-1 budget</span><select name="budget">${opt(CT.budgets.map(b=>b[0]),bud)}</select></label>
+        <label class="ct-f"><span>Where are you now?</span><select name="stage"><option value="">Choose…</option>${opt(CT.stages)}</select></label>
+        <label class="ct-f"><span>English test</span><select name="english">${opt(CT.english,'Not taken yet')}</select></label>
+      </div>
+      <label class="ct-f" id="ctScoreF" hidden><span>Test and score <small>(e.g. IELTS 7.0, PTE 65)</small></span><input type="text" name="english_score" maxlength="40"></label>
+    </fieldset>
+    <fieldset><legend>How can we help?</legend>
+      ${cks('help',CT.help.map(h=>[h,h]))}
+      <div><span class="ct-q">Best way to reach you</span>${radios('via',CT.via,'WhatsApp')}</div>
+      <label class="ct-f"><span>Anything else? <small>(optional)</small></span><textarea name="message" maxlength="2000" placeholder="Your degree and scores, a university you like, a question…"></textarea></label>
+      <label class="ct-consent"><input type="checkbox" name="consent" required aria-describedby="ctErr-consent"><span>I agree that the Study Abroad Atlas team can contact me about my study plans. My details are used only to reply and are never sold or shared. *</span></label>
+      <span class="ct-err" id="ctErr-consent"></span>
+      <label class="ct-hp" aria-hidden="true">Leave this empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+    </fieldset>
+  </div>
+  <footer class="ct-foot"><span class="ct-status" id="ctStatus" role="status"></span><button type="submit" class="btn primary" id="ctSend">Send to the team<svg class="ic sm" aria-hidden="true"><use href="#i-arrow"/></svg></button></footer>
+</form>`;
+}
+function ctRead(f){
+  const v=n=>(f.elements[n]&&f.elements[n].value||'').trim(),all=n=>[...f.querySelectorAll(`[name="${n}"]:checked`)].map(i=>i.value),one=n=>all(n)[0]||'';
+  return {name:v('name'),phone:v('phone'),email:v('email'),city:v('city'),role:one('role'),countries:all('countries'),level:v('level'),field:v('field'),
+    intake:v('intake'),budget:v('budget'),stage:v('stage'),english:v('english'),english_score:v('english')==='Have a score'?v('english_score'):'',
+    help:all('help'),via:one('via'),message:v('message'),consent:f.elements.consent.checked,website:v('website'),
+    page:{view:S.view,country:S.view==='guide'?cur.id:null,mode:MODE}};
+}
+function ctCheck(f,d){
+  const errs={};
+  if(d.name.length<2)errs.name='Please enter your name.';
+  const digits=d.phone.replace(/\D/g,'');
+  if(!/^\+?[\d\s()-]+$/.test(d.phone)||digits.length<10||digits.length>15)errs.phone='Enter a phone number with 10 digits (add the country code if outside India).';
+  if(d.email&&!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(d.email))errs.email='This email address doesn\'t look right.';
+  if(!d.consent)errs.consent='Please tick the box so we can contact you.';
+  for(const k of ['name','phone','email','consent']){const el=f.elements[k],e=$('#ctErr-'+k);e.textContent=errs[k]||'';el.setAttribute('aria-invalid',errs[k]?'true':'false');}
+  const first=['name','phone','email','consent'].find(k=>errs[k]);if(first)f.elements[first].focus();
+  return !first;
+}
+function ctText(d){
+  const L=(k,v)=>v&&(!Array.isArray(v)||v.length)?`${k}: ${Array.isArray(v)?v.join(', '):v}`:'';
+  return [L('Ref',d.ref),L('I am',d.role),L('City',d.city),L('Countries',d.countries),L('Level',d.level),L('Field',d.field),L('Intake',d.intake),
+    L('Budget',d.budget),L('Now',d.stage),L('English',d.english+(d.english_score?` (${d.english_score})`:'')),L('Help with',d.help),L('Contact via',d.via),
+    d.message?`\nMessage:\n${d.message}`:'',`\n(Sent from the Study Abroad Atlas${d.page.country?', '+(C.find(c=>c.id===d.page.country)||{}).name+' guide':''})`].filter(Boolean).join('\n');
+}
+const ctTimeout=(p,ms)=>Promise.race([p,new Promise((_,no)=>setTimeout(()=>no(new Error('timeout')),ms))]);
+async function ctSend(d){
+  const jobs=[],api=leadsURL();
+  if(api)jobs.push(ctTimeout(fetch(api,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(d),credentials:'omit'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);}),20000));
+  if(gformOn()){const F=CONTACT.fields,b=new URLSearchParams();b.set(F.name,d.name);b.set(F.email,d.email);b.set(F.phone,d.phone);b.set(F.message,ctText(d));
+    // Google Forms sends no CORS headers, so the reply is opaque: a resolved request is the best signal available
+    jobs.push(ctTimeout(fetch(CONTACT.form.replace(/viewform$/,'formResponse'),{method:'POST',mode:'no-cors',body:b}),20000));}
+  return (await Promise.allSettled(jobs)).some(r=>r.status==='fulfilled');
+}
+function openContact(){
+  if(!contactOn())return;
+  let dlg=$('#ctDlg');
+  if(!dlg){dlg=document.createElement('dialog');dlg.id='ctDlg';dlg.className='ct';dlg.setAttribute('aria-labelledby','ctTitle');document.body.appendChild(dlg);
+    dlg.addEventListener('click',e=>{if(e.target===dlg||e.target.closest('[data-ct-close]'))dlg.close();});}
+  if(!dlg.querySelector('#ctForm')){dlg.innerHTML=ctHTML();wireContact(dlg);}
+  if(!dlg.open){if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');}
+  setTimeout(()=>{const n=dlg.querySelector('[name=name]');if(n)n.focus();},30);
+}
+function wireContact(dlg){
+  const f=dlg.querySelector('#ctForm');
+  f.elements.english.addEventListener('change',()=>{dlg.querySelector('#ctScoreF').hidden=f.elements.english.value!=='Have a score';});
+  f.addEventListener('submit',async e=>{
+    e.preventDefault();const d=ctRead(f);
+    if(d.website){dlg.close();return;}  // a bot filled the hidden field
+    if(!ctCheck(f,d))return;
+    d.ref=ctRef();const btn=dlg.querySelector('#ctSend'),st=dlg.querySelector('#ctStatus');
+    btn.disabled=true;st.className='ct-status';st.textContent='Sending…';
+    const ok=await ctSend(d);btn.disabled=false;
+    if(!ok){st.className='ct-status bad';st.textContent='Couldn\'t send. Check your connection and try again.';return;}
+    document.dispatchEvent(new CustomEvent('atlas:contact',{detail:{countries:d.countries,level:d.level,field:d.field,intake:d.intake,budget:d.budget,stage:d.stage,help:d.help,via:d.via,role:d.role,city:d.city}}));
+    dlg.innerHTML=`<div class="ct-done"><header class="ct-head"><div><h2 id="ctTitle">Thank you, ${esc(d.name.split(' ')[0])}</h2><p>Your details reached the team.</p></div><button type="button" class="ct-x" data-ct-close aria-label="Close"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></button></header>
+      <div class="ct-body"><p>Your reference is <span class="ct-ref">${esc(d.ref)}</span>. Quote it if you message us.</p>
+      <p>A counsellor will reach you ${({'WhatsApp':'on <b>WhatsApp</b>','Phone call':'by <b>phone</b>','Email':d.email?'by <b>email</b>':'by <b>phone</b> (you left email blank)'})[d.via]||'soon'}.</p>
+      <p class="note">Meanwhile, the country guide has your month-by-month plan and document checklist.</p></div>
+      <footer class="ct-foot"><span></span><button type="button" class="btn primary" data-ct-close>Done</button></footer></div>`;
+    dlg.querySelector('[data-ct-close]').focus();
+  });
+}
 function renderContact(){
   const sec=$('#contact');if(!sec)return;
-  if(!/^https:\/\/(docs\.google\.com\/forms|forms\.gle)\//.test(CONTACT.form)){sec.hidden=true;return;}
-  $('#contactGo').href=CONTACT.form;
+  if(!contactOn()){sec.hidden=true;return;}
   if(CONTACT.note)$('#contactNote').textContent=CONTACT.note;
+  $('#contactGo').addEventListener('click',openContact);
   sec.hidden=false;
 }
 
@@ -2460,13 +2635,12 @@ function reply(text){
 function suggestions(){const b=cbRows().find(r=>r.v==='fits')?.c||cur;
   return ['Which countries fit my budget?','What is the cheapest country?','Where can I work longest after study?',`How much does ${b.name} cost?`,`What documents do I need for ${cur.name}?`,'When should I start applying?','How do I spot a fake job agent?','Do consultancies charge a fee?'];}
 const chipsHTML=()=>`<div class="cb-chips">${suggestions().map(s=>`<button type="button" class="cb-chip" data-q="${esc(s)}">${esc(s)}</button>`).join('')}</div>`;
-const contactOn=()=>/^https:\/\/(docs\.google\.com\/forms|forms\.gle)\//.test(CONTACT.form);
-const contactHTML=()=>contactOn()?`<p class="cb-small">Still stuck? <a href="${esc(CONTACT.form)}" target="_blank" rel="noopener">Send a message to the team</a>.</p>`:'';
+const contactHTML=()=>contactOn()?`<p class="cb-small">Still stuck? <button type="button" class="cb-act" data-contact>Talk to a counsellor</button></p>`:'';
 
 const CB={open:false,pending:null,started:false};
 function buildChat(){
   const wrap=document.createElement('div');wrap.className='fab';wrap.innerHTML=`
-    <a class="fab-contact" id="fabContact" href="#" target="_blank" rel="noopener" hidden><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg><span>Contact us</span></a>
+    <button type="button" class="fab-contact" id="fabContact" hidden><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg><span>Contact us</span></button>
     <button type="button" class="fab-chat" id="fabChat" aria-expanded="false" aria-controls="cbPanel"><svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg><span>Ask a question</span></button>
     <section class="cb" id="cbPanel" role="dialog" aria-label="Atlas helper" hidden>
       <header class="cb-head"><div><b>Atlas helper</b><small>Answers from this dashboard's data</small></div><button type="button" class="cb-x" id="cbClose" aria-label="Close the helper"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></button></header>
@@ -2474,13 +2648,14 @@ function buildChat(){
       <form class="cb-form" id="cbForm"><label class="sr" for="cbIn">Your question</label><input id="cbIn" type="text" autocomplete="off" placeholder="Ask about costs, visas, jobs…" maxlength="200"><button type="submit" class="cb-send" aria-label="Send"><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button></form>
     </section>`;
   document.body.appendChild(wrap);
-  if(contactOn()){const a=$('#fabContact');a.href=CONTACT.form;a.hidden=false;}
+  if(contactOn()){const a=$('#fabContact');a.hidden=false;a.addEventListener('click',openContact);}
   $('#fabChat').addEventListener('click',()=>toggleChat(!CB.open));
   $('#cbClose').addEventListener('click',()=>toggleChat(false));
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&CB.open)toggleChat(false);});
   $('#cbForm').addEventListener('submit',e=>{e.preventDefault();const v=$('#cbIn').value.trim();if(!v)return;$('#cbIn').value='';ask(v);});
   $('#cbLog').addEventListener('click',e=>{
     const chip=e.target.closest('.cb-chip');if(chip){ask(chip.dataset.q);return;}
+    if(e.target.closest('[data-contact]')){openContact();return;}
     const a=e.target.closest('.cb-act');if(!a)return;
     const go=a.dataset.go2;
     if(go.startsWith('view:')){setView(go.slice(5),true);}
@@ -2626,13 +2801,16 @@ document.addEventListener('submit',e=>{
 /* fields: one event per field after the visitor stops changing it */
 const timers={},lastVal={};
 function onField(e){
-  const el=e.target;if(!el.matches||!el.matches('input,select,textarea')||el.closest('#cbForm'))return;
+  const el=e.target;if(!el.matches||!el.matches('input,select,textarea')||el.closest('#cbForm,#ctForm'))return;
   if(el.type==='checkbox'||el.type==='radio'){if(e.type==='change')track('toggle',{target:describe(el),section:where(el),value:el.checked?'on':'off'});return;}
   const key=describe(el);clearTimeout(timers[key]);
   timers[key]=setTimeout(()=>{const v=scrub(el.value).slice(0,100);if(lastVal[key]===v)return;lastVal[key]=v;track('input',{target:key,section:where(el),value:v});},800);
 }
 document.addEventListener('input',onField,true);document.addEventListener('change',onField,true);
 
+/* contact form: the page announces a submission with its non-personal answers only */
+document.addEventListener('atlas:contact',e=>{const d=e.detail||{};
+  track('contact_submit',{section:'ctDlg',value:(d.countries||[]).join(', ').slice(0,300)||null,props:{level:d.level,field:d.field,intake:d.intake,budget:d.budget,stage:d.stage,help:d.help,via:d.via,role:d.role,city:d.city}});});
 /* errors, so broken features show up in the data */
 let errs=0;window.addEventListener('error',e=>{if(errs++<10)track('js_error',{value:scrub(e.message),props:{src:String(e.filename||'').split('/').pop(),line:e.lineno}});});
 

@@ -9,6 +9,7 @@ An interactive guide for Indian students planning a master's abroad, with 500+ u
 - **Process & consultancies**: the full admission-to-visa process and consultancies by city.
 - **Jobs abroad**: safe, legal work-abroad routes and how to spot recruitment scams.
 - **Ask a question**: a small helper that answers from the page's own data (no AI service).
+- **Talk to a counsellor**: a built-in enquiry form (about you, your plans, what you need help with). Answers go to the team's Google Form and, once the backend is deployed, to the `leads` table.
 - Editable exchange rates (ECB reference rates, 23 Oct 2026); every figure updates.
 
 It is a single static file (`index.html`) with no build step, so it runs on GitHub Pages as-is.

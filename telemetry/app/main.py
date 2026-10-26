@@ -2,11 +2,15 @@
 
 POST /v1/collect   batches of interaction events from the page (JSON, sent as text/plain so
                    browsers skip the CORS preflight; navigator.sendBeacon works too)
+POST /v1/contact   an enquiry from the page's contact form (stored in the leads table)
+GET  /v1/leads     enquiries as JSON or ?format=csv (Bearer ADMIN_TOKEN)
 GET  /v1/stats     a quick engagement summary (Bearer ADMIN_TOKEN)
 GET  /healthz      liveness + database check
 
 Run: uvicorn app.main:create_app --factory
 """
+import csv
+import io
 import json
 import re
 import threading
@@ -16,11 +20,12 @@ from datetime import datetime, timedelta, timezone
 from fastapi import FastAPI, Header, HTTPException, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import ValidationError
-from sqlalchemy import case, desc, func, select, text
+from sqlalchemy import case, desc, func, insert, select, text
+from sqlalchemy.exc import IntegrityError
 
 from .config import Settings, get_settings
-from .db import events, load_bi_views, make_engine, save_batch, sessions, utcnow
-from .schemas import Batch
+from .db import events, leads, load_bi_views, make_engine, save_batch, sessions, utcnow
+from .schemas import Batch, Lead
 
 BOT_RE = re.compile(r"bot|crawl|spider|slurp|headless|lighthouse|preview|facebookexternalhit|curl|wget|python-requests", re.I)
 
@@ -76,6 +81,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     if s.load_bi_views:
         load_bi_views(engine)
     limiter = RateLimiter(s.rate_limit_per_min)
+    lead_limiter = RateLimiter(5)  # a person sends one enquiry; five a minute from one IP is already generous
     allowed = set(s.allowed_origins)
 
     app = FastAPI(title="Study Abroad Atlas telemetry", version="1.0.0")
@@ -98,9 +104,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     async def collect(req: Request):
         # sendBeacon and fetch always send Origin; the CORS middleware alone does not stop a
         # simple POST from reaching us, so the origin is checked here too.
-        origin = (req.headers.get("origin") or "").rstrip("/")
-        if origin not in allowed:
-            raise HTTPException(403, "origin not allowed")
+        check_origin(req)
         if not limiter.allow(client_ip(req)):
             raise HTTPException(429, "slow down")
         if int(req.headers.get("content-length") or 0) > s.max_body_bytes:
@@ -133,10 +137,70 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         save_batch(engine, session_row, rows)
         return Response(status_code=204)
 
-    @app.get("/v1/stats")
-    def stats(days: int = 30, authorization: str = Header("")):
+    def check_origin(req: Request):
+        if (req.headers.get("origin") or "").rstrip("/") not in allowed:
+            raise HTTPException(403, "origin not allowed")
+
+    def check_admin(authorization: str):
         if not s.admin_token or authorization != f"Bearer {s.admin_token}":
             raise HTTPException(401, "bearer token required")
+
+    @app.post("/v1/contact", status_code=201)
+    async def contact(req: Request):
+        check_origin(req)
+        if not lead_limiter.allow(client_ip(req)):
+            raise HTTPException(429, "slow down")
+        body = await req.body()
+        if len(body) > 16 * 1024:
+            raise HTTPException(413, "too large")
+        try:
+            lead = Lead.model_validate(json.loads(body))
+        except (ValueError, ValidationError) as e:
+            raise HTTPException(400, f"bad enquiry: {str(e)[:300]}")
+        if not lead.consent:
+            raise HTTPException(400, "consent required")
+        if lead.website:  # honeypot filled: answer like a success so the bot learns nothing
+            return {"ok": True, "ref": lead.ref}
+        page = lead.page or {}
+        row = {
+            "ref": lead.ref, "created_at": utcnow(), "status": "new", "name": lead.name.strip(), "phone": lead.phone,
+            "email": (lead.email or None), "city": lead.city, "role": lead.role, "countries": lead.countries,
+            "level": lead.level, "field": lead.field, "intake": lead.intake, "budget": lead.budget, "stage": lead.stage,
+            "english": lead.english, "english_score": lead.english_score, "help": lead.help, "contact_via": lead.via,
+            "message": lead.message, "page_view": str(page.get("view") or "")[:32] or None,
+            "page_country": str(page.get("country") or "")[:32] or None,
+        }
+        try:
+            with engine.begin() as conn:
+                conn.execute(insert(leads), row)
+        except IntegrityError:  # same ref again: a retry of an enquiry we already have
+            pass
+        return {"ok": True, "ref": lead.ref}
+
+    @app.get("/v1/leads")
+    def list_leads(days: int = 30, format: str = "json", authorization: str = Header("")):
+        """Enquiries for the team, newest first. ?format=csv opens in Excel / Google Sheets."""
+        check_admin(authorization)
+        since = utcnow() - timedelta(days=max(1, min(days, 3650)))
+        cols = [c for c in leads.c if c.name != "id"]
+        with engine.connect() as conn:
+            rows = [dict(r._mapping) for r in conn.execute(
+                select(*cols).where(leads.c.created_at >= since).order_by(desc(leads.c.created_at)))]
+        for r in rows:
+            r["created_at"] = r["created_at"].isoformat(timespec="seconds") + "Z"
+        if format != "csv":
+            return {"since": since.isoformat() + "Z", "count": len(rows), "leads": rows}
+        buf = io.StringIO()
+        w = csv.DictWriter(buf, fieldnames=[c.name for c in cols])
+        w.writeheader()
+        for r in rows:
+            w.writerow({k: ", ".join(v) if isinstance(v, list) else v for k, v in r.items()})
+        return Response(buf.getvalue(), media_type="text/csv",
+                        headers={"Content-Disposition": 'attachment; filename="atlas-leads.csv"'})
+
+    @app.get("/v1/stats")
+    def stats(days: int = 30, authorization: str = Header("")):
+        check_admin(authorization)
         since = utcnow() - timedelta(days=max(1, min(days, 365)))
         human = select(sessions.c.session_id).where(sessions.c.is_bot.is_(False), sessions.c.first_seen >= since)
         ev = lambda *cols: select(*cols).where(events.c.received_at >= since, events.c.session_id.in_(human))  # noqa: E731
