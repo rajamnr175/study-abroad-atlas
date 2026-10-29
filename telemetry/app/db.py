@@ -66,6 +66,33 @@ events = Table(
 )
 Index("ix_events_type_received", events.c.type, events.c.received_at)
 
+# One row per contact-form enquiry. Personal data: keep it out of BI tools (use bi_leads_summary).
+leads = Table(
+    "leads", metadata,
+    Column("id", BigId, primary_key=True, autoincrement=True),
+    Column("ref", String(16), nullable=False, unique=True),  # shown to the visitor, also sent to the Google Form
+    Column("created_at", DateTime, nullable=False, index=True),
+    Column("status", String(16), nullable=False, default="new"),
+    Column("name", String(100), nullable=False),
+    Column("phone", String(20), nullable=False),
+    Column("email", String(120)),
+    Column("city", String(40)),
+    Column("role", String(40)),
+    Column("countries", JSON),
+    Column("level", String(40)),
+    Column("field", String(60)),
+    Column("intake", String(30)),
+    Column("budget", String(30)),
+    Column("stage", String(40)),
+    Column("english", String(30)),
+    Column("english_score", String(40)),
+    Column("help", JSON),
+    Column("contact_via", String(20)),
+    Column("message", String(2000)),
+    Column("page_view", String(32)),
+    Column("page_country", String(32)),
+)
+
 
 def utcnow() -> datetime:
     """Naive UTC, so SQLite and Postgres store and compare the same values."""

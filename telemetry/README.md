@@ -25,6 +25,7 @@ index.html (tracker)  --batches every 5 s, and on leave-->  POST /v1/collect  --
 | `input` | a field settles on a value (budget, searches, filters, plan dates, exchange rates) | `target`, `value` |
 | `toggle` | a checkbox (the document checklist) | `target`, `value` = on/off |
 | `chat_question` | a question typed or picked in the helper | `value`, `props.chip` |
+| `contact_submit` | an enquiry sent from the contact form (no name, phone, email or message) | `value` (countries), `props` (level, field, intake, budget, help...) |
 | `js_error` | a script error on the page | `value`, `props.src`, `props.line` |
 
 Every event also carries `view`, `country`, `route`, the visitor's clock time (`client_ts`), its order in the session (`seq`) and the server's `received_at`. Each session row holds the landing tab, referrer, UTM tags, device / OS / browser, language, time zone, screen size and colour scheme.
@@ -114,6 +115,22 @@ In `../index.html`, set `<meta name="atlas-telemetry" content="https://<your-ser
 
 Any other host that runs a Docker container next to Postgres works the same way: build this folder's `Dockerfile` and set the variables above.
 
+## Contact-form enquiries
+
+The page's **Talk to a counsellor** form asks for name, WhatsApp/phone and (optionally) email, city, student or parent, countries, course level, field, intake, budget, current stage, English test, what they need help with, preferred contact method and a message, with a consent tick box.
+
+Each enquiry is sent to two places, so nothing is lost while one is down:
+- **The Google Form** set in `CONTACT` in `index.html`. Name, email and phone go into their own fields; the other answers are laid out in the Message field. This works on any host, with no backend.
+- **`POST /v1/contact`** on this collector, once the `atlas-telemetry` meta tag points at it. Every answer is stored in its own column in the `leads` table.
+
+Both carry the same reference (e.g. `SAA-7KX2QF`), which the visitor sees, so the two records match up.
+
+- `GET /v1/leads?days=30` (`Authorization: Bearer $ADMIN_TOKEN`) lists enquiries; add `&format=csv` to open them in Excel or Google Sheets.
+- Update `status` (`new`, `contacted`, `applied`...) directly in Neon's SQL Editor as the team follows up.
+- `bi_leads_summary` has the enquiry answers **without** names, phone numbers, emails or messages. Give BI tools that view, not the `leads` table.
+- Spam: a hidden field that only bots fill (silently ignored), a limit of 5 enquiries a minute per IP, and the same Origin check as `/v1/collect`.
+- The analytics tracker never reads this form's fields. It records one `contact_submit` event with the non-personal answers (countries, level, field, intake, budget, stage, help, contact method, city), which `bi_funnel.sent_enquiry` uses.
+
 ## Business intelligence
 
 `bi/views.sql` creates these Postgres views on startup (or run it yourself with `psql "$DATABASE_URL" -f bi/views.sql`), all without bot traffic:
@@ -127,7 +144,8 @@ Any other host that runs a Docker container next to Postgres works the same way:
 | `bi_clicks` | every control's use, with its label and whether it leaves the site |
 | `bi_inputs` | budgets chosen, searches typed, filters set, checklist ticks |
 | `bi_questions` | what people ask the helper |
-| `bi_funnel` | per session: budget board, set a budget, opened a guide, used the checklist, asked the helper, clicked contact |
+| `bi_funnel` | per session: budget board, set a budget, opened a guide, used the checklist, asked the helper, clicked contact, sent an enquiry |
+| `bi_leads_summary` | contact-form answers without personal details: where enquiries come from, which countries, intakes and budgets |
 | `bi_errors` | front-end errors by message and line |
 
 Point Metabase, Superset, Power BI or Looker Studio at the database with a read-only user, and build dashboards on these views. For example:

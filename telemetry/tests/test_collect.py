@@ -7,7 +7,7 @@ from fastapi.testclient import TestClient
 from sqlalchemy import select
 
 from app.config import Settings
-from app.db import events, metadata, normalize_url, sessions
+from app.db import events, leads, metadata, normalize_url, sessions
 from app.main import create_app, parse_ua
 
 ORIGIN = "https://rajamnr175.github.io"
@@ -25,7 +25,7 @@ def client(tmp_path):
         yield c
     if app.state.engine.dialect.name == "postgresql":  # the bi_* views depend on the tables
         with app.state.engine.begin() as conn:
-            conn.exec_driver_sql("DROP TABLE IF EXISTS events, sessions CASCADE")
+            conn.exec_driver_sql("DROP TABLE IF EXISTS events, sessions, leads CASCADE")
     else:
         metadata.drop_all(app.state.engine)
     app.state.engine.dispose()
@@ -161,3 +161,71 @@ def test_bi_views_load_on_startup(client):
     with client.engine.connect() as conn:
         assert conn.exec_driver_sql("select view, visits, seconds from bi_view_daily").one() == ("guide", 1, 5)
         assert conn.exec_driver_sql("select opened_guide from bi_funnel").scalar() is True
+
+
+def lead(**kw):
+    d = {"ref": "SAA-AB12CD", "name": "Ravi Kumar", "phone": "+91 98765 43210", "email": "ravi@example.com",
+         "city": "Hyderabad", "role": "A student", "countries": ["Germany", "Canada"], "level": "Master's",
+         "field": "Engineering", "intake": "Aug–Sep 2027", "budget": "₹20–35 lakh", "stage": "Final-year undergraduate",
+         "english": "Have a score", "english_score": "IELTS 7.0", "help": ["Visa", "Education loan"], "via": "WhatsApp",
+         "message": "Interested in TU Munich", "consent": True, "website": "", "page": {"view": "guide", "country": "germany"}}
+    d.update(kw)
+    return d
+
+
+def send_lead(client, body, origin=ORIGIN):
+    return client.post("/v1/contact", content=json.dumps(body),
+                       headers={"Origin": origin, "Content-Type": "text/plain", "User-Agent": UA})
+
+
+def test_contact_stores_lead_and_exports(client):
+    r = send_lead(client, lead())
+    assert r.status_code == 201 and r.json() == {"ok": True, "ref": "SAA-AB12CD"}
+    assert send_lead(client, lead()).status_code == 201  # a retry with the same ref is not stored twice
+    rows = all_rows(client, leads)
+    assert len(rows) == 1
+    row = rows[0]
+    assert (row["name"], row["countries"], row["help"], row["page_country"], row["status"]) == \
+        ("Ravi Kumar", ["Germany", "Canada"], ["Visa", "Education loan"], "germany", "new")
+    j = client.get("/v1/leads", headers={"Authorization": "Bearer secret"}).json()
+    assert j["count"] == 1 and j["leads"][0]["ref"] == "SAA-AB12CD"
+    c = client.get("/v1/leads?format=csv", headers={"Authorization": "Bearer secret"})
+    assert c.headers["content-type"].startswith("text/csv")
+    assert "Germany, Canada" in c.text and "Ravi Kumar" in c.text
+    assert client.get("/v1/leads").status_code == 401
+
+
+@pytest.mark.parametrize("bad", [
+    {"name": "R"}, {"phone": "12345"}, {"phone": "call me"}, {"email": "not-an-email"},
+    {"consent": False}, {"ref": "x"},
+])
+def test_contact_rejects_bad_input(client, bad):
+    assert send_lead(client, lead(**bad)).status_code == 400
+    assert all_rows(client, leads) == []
+
+
+def test_contact_needs_allowed_origin(client):
+    assert send_lead(client, lead(), origin="https://evil.example").status_code == 403
+
+
+def test_contact_honeypot_pretends_success(client):
+    r = send_lead(client, lead(website="https://spam.example"))
+    assert r.status_code == 201 and all_rows(client, leads) == []
+
+
+def test_contact_minimal_and_rate_limited(client):
+    minimal = {"ref": "SAA-MIN001", "name": "Asha", "phone": "9876543210", "consent": True}
+    assert send_lead(client, minimal).status_code == 201
+    codes = [send_lead(client, lead(ref=f"SAA-RL{i:04d}")).status_code for i in range(6)]
+    assert codes.count(429) >= 2
+
+
+def test_leads_summary_view_has_no_personal_data(client):
+    if client.engine.dialect.name != "postgresql":
+        pytest.skip("views are Postgres-only")
+    send_lead(client, lead())
+    with client.engine.connect() as conn:
+        cols = [r[0] for r in conn.exec_driver_sql(
+            "select column_name from information_schema.columns where table_name='bi_leads_summary'")]
+        assert not {"name", "phone", "email", "message", "ref"} & set(cols)
+        assert conn.exec_driver_sql("select city from bi_leads_summary").scalar() == "Hyderabad"

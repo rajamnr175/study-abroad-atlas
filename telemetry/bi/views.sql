@@ -84,7 +84,8 @@ SELECT b.session_id, b.first_seen::date AS day, b.source, b.device,
        BOOL_OR(e.type = 'route_enter' AND e.view = 'guide') AS opened_guide,
        BOOL_OR(e.type = 'toggle' AND e.section = 'g-docs') AS used_checklist,
        BOOL_OR(e.type = 'chat_question') AS asked_helper,
-       BOOL_OR(e.type = 'click' AND e.target IN ('#contactGo', '#fabContact')) AS clicked_contact
+       BOOL_OR(e.type = 'click' AND e.target IN ('#contactGo', '#fabContact')) AS clicked_contact,
+       BOOL_OR(e.type = 'contact_submit') AS sent_enquiry
 FROM bi_sessions b LEFT JOIN events e USING (session_id)
 GROUP BY 1, 2, 3, 4;
 
@@ -95,3 +96,9 @@ SELECT date_trunc('day', e.received_at)::date AS day, e.value AS message,
 FROM events e
 WHERE e.type = 'js_error'
 GROUP BY 1, 2, 3, 4;
+
+-- Enquiries without names, phone numbers, emails or messages: safe to share with a BI tool
+CREATE OR REPLACE VIEW bi_leads_summary AS
+SELECT created_at::date AS day, status, city, role, countries, level, field, intake, budget, stage, english,
+       help, contact_via, page_view, page_country
+FROM leads;

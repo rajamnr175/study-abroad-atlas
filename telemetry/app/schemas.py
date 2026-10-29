@@ -64,6 +64,38 @@ class Event(BaseModel):
         return v
 
 
+class Lead(BaseModel):
+    """A contact-form enquiry. Choices are free text (cut to length) so a new option on the page
+    never breaks submissions; only name, phone and consent are required."""
+    ref: str = Field(pattern=r"^SAA-[A-Z0-9]{4,10}$")
+    name: str = Field(min_length=2, max_length=100)
+    phone: str = Field(pattern=r"^\+?[\d\s()-]{10,20}$")
+    email: Optional[str] = Field(None, max_length=120, pattern=r"^$|^[^\s@]+@[^\s@]+\.[^\s@]{2,}$")
+    city: Annotated[Optional[str], _cut(40)] = None
+    role: Annotated[Optional[str], _cut(40)] = None
+    countries: list[Annotated[str, _cut(40)]] = Field(default_factory=list, max_length=20)
+    level: Annotated[Optional[str], _cut(40)] = None
+    field: Annotated[Optional[str], _cut(60)] = None
+    intake: Annotated[Optional[str], _cut(30)] = None
+    budget: Annotated[Optional[str], _cut(30)] = None
+    stage: Annotated[Optional[str], _cut(40)] = None
+    english: Annotated[Optional[str], _cut(30)] = None
+    english_score: Annotated[Optional[str], _cut(40)] = None
+    help: list[Annotated[str, _cut(60)]] = Field(default_factory=list, max_length=20)
+    via: Annotated[Optional[str], _cut(20)] = None
+    message: Annotated[Optional[str], _cut(2000)] = None
+    consent: bool
+    website: Optional[str] = None  # honeypot: people never see it, bots fill it
+    page: Optional[dict[str, Any]] = None
+
+    @field_validator("phone")
+    @classmethod
+    def phone_digits(cls, v):
+        if not 10 <= sum(ch.isdigit() for ch in v) <= 15:
+            raise ValueError("phone needs 10-15 digits")
+        return v.strip()
+
+
 class Batch(BaseModel):
     v: int = 1
     vid: ID
